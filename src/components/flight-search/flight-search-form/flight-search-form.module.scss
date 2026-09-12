@@ -1,0 +1,80 @@
+@use '../../../styles' as ds;
+.flight-search-form {
+  width: 100%;
+  max-width: 91.2rem;
+  text-align: left;
+}
+.flight-search-form__frame {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  border: 0.8rem solid rgb(255 255 255 / 30%);
+  background: white;
+  background-clip: padding-box;
+  padding: 0.8rem;
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+}
+.flight-search-form__fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.6rem;
+  flex: 1;
+  min-width: 0;
+}
+.flight-search-form__meta {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+.flight-search-form__meta p {
+  color: white;
+  background: rgb(0 25 65 / 70%);
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+}
+.flight-search-form__meta button {
+  font-size: 1.4rem;
+  min-height: 4.4rem;
+  padding: 0.8rem 1.2rem;
+}
+.flight-search-form__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-top: 2.4rem;
+}
+.flight-search-form__summary dl {
+  margin: 0;
+}
+.flight-search-form__summary dt {
+  color: var(--color-muted);
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+.flight-search-form__summary dd {
+  margin: 0 0 1.2rem;
+  overflow-wrap: anywhere;
+}
+.flight-search-form__route {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+@include ds.from(desktop) {
+  .flight-search-form__frame {
+    flex-direction: row;
+    align-items: start;
+    gap: 1.6rem;
+    border-radius: var(--radius-pill);
+  }
+  .flight-search-form__fields {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+  .flight-search-form__meta {
+    justify-content: space-between;
+  }
+}

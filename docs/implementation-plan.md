@@ -1,6 +1,6 @@
 # SilicaFlights: design system first, responsive website second
 
-Implementation status: both phases are implemented. See [design-system.md](design-system.md) for component contracts, local preview commands, asset provenance, and design refinements. Verification: 16 browser tests passed, lint and formatting checks passed, production build passed, and production routes returned `/` → 200 and `/design-system` → 404.
+Implementation status: both phases are implemented, including reusable calendar and 24-hour time pickers. See [design-system.md](design-system.md) for component contracts, local preview commands, asset provenance, and design refinements. Verification includes 25 browser tests, lint, formatting checks, and the production build. The previous production route check returned `/` → 200 and `/design-system` → 404.
 
 ## Summary
 
@@ -20,6 +20,7 @@ Design references:
 
 - Install `sass`; replace starter styles with global SCSS and component-scoped `.module.scss`.
 - Organize Sass foundations into tokens, base styles, and mixins. Use `@use` and `@forward`; avoid deprecated Sass imports.
+- Use BEM class names throughout shared components and both app areas: `block__element--modifier`, with lowercase kebab-case names, bracket notation for CSS Module references, and base classes retained alongside modifiers. Keep semantic interaction-state selectors and existing component APIs.
 - Keep semantic design tokens as CSS custom properties. Use Sass maps and mixins for compile-time utilities and breakpoints.
 - Set `html { font-size: 62.5%; }` and body text to `1.6rem`. At the standard browser default, `1rem` corresponds to 10px while respecting user font preferences.
 - Express typography and dimensional lengths in `rem`: spacing, padding, gaps, widths, heights, borders, radii, shadows, icon sizes, and offsets. Use unitless line-height, `%` for proportional sizing, and `fr` for grids. Do not author pixel-based CSS lengths.

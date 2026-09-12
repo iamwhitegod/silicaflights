@@ -1,0 +1,20 @@
+.chapter {
+  border-top: 0.1rem solid var(--color-border);
+  padding-top: 3.2rem;
+  margin-bottom: 8rem;
+  scroll-margin-top: 3.2rem;
+}
+.chapter__title {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+.chapter__title > span {
+  font-size: 1.2rem;
+  color: var(--color-muted);
+}
+.chapter__title h2 {
+  text-transform: none;
+  font-size: 3.2rem;
+}

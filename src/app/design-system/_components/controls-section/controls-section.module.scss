@@ -1,0 +1,17 @@
+@use '../../../../styles' as ds;
+.controls-section {
+  display: grid;
+  gap: 2.4rem;
+  margin-block: 2.4rem;
+}
+.controls-section__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+}
+@include ds.from(tablet) {
+  .controls-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

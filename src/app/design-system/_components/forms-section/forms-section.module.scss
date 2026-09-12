@@ -1,0 +1,40 @@
+@use '../../../../styles' as ds;
+.forms-section__specimens {
+  display: grid;
+  gap: 2.4rem;
+  margin-block: 2.4rem;
+}
+.forms-section__search-preview {
+  padding: 2.4rem;
+  background: var(--color-action) url('/images/hero-desktop.png') center/cover;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6.4rem;
+}
+.forms-section__founder-preview {
+  padding: 2.4rem;
+  background: var(--color-action);
+  border-radius: 2rem;
+  color: white;
+}
+.forms-section__demo-control {
+  margin-top: 2.4rem;
+}
+.forms-section__demo-control label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 4.4rem;
+}
+.forms-section__demo-control input {
+  width: 1.8rem;
+  height: 1.8rem;
+  accent-color: var(--color-action);
+}
+@include ds.from(tablet) {
+  .forms-section__specimens {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

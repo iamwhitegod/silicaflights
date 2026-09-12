@@ -1,0 +1,119 @@
+@use '../../../styles' as ds;
+
+.picker-popover {
+  min-width: 0;
+}
+.picker-popover__trigger {
+  @include ds.field-surface;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--control-sm);
+  padding: 1.2rem 2.4rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-align: left;
+
+  &[aria-expanded='true'] {
+    background: var(--color-white);
+    box-shadow: var(--shadow-field-focus);
+  }
+  &[aria-invalid='true'][aria-expanded='true'] {
+    box-shadow: var(--shadow-field-error-focus);
+  }
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+  &[data-readonly] {
+    color: var(--color-secondary);
+    cursor: default;
+  }
+  svg {
+    color: var(--color-secondary);
+  }
+}
+.picker-popover__value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.picker-popover__value--placeholder {
+  color: var(--color-muted);
+}
+.picker-popover--compact {
+  gap: 0;
+  position: relative;
+  padding: 0.5rem 1.6rem;
+  border-radius: 2.6rem;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-control-rest);
+  &:focus-within,
+  &:has([aria-expanded='true']) {
+    background: var(--color-white);
+    box-shadow: var(--shadow-field-focus);
+  }
+  &:has([aria-invalid='true']) {
+    box-shadow: var(--shadow-field-error);
+  }
+  &:has([aria-invalid='true']):focus-within,
+  &:has([aria-invalid='true'][aria-expanded='true']) {
+    box-shadow: var(--shadow-field-error-focus);
+  }
+  > label {
+    font-size: 1.2rem;
+    color: var(--color-muted);
+  }
+  .picker-popover__trigger,
+  .picker-popover__trigger:hover,
+  .picker-popover__trigger:focus,
+  .picker-popover__trigger:focus-visible,
+  .picker-popover__trigger[aria-expanded='true'] {
+    min-height: 2.4rem;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    font-weight: 500;
+  }
+  // The compact button's target includes its label and the surrounding field surface.
+  .picker-popover__trigger::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+}
+.picker-popover__popover {
+  &[data-entering] {
+    animation: picker-popover-enter 180ms ease-out;
+  }
+  width: 32rem;
+  max-width: calc(100vw - 3.2rem);
+  max-height: var(--available-height);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1.6rem;
+  background: var(--color-white);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  box-shadow:
+    var(--shadow-popover),
+    inset 0 0 0 0.1rem var(--color-border);
+  z-index: 40;
+}
+.picker-popover__dialog {
+  outline: none;
+}
+@keyframes picker-popover-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

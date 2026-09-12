@@ -1,0 +1,90 @@
+@use '../../../styles' as ds;
+.footer {
+  background: var(--color-sky) url('/images/footer-mobile.png') center/cover no-repeat;
+  color: white;
+  padding-top: 4.8rem;
+  min-height: 68.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: clip;
+}
+.footer__title {
+  font-size: 2.4rem;
+  line-height: 1.25;
+  max-width: 61.8rem;
+}
+.footer__links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 2.4rem;
+  margin: 2.4rem auto 6.4rem;
+  max-width: 104rem;
+}
+.footer__links a {
+  font-size: 1.4rem;
+  text-shadow: 0 0.1rem 0.4rem rgb(0 35 80 / 80%);
+}
+.footer__brand {
+  text-align: center;
+  isolation: isolate;
+}
+.footer__brand::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: auto -10% -5% 50%;
+  height: 28rem;
+  background: url('/images/cloud.png') center/contain no-repeat;
+}
+.footer__tagline {
+  font:
+    400 1.4rem/1.66 var(--font-script),
+    cursive;
+}
+.footer__wordmark {
+  font-weight: 700;
+  font-size: 4.4rem;
+  line-height: 1.16;
+  letter-spacing: -0.2rem;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+@include ds.from(tablet) {
+  .footer {
+    background-image: url('/images/footer-desktop.png');
+  }
+  .footer__links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .footer__title {
+    text-align: center;
+    margin-inline: auto;
+    font-size: var(--text-section);
+  }
+  .footer__wordmark {
+    font-size: 10rem;
+    letter-spacing: -0.4rem;
+  }
+  .footer__tagline {
+    font-size: 2.4rem;
+  }
+}
+@include ds.from(desktop) {
+  .footer {
+    min-height: 80rem;
+    padding-top: 10rem;
+  }
+  .footer__links {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 6.4rem;
+  }
+  .footer__wordmark {
+    font-size: 15rem;
+    letter-spacing: -0.6rem;
+  }
+  .footer__tagline {
+    font-size: 3.12rem;
+  }
+}

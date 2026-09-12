@@ -1,0 +1,27 @@
+.feature-card {
+  border-radius: var(--radius-md);
+  padding: 2.4rem 1.6rem;
+  min-height: 34.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6.4rem;
+}
+.feature-card p {
+  margin-top: 1.6rem;
+}
+.feature-card--tone-cream {
+  background: var(--color-cream);
+}
+.feature-card--tone-mint {
+  background: var(--color-mint);
+}
+.feature-card--tone-peach {
+  background: var(--color-peach);
+}
+.feature-card__image {
+  height: 10rem;
+  width: 13.2rem;
+  object-fit: contain;
+  object-position: left center;
+}

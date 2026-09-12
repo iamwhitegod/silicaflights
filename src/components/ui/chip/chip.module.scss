@@ -1,0 +1,16 @@
+.chip {
+  min-height: 4.4rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.chip--selected {
+  --button-background: var(--color-action);
+  --button-hover-background: var(--color-action-hover);
+  --button-pressed-background: var(--color-action-hover);
+  color: var(--color-white);
+}
+.chip--selected span {
+  font-size: 2rem;
+  line-height: 1;
+}

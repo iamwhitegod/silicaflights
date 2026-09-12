@@ -1,0 +1,79 @@
+.button {
+  --button-background: transparent;
+  --button-hover-background: var(--color-surface);
+  --button-pressed-background: var(--button-hover-background);
+  --button-hover-shadow: var(--shadow-control-hover);
+  --button-shadow: 0 0 0 0 transparent;
+  --button-focus: 0 0 0 0 transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: 1.2rem 2.4rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  text-decoration: none;
+  background: var(--button-background);
+  box-shadow: var(--button-focus), var(--button-shadow);
+  transition:
+    background var(--motion-fast),
+    box-shadow var(--motion-fast),
+    transform var(--motion-fast);
+  min-width: 0;
+}
+.button--primary {
+  --button-background: var(--color-yellow);
+  --button-hover-background: var(--color-yellow-hover);
+  --button-pressed-background: var(--color-yellow-pressed);
+  --button-shadow: var(--shadow-inset);
+  --button-hover-shadow: var(--shadow-inset);
+  color: var(--color-text);
+}
+.button--secondary {
+  --button-background: var(--color-white);
+  --button-shadow: var(--shadow-control-rest);
+  color: var(--color-action);
+}
+.button--neutral {
+  --button-background: var(--color-surface);
+  --button-shadow: var(--shadow-control-rest);
+  color: var(--color-text);
+}
+.button--ghost {
+  color: var(--color-action);
+}
+.button--size-sm {
+  min-height: var(--control-sm);
+}
+.button--size-md {
+  min-height: var(--control-md);
+}
+.button--size-lg {
+  min-height: var(--control-lg);
+}
+@media (hover: hover) {
+  .button:hover:not(:disabled) {
+    --button-shadow: var(--button-hover-shadow);
+    background: var(--button-hover-background);
+  }
+}
+.button:focus-visible {
+  --button-focus: var(--focus-ring);
+  outline: none;
+  box-shadow: var(--button-focus), var(--button-shadow);
+}
+.button:active:not(:disabled) {
+  --button-shadow: var(--button-hover-shadow);
+  background: var(--button-pressed-background);
+  transform: translateY(0.1rem);
+}
+.button:disabled {
+  opacity: 0.55;
+}
+.button[aria-busy='true'] {
+  opacity: 1;
+  cursor: progress;
+}

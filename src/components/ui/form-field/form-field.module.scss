@@ -1,0 +1,55 @@
+@use '../../../styles' as ds;
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.form-field--with-action {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+.form-field--with-action > label,
+.form-field--with-action > .form-field__hint,
+.form-field--with-action > .form-field__error,
+.form-field__control {
+  grid-column: 1;
+  min-width: 0;
+}
+.form-field__action {
+  min-width: 0;
+  margin-top: var(--space-2);
+}
+.form-field__action > button {
+  width: 100%;
+}
+@include ds.from(tablet) {
+  .form-field--with-action {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--space-4);
+    align-items: start;
+  }
+  .form-field__control {
+    grid-row: 2;
+  }
+  .form-field__action {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0;
+  }
+  .form-field__action > button {
+    min-width: 15.5rem;
+  }
+}
+.form-field__hint,
+.form-field__error {
+  margin: 0.4rem 1rem 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+.form-field__hint {
+  color: var(--color-muted);
+}
+.form-field__error {
+  color: var(--color-error);
+}

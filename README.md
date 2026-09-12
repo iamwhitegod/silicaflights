@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SilicaFlights
 
-## Getting Started
+A responsive flight discovery landing page and design system built with Next.js 16, React 19, JavaScript, and Sass Modules. Search and signup use local demo adapters: they do not book flights, send personal information, or create subscriptions.
 
-First, run the development server:
+## Development
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` for the landing page and `/design-system` for the interactive component reference. The design-system route returns 404 outside development.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Location                       | Responsibility                                            |
+| ------------------------------ | --------------------------------------------------------- |
+| `src/app`                      | Routes, metadata, and private page composition            |
+| `src/components/ui`            | Domain-independent atoms and molecules                    |
+| `src/components/layout`        | Container, stack, grid, and section primitives            |
+| `src/components/site`          | Navigation and footer                                     |
+| `src/components/flight-search` | Search, filters, defaults, and validation                 |
+| `src/components/signup`        | Signup forms, shared submission hook, and validation      |
+| `src/data`                     | Shared travel reference data                              |
+| `src/lib`                      | Shared utilities and demo submission adapters             |
+| `src/styles`                   | Global styles, tokens, and Sass mixins                    |
+| `assets/fonts`                 | Local Switzer, Recoleta Alt, and Cintarini fonts          |
+| `public/images`                | Local images and provenance manifest                      |
+| `tests/e2e`                    | Playwright behavior, accessibility, and responsive checks |
 
-## Learn More
+`src/app/(landing-page)` owns `/`, and `src/app/design-system` owns the development showcase. The root layout supplies shared fonts and global styling.
 
-To learn more about Next.js, take a look at the following resources:
+Each reusable component has a named `.jsx` file and a colocated Sass Module when it owns styles. Component classes use BEM (`block__element--modifier`) and bracket notation, for example `styles['button--primary']`. `@/` resolves to `src/`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Checks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+npm run lint
+npm run format:check
+npm test
+npm run build
+```
 
-## Deploy on Vercel
+Playwright uses installed Google Chrome and starts the development server automatically when one is not running on port 3000. For production preview, run `npm run build` followed by `npm start`. Use `npm run format` to apply Prettier conventions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Documentation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Architecture and coding conventions](docs/architecture.md)
+- [Code organization plan](docs/code-organization-plan.md)
+- [Design system contracts and states](docs/design-system.md)
+- [Original implementation plan](docs/implementation-plan.md)
+
+Read [AGENTS.md](AGENTS.md) and the relevant version-specific guides in `node_modules/next/dist/docs/` before changing Next.js behavior.

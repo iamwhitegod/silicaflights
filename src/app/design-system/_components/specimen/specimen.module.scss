@@ -1,0 +1,25 @@
+.specimen,
+.specimen--wide {
+  border: 0.1rem solid var(--color-border);
+  border-radius: 2rem;
+  background: white;
+  padding: 2rem;
+  min-width: 0;
+}
+.specimen > h3,
+.specimen--wide > h3 {
+  font-size: 1.2rem;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06rem;
+  font-weight: 500;
+  margin-bottom: 2.4rem;
+}
+.specimen__sample {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.specimen--wide {
+  margin-block: 2.4rem;
+}

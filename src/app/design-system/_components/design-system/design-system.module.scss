@@ -1,0 +1,101 @@
+@use '../../../../styles' as ds;
+.design-system {
+  background: #fcfcfa;
+  min-height: 100%;
+}
+.design-system__sidebar {
+  padding: 2.4rem;
+  border-bottom: 0.1rem solid var(--color-border);
+  background: white;
+}
+.design-system__brand {
+  display: block;
+  text-transform: uppercase;
+  color: var(--color-text);
+  font-weight: 700;
+}
+.design-system__brand span {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--color-muted);
+  margin-top: 0.4rem;
+}
+.design-system__sidebar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  margin-top: 2.4rem;
+}
+.design-system__sidebar nav a {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 1.4rem;
+  padding: 0.8rem 0;
+}
+.design-system__sidebar small {
+  color: var(--color-muted);
+  font-size: 1.2rem;
+}
+.design-system__sidebar > p {
+  display: none;
+  color: var(--color-muted);
+  font-size: 1.2rem;
+}
+.design-system__main {
+  padding: 4.8rem 2.4rem;
+  min-width: 0;
+}
+.design-system__header {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  max-width: 72rem;
+  margin-bottom: 8rem;
+}
+.design-system__header h1 {
+  text-transform: none;
+}
+.design-system__badge {
+  align-self: flex-start;
+  border: 0.1rem solid var(--color-border);
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius-pill);
+  font-size: 1.2rem;
+}
+.design-system__endnote {
+  padding-top: 3.2rem;
+  border-top: 0.1rem solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 1.2rem;
+}
+@include ds.from(desktop) {
+  .design-system {
+    display: grid;
+    grid-template-columns: 24rem minmax(0, 1fr);
+  }
+  .design-system__sidebar {
+    position: sticky;
+    top: 0;
+    min-height: 64rem;
+    align-self: start;
+    border-right: 0.1rem solid var(--color-border);
+    padding: 4rem 2.4rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .design-system__sidebar nav {
+    flex-direction: column;
+    margin-top: 6.4rem;
+    gap: 0.8rem;
+  }
+  .design-system__sidebar > p {
+    display: block;
+    margin-top: auto;
+  }
+  .design-system__main {
+    padding: 6.4rem;
+    max-width: 144rem;
+  }
+}

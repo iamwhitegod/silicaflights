@@ -1,0 +1,28 @@
+.link {
+  color: var(--color-action);
+  text-underline-offset: 0.3rem;
+  border-radius: 0.2rem;
+}
+.link:hover {
+  text-decoration-thickness: 0.2rem;
+}
+.link--inline {
+  text-decoration: underline;
+}
+.link--navigation {
+  text-decoration: none;
+  font-weight: 600;
+}
+.link--navigation[aria-current] {
+  text-decoration: underline;
+}
+.link--footer {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.4rem;
+  color: var(--color-white);
+  text-decoration: none;
+}
+.link--footer:hover {
+  text-decoration: underline;
+}

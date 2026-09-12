@@ -1,0 +1,43 @@
+.modal {
+  border: 0;
+  border-radius: var(--radius-lg);
+  padding: 0;
+  width: calc(100% - 3.2rem);
+  max-width: 59.4rem;
+  max-height: calc(100% - 3.2rem);
+  margin: auto;
+  background: var(--color-surface);
+  color: var(--color-text);
+  overflow: visible;
+  box-shadow: var(--shadow-popover);
+}
+.modal__viewport {
+  padding: 2.4rem;
+  max-height: calc(100dvh - 3.2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: inherit;
+}
+.modal__content {
+  min-width: 0;
+}
+// A viewport-sized host avoids clipping and dialog-margin offsets for nested popups.
+.modal__overlays {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  > * {
+    pointer-events: auto;
+  }
+}
+.modal::backdrop {
+  background: var(--color-overlay);
+  backdrop-filter: blur(0.4rem);
+}
+.modal__header {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+}
