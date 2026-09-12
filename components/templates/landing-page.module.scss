@@ -1,0 +1,150 @@
+@use '../../styles' as ds;
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 79.2rem;
+  background: var(--color-action);
+  color: white;
+}
+.heroArtwork {
+  z-index: -2;
+  object-fit: cover;
+  object-position: 37% center;
+}
+.heroShade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgb(0 0 0 / 20%);
+}
+.heroInner {
+  padding-top: 2.4rem;
+  padding-bottom: 8rem;
+}
+.heroContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 8.8rem;
+}
+.heroContent h1 {
+  max-width: 54.8rem;
+}
+.searchAnchor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3.6rem;
+  scroll-margin-top: 4rem;
+}
+.how {
+  margin-top: 4rem;
+}
+.sectionIntro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  max-width: 54.8rem;
+  margin: 0 auto 4rem;
+}
+.destinationIntro {
+  text-align: center;
+  max-width: 74.9rem;
+  margin: 0 auto 4.8rem;
+}
+.destinations {
+  max-width: 118.1rem;
+}
+.fareNote {
+  text-align: center;
+  margin-top: 2.4rem;
+}
+.founderScene {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  display: grid;
+  place-items: center;
+  min-height: 50.4rem;
+  max-width: 117.3rem;
+  margin: auto;
+  padding: 4rem 1.6rem;
+  border-radius: var(--radius-md);
+  background: var(--color-action);
+  color: white;
+}
+.founderScene::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgb(0 32 82 / 35%);
+}
+.founderContent {
+  width: 100%;
+  max-width: 52.4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.founderContent form {
+  margin-top: 2.4rem;
+}
+.spots {
+  text-shadow: 0 0.1rem 0.4rem rgb(0 0 0 / 80%);
+}
+.deals {
+  background: var(--color-blue);
+  isolation: isolate;
+  padding-block: 8rem 18rem;
+  position: relative;
+}
+.dealsInner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.4rem;
+  max-width: 59.4rem;
+}
+.deals h2 {
+  text-align: center;
+  text-shadow: 0 0.1rem 0.4rem rgb(0 37 102 / 50%);
+}
+@include ds.from(tablet) {
+  .founderScene {
+    min-height: 60rem;
+    padding: 6.4rem;
+  }
+  .founderScene::before {
+    background: rgb(0 32 82 / 28%);
+  }
+}
+@include ds.from(desktop) {
+  .heroArtwork {
+    object-position: center;
+  }
+  .heroContent {
+    padding-top: 8.4rem;
+  }
+  .searchAnchor {
+    margin-top: 4.8rem;
+  }
+  .sectionIntro {
+    margin-bottom: 5.6rem;
+  }
+  .destinationIntro {
+    margin-bottom: 6.4rem;
+  }
+  .founderScene {
+    min-height: 70.1rem;
+  }
+  .deals {
+    padding-top: 10.8rem;
+    min-height: 94.9rem;
+    padding-bottom: 15rem;
+  }
+}

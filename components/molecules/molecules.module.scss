@@ -1,0 +1,365 @@
+@use '../../styles' as ds;
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.fieldWithAction {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+.fieldWithAction > label,
+.fieldWithAction > .hint,
+.fieldWithAction > .error,
+.fieldControl {
+  grid-column: 1;
+  min-width: 0;
+}
+.fieldAction {
+  min-width: 0;
+  margin-top: var(--space-2);
+}
+.fieldAction > button {
+  width: 100%;
+}
+@include ds.from(tablet) {
+  .fieldWithAction {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--space-4);
+    align-items: start;
+  }
+  .fieldControl {
+    grid-row: 2;
+  }
+  .fieldAction {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0;
+  }
+  .fieldAction > button {
+    min-width: 15.5rem;
+  }
+}
+.hint,
+.error {
+  margin: 0.4rem 1rem 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+.hint {
+  color: var(--color-muted);
+}
+.error {
+  color: var(--color-error);
+}
+.combobox {
+  position: relative;
+  min-width: 0;
+}
+.compact {
+  @include ds.field-surface;
+  @include ds.field-content;
+  border-radius: 2.6rem;
+  padding: 0.5rem 1.6rem;
+}
+.compact label {
+  font-size: 1.2rem;
+  color: var(--color-muted);
+}
+.compact input {
+  padding: 0;
+  min-height: 2.4rem;
+  border-radius: 0.4rem;
+  font-weight: 500;
+}
+.compact .field {
+  gap: 0;
+}
+.popover {
+  position: absolute;
+  top: calc(100% + 0.8rem);
+  left: 0;
+  width: 100%;
+  background: var(--color-white);
+  border: 0.1rem solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.8rem;
+  box-shadow: var(--shadow-popover);
+  z-index: 20;
+  text-align: left;
+}
+.suggestionLabel {
+  color: var(--color-muted);
+  font-size: 1.2rem;
+  padding: 0.8rem;
+}
+.options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 24rem;
+  overflow-y: auto;
+}
+.option {
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.option small {
+  color: var(--color-muted);
+  font-size: 1.2rem;
+}
+.highlighted {
+  background: var(--color-surface);
+  box-shadow: inset 0.2rem 0 var(--color-action);
+}
+.empty {
+  padding: 1.2rem;
+  color: var(--color-muted);
+  font-size: 1.4rem;
+}
+.multiSelect {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+.chip {
+  min-height: 4.4rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.selectedChip {
+  --button-background: var(--color-action);
+  --button-hover-background: var(--color-action-hover);
+  --button-pressed-background: var(--color-action-hover);
+  color: var(--color-white);
+}
+.selectedChip span {
+  font-size: 2rem;
+  line-height: 1;
+}
+.stepper {
+  @include ds.field-surface;
+  @include ds.field-content;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+}
+.stepper input {
+  flex: 1;
+  appearance: textfield;
+}
+.stepper input::-webkit-inner-spin-button {
+  appearance: none;
+}
+.segmented {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.segmented legend {
+  color: var(--color-secondary);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+.segments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+.segment {
+  position: relative;
+  flex: 1 1 12rem;
+  cursor: pointer;
+}
+.segment input {
+  position: absolute;
+  opacity: 0;
+  width: 0.1rem;
+  height: 0.1rem;
+}
+.segment span {
+  --segment-focus: 0 0 0 0 transparent;
+  --segment-shadow: var(--shadow-control-rest);
+  --segment-hover-background: var(--color-surface);
+  --segment-pressed-background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.4rem;
+  padding: 0.8rem 1.2rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-size: 1.3rem;
+  text-align: center;
+  box-shadow: var(--segment-focus), var(--segment-shadow);
+  transition:
+    background var(--motion-fast),
+    box-shadow var(--motion-fast),
+    color var(--motion-fast);
+}
+.segment input:checked + span {
+  --segment-hover-background: var(--color-action);
+  --segment-pressed-background: var(--color-action);
+  background: var(--color-action);
+  color: white;
+  font-weight: 600;
+}
+.segment input:focus-visible + span {
+  --segment-focus: var(--focus-ring);
+}
+@media (hover: hover) {
+  .segment:hover:not(.disabled) span {
+    --segment-shadow: var(--shadow-control-hover);
+    background: var(--segment-hover-background);
+  }
+}
+.segment:active:not(.disabled) span {
+  --segment-shadow: var(--shadow-control-hover);
+  background: var(--segment-pressed-background);
+}
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding: 0.4rem;
+}
+.tabs button {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  border-bottom: 0.2rem solid transparent;
+  border-radius: 1rem 1rem 0 0;
+  color: var(--color-secondary);
+  font-size: 1.4rem;
+  padding: 1.2rem 0.8rem;
+  min-height: 4.4rem;
+}
+.tabs button[aria-selected='true'] {
+  background: white;
+  color: var(--color-text);
+  border-bottom-color: var(--color-yellow);
+  font-weight: 600;
+}
+.tabs button:disabled {
+  opacity: 0.5;
+}
+.tabPanel {
+  padding: 1.6rem;
+  margin-top: 1.6rem;
+  background: white;
+  border-radius: var(--radius-md);
+}
+.modal {
+  border: 0;
+  border-radius: var(--radius-lg);
+  padding: 2.4rem;
+  width: calc(100% - 3.2rem);
+  max-width: 59.4rem;
+  max-height: calc(100% - 3.2rem);
+  margin: auto;
+  background: var(--color-surface);
+  color: var(--color-text);
+  overflow-y: auto;
+  box-shadow: var(--shadow-popover);
+}
+.modal::backdrop {
+  background: var(--color-overlay);
+  backdrop-filter: blur(0.4rem);
+}
+.modal[open] {
+  animation: enter var(--motion-overlay) ease-out;
+}
+.modalHeader {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+}
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.8rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.featureCard {
+  border-radius: var(--radius-md);
+  padding: 2.4rem 1.6rem;
+  min-height: 34.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6.4rem;
+}
+.featureCard p {
+  margin-top: 1.6rem;
+}
+.cream {
+  background: var(--color-cream);
+}
+.mint {
+  background: var(--color-mint);
+}
+.peach {
+  background: var(--color-peach);
+}
+.featureImage {
+  height: 10rem;
+  width: 13.2rem;
+  object-fit: contain;
+  object-position: left center;
+}
+.destinationCard {
+  display: flex;
+  gap: 1rem;
+  padding: 0.8rem;
+  min-height: 16.8rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  text-decoration: none;
+  min-width: 0;
+  transition: box-shadow var(--motion-fast);
+}
+.destinationCard:hover {
+  box-shadow: inset 0 0 0 0.1rem var(--color-action);
+}
+.destinationImage {
+  position: relative;
+  flex: 0 0 42%;
+  min-width: 0;
+  min-height: 15.2rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.destinationInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 1.6rem;
+}
+.destinationInfo span {
+  color: var(--color-action);
+}

@@ -1,0 +1,64 @@
+@use 'sass:map';
+$breakpoints: (
+  tablet: 48rem,
+  desktop: 64rem,
+);
+@mixin from($size) {
+  @media (min-width: map.get($breakpoints, $size)) {
+    @content;
+  }
+}
+@mixin focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+// Inputs and compound fields share one visual surface. No layout-affecting borders.
+@mixin field-surface {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-control-rest);
+  transition:
+    background var(--motion-fast),
+    box-shadow var(--motion-fast);
+
+  @media (hover: hover) {
+    &:hover:where(:not(:disabled)):where(:not(:has(input:disabled))) {
+      box-shadow: var(--shadow-field-hover);
+    }
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:has(input:focus) {
+    background: var(--color-white);
+    box-shadow: var(--shadow-field-focus);
+  }
+
+  &[aria-invalid='true'],
+  &:has(input[aria-invalid='true']) {
+    box-shadow: var(--shadow-field-error);
+  }
+
+  &[aria-invalid='true']:focus,
+  &:has(input[aria-invalid='true']:focus) {
+    box-shadow: var(--shadow-field-error-focus);
+  }
+
+  &:disabled {
+    box-shadow: none;
+  }
+}
+
+// The wrapper draws the focus/error shadow, keeping nested controls free of double rings.
+@mixin field-content {
+  input,
+  input:hover,
+  input:focus,
+  input:focus-visible,
+  input[aria-invalid='true'],
+  input[aria-invalid='true']:focus {
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+  }
+}
