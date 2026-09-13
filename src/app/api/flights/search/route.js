@@ -1,4 +1,5 @@
-import { validateSearch } from '@/lib/flights/search';
+import { flightSearchSchema, searchFieldError } from '@/lib/flights/schemas';
+import { validateForm } from '@/lib/validation';
 import { searchFlights, serviceErrorResponse } from '@/lib/flights/duffel';
 
 export async function POST(request) {
@@ -13,7 +14,7 @@ export async function POST(request) {
   } catch {
     return Response.json({ message: 'Invalid search details.' }, { status: 400 });
   }
-  const errors = validateSearch(values);
+  const { errors } = validateForm(flightSearchSchema, values, { mapError: searchFieldError });
   if (Object.keys(errors).length)
     return Response.json({ message: 'Check your search details.', errors }, { status: 400 });
   try {

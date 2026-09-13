@@ -1,20 +1,25 @@
+@use '../../../../styles' as ds;
+
 .chapter {
-  border-top: 0.1rem solid var(--color-border);
+  border-top: 0.1rem solid ds.color('slate-300');
   padding-top: 3.2rem;
   margin-bottom: 8rem;
   scroll-margin-top: 3.2rem;
-}
-.chapter__title {
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-  margin-bottom: 2.4rem;
-}
-.chapter__title > span {
-  font-size: 1.2rem;
-  color: var(--color-muted);
-}
-.chapter__title h2 {
-  text-transform: none;
-  font-size: 3.2rem;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin-bottom: 2.4rem;
+
+    > span {
+      font-size: ds.font-size('caption');
+      color: ds.color('gray-500');
+    }
+
+    h2 {
+      text-transform: none;
+      font-size: ds.font-size('chapter-title');
+    }
+  }
 }

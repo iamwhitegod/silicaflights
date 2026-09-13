@@ -35,6 +35,7 @@ for (const [surface, inputMethod] of [
     const originalDate = await departure.textContent();
     const originalUrl = page.url();
     const initialSearches = searches;
+
     async function choose(field, query, optionName) {
       if (inputMethod === 'touch') await field.tap();
       await field.fill(query);
@@ -46,6 +47,7 @@ for (const [surface, inputMethod] of [
       } else if (inputMethod === 'touch') await option.tap();
       else await option.click();
     }
+
     await choose(from, 'Singapore', /Singapore/);
     await expect(from).toHaveValue('Singapore (SIN)');
     await expect(from).toHaveAttribute('aria-expanded', 'false');

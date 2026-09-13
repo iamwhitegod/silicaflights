@@ -1,4 +1,5 @@
 'use client';
+
 import { Button } from '@/components/ui/button/button';
 import { TextField } from '@/components/ui/text-field/text-field';
 import { demoSubmit } from '@/lib/demo-submission';
@@ -16,6 +17,7 @@ export function FounderSignupForm({ onSubmit = demoSubmit, idPrefix = 'founder' 
     idPrefix,
     requireName: false,
   });
+
   return (
     <form
       onSubmit={submit}

@@ -1,13 +1,17 @@
 @use 'sass:map';
+@use 'functions' as fn;
+
 $breakpoints: (
   tablet: 48rem,
   desktop: 64rem,
 );
+
 @mixin from($size) {
   @media (min-width: map.get($breakpoints, $size)) {
     @content;
   }
 }
+
 @mixin focus {
   outline: none;
   box-shadow: var(--focus-ring);
@@ -15,7 +19,7 @@ $breakpoints: (
 
 // Inputs and compound fields share one visual surface. No layout-affecting borders.
 @mixin field-surface {
-  background: var(--color-surface);
+  background: fn.color('gray-100');
   box-shadow: var(--shadow-control-rest);
   transition:
     background var(--motion-fast),
@@ -30,7 +34,7 @@ $breakpoints: (
   &:focus,
   &:focus-visible,
   &:has(input:focus) {
-    background: var(--color-white);
+    background: fn.color('white');
     box-shadow: var(--shadow-field-focus);
   }
 

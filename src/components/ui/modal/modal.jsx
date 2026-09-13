@@ -1,4 +1,5 @@
 'use client';
+
 import { memo, useEffect, useId, useRef, useState } from 'react';
 import { UNSAFE_PortalProvider } from 'react-aria/PortalProvider';
 import { IconButton } from '@/components/ui/icon-button/icon-button';
@@ -64,6 +65,7 @@ export function Modal({
         (context) => {
           if (context.conditions.reduce) {
             if (!open) finish();
+
             return;
           }
           if (open) {
@@ -82,12 +84,14 @@ export function Modal({
           }
         },
       );
+
       return () => media.revert();
     },
     { scope: ref, dependencies: [open, lockScroll], revertOnUpdate: true },
   );
   useEffect(() => {
     const dialog = ref.current;
+
     return () => {
       dialog.close();
       releaseRef.current?.();
@@ -95,6 +99,7 @@ export function Modal({
       if (openerRef.current?.isConnected) openerRef.current.focus({ preventScroll: true });
     };
   }, []);
+
   return (
     <dialog
       ref={ref}

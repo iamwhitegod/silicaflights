@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useRef, useState } from 'react';
 import { ListBox, ListBoxItem } from 'react-aria-components';
 import { Button } from '@/components/ui/button/button';
@@ -19,6 +20,7 @@ export function TimeOptions({ initialValue, onCommit }) {
         list.scrollTop = selected.offsetTop - list.clientHeight / 2 + selected.clientHeight / 2;
     }
   }, []);
+
   return (
     <div ref={ref} className={styles['time-options']}>
       <div className={styles['time-options__summary']}>

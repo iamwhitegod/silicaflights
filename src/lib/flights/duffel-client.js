@@ -44,6 +44,7 @@ export async function duffelRequest(path, { data, signal, token, fetcher = fetch
         );
       throw new FlightServiceError('We could not reach the airlines. Please try again.', 502);
     }
+
     return await response.json();
   } catch (error) {
     if (error instanceof FlightServiceError) throw error;
@@ -62,6 +63,7 @@ export async function searchFlights(values, signal, options = {}) {
     throw new FlightServiceError(
       'The flight service returned an unexpected response. Please try again.',
     );
+
   return { id: data.id, testMode: true, offers: data.offers.map(normalizeOffer).filter(Boolean) };
 }
 
@@ -78,10 +80,12 @@ export async function searchAirports(query, signal, options = {}) {
       : (p.airports || []).map((a) => ({ ...a, city_name: a.city_name || p.name })),
   );
   const seen = new Set();
+
   return airports
     .filter((a) => {
       if (!/^[A-Z]{3}$/.test(a.iata_code) || seen.has(a.iata_code)) return false;
       seen.add(a.iata_code);
+
       return true;
     })
     .map((a) => ({

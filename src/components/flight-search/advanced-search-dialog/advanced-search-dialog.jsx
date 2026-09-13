@@ -1,4 +1,5 @@
 'use client';
+
 import { Modal } from '@/components/ui/modal/modal';
 import { SettingsEditor } from '../settings-editor/settings-editor';
 

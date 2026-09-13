@@ -1,4 +1,5 @@
 import { airports } from '@/data/travel-locations';
+
 export const footerDestinations = [
   'LHR',
   'MAN',

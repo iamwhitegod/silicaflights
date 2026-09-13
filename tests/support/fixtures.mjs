@@ -36,4 +36,5 @@ export const test = base.extend({
     { auto: true },
   ],
 });
+
 export { expect };

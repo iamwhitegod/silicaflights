@@ -28,6 +28,7 @@ const lineIcons = {
   'chevron-left': <path d="m14 7-5 5 5 5" />,
   'chevron-right': <path d="m10 7 5 5-5 5" />,
 };
+
 export function Icon({ name, size = 'md', className }) {
   const iconClassName = cx(styles['icon'], sizeClasses[size], className);
 

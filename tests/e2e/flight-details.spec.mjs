@@ -49,6 +49,7 @@ for (const width of [320, 393, 1445]) {
     expect(
       await dialog.evaluate((element) => {
         const viewport = element.querySelector('[data-lenis-prevent]');
+
         return viewport.scrollWidth <= viewport.clientWidth + 1;
       }),
     ).toBe(true);

@@ -1,10 +1,12 @@
 'use client';
+
 import { useId } from 'react';
 import { cx } from '@/lib/cx';
 import styles from './segmented-control.module.scss';
 
 export function SegmentedControl({ label, options, value, onValueChange }) {
   const id = useId();
+
   return (
     <fieldset className={styles['segmented-control']}>
       <legend>{label}</legend>

@@ -1,4 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
+
 const assets = JSON.parse(
   await readFile(new URL('../public/images/manifest.json', import.meta.url), 'utf8'),
 );

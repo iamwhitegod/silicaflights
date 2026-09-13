@@ -12,6 +12,7 @@ export function parseDateValue(value) {
 
 export function formatDateValue(value) {
   const date = parseDateValue(value);
+
   return date
     ? new Intl.DateTimeFormat('en-GB', {
         day: 'numeric',

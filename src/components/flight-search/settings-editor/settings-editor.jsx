@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button/button';
 import { Status } from '@/components/ui/status/status';
@@ -11,8 +12,9 @@ import { SegmentedControl } from '@/components/ui/segmented-control/segmented-co
 import { Tabs } from '@/components/ui/tabs/tabs';
 import { Stack } from '@/components/layout/stack/stack';
 import { today } from '@/lib/dates';
+import { flightSettingsSchema, settingsFieldError } from '@/lib/flights/schemas';
+import { validateForm } from '@/lib/validation';
 import { defaultFilters } from '../defaults';
-import { validateFilters } from '../validation';
 import styles from './settings-editor.module.scss';
 
 export function SettingsEditor({ initial, onApply, onCancel, departure }) {
@@ -146,13 +148,17 @@ export function SettingsEditor({ initial, onApply, onCancel, departure }) {
       ),
     },
   ];
+
   return (
     <form
       className={styles['settings-editor']}
       noValidate
       onSubmit={(event) => {
         event.preventDefault();
-        const next = validateFilters(draft, departure);
+        const { errors: next } = validateForm(flightSettingsSchema, draft, {
+          context: { departure },
+          mapError: settingsFieldError,
+        });
         setErrors(next);
         if (Object.keys(next).length) {
           setTab(
@@ -162,6 +168,7 @@ export function SettingsEditor({ initial, onApply, onCancel, departure }) {
                 ? 'details'
                 : 'schedule',
           );
+
           return;
         }
         onApply(draft);

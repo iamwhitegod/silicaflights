@@ -6,12 +6,14 @@ import { ControlsSection } from '../controls-section/controls-section';
 import { FieldsSection } from '../fields-section/fields-section';
 import { FormsSection } from '../forms-section/forms-section';
 import styles from './design-system.module.scss';
+
 const chapters = [
   ['foundations', 'Foundations'],
   ['atoms', 'Atoms'],
   ['molecules', 'Molecules'],
   ['organisms', 'Organisms'],
 ];
+
 export function DesignSystem() {
   return (
     <div className={styles['design-system']}>

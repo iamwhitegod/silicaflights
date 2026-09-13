@@ -22,6 +22,10 @@
 # production
 /build
 
+# Generated Sass module output; source modules are .scss
+src/**/*.module.css
+src/**/*.css.map
+
 # misc
 .DS_Store
 *.pem
@@ -42,3 +46,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/docs

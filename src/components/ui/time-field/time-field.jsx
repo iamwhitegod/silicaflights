@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { PickerPopover } from '@/components/ui/picker-popover/picker-popover';
 import { TimeOptions } from './time-options';
@@ -13,11 +14,13 @@ export function TimeField({ value, defaultValue = '', onValueChange, ...props })
   const [internalValue, setInternalValue] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const currentValue = value === undefined ? internalValue : value;
+
   function choose(next) {
     if (value === undefined) setInternalValue(next);
     onValueChange?.(next);
     setOpen(false);
   }
+
   return (
     <PickerPopover
       {...props}

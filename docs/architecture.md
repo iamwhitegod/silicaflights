@@ -55,20 +55,25 @@ src/
       advanced-search-dialog/
       settings-editor/
       defaults.js
-      validation.js
     signup/
       founder-signup-form/
       weekly-deals-form/
       signup-feedback/
       use-signup-submission.js
-      validation.js
+      schemas.js
   data/travel-locations.js
   lib/
     cx.js
     dates.js
     demo-submission.js
+    validation.js              # Yup result/error adapter
+    flights/
+      search.js                # Criteria, request and query serialization
+      schemas.js               # Shared Yup search/settings/price schemas
   styles/
     globals.scss
+    _variables.scss            # Color and font-size maps
+    _functions.scss            # Validated raw Sass token lookups
     _tokens.scss
     _mixins.scss
     _index.scss
@@ -111,7 +116,8 @@ Use `@/` across ownership boundaries and relative imports within an owner. Impor
 
 ```jsx
 import { Button } from '@/components/ui/button/button';
-import { validateSearch } from '../validation';
+import { flightSearchSchema } from '@/lib/flights/schemas';
+import { validateForm } from '@/lib/validation';
 import styles from './flight-search-form.module.scss';
 ```
 
@@ -122,7 +128,7 @@ import styles from './flight-search-form.module.scss';
 - Share stateful behavior through focused hooks. `useSignupSubmission` owns validation, invalid-field focus, pending protection, and loading/success/error states for separately composed forms.
 - Use effects to synchronize with browser APIs, such as dialogs and query-driven focus. Handle direct user actions in event handlers.
 - Use explicit props and callbacks. Document complex value shapes and callback contracts with JSDoc. Submission callbacks resolve on success and throw on failure.
-- Keep validation pure and local to its feature. Shared dates live in `lib/dates.js`; travel data lives in `data/travel-locations.js`. Flight criteria live in `lib/flights/search.js` so server validation and client controls share one contract.
+- Define form validation with Yup schemas. Signup schemas live beside their forms; flight schemas live in `lib/flights/schemas.js` and are shared by client controls and the search API. `lib/validation.js` adapts Yup results to field errors without owning validation rules. Flight schemas use strict validation to reject coerced API values; signup schemas trim submitted strings. Shared dates live in `lib/dates.js`; travel data lives in `data/travel-locations.js`; request and query serialization live in `lib/flights/search.js`.
 - Keep React Compiler enabled. Add manual memoization only for an identified need.
 - Preserve `/`, destination query initialization, and the development-only `/design-system` route. Signup and design-system demo adapters send no network requests and persist no personal information. Public flight search uses the server API routes; the design-system explicitly opts into local fixtures.
 
@@ -130,29 +136,55 @@ import styles from './flight-search-form.module.scss';
 
 Colocate Sass Modules with their owner. Global resets, root sizing, and semantic custom properties belong in `styles/globals.scss`; tokens and mixins belong in Sass partials.
 
-All authored component classes use BEM. Name each block after its owning component or Sass filename, use `__element` for its internal parts, and `--modifier` for a variant. Elements remain flat: use `calendar__month-button`, not `calendar__header__button`.
+Define opaque colors and font sizes in the `$colors` and `$font-sizes` maps in `_variables.scss`. Colors use family-and-shade names such as `blue-700`, `slate-200`, and `amber-300`, plus the `white` and `black` constants. These are custom SilicaFlights values, not Tailwind's palette. Shades increase from light to dark within each family using sparse steps from 50 to 950; intermediate steps of 50 preserve distinct existing colors. Add only colors that are needed, and do not create semantic or component-specific aliases. The historical [color migration table](./color-palette-migration.md) records the replaced names and exact values.
+
+Use `ds.color('blue-700')` and `ds.font-size('body')` through the styles entry point. These return raw Sass values, and unknown keys fail compilation with an available-token list. Quote names so `'white'` is interpreted as a string. Supply opacity separately with `ds.color('blue-700', 0.2)`: the optional argument must be a finite, unitless number from 0 to 1; an omitted or `null` opacity leaves the base color opaque. Do not store translucent duplicates in the palette. Keep map lookups inside the token layer.
+
+Select responsive sizes explicitly inside the existing breakpoint mixins: `hero` and `section` use their `hero-desktop` and `section-desktop` variants at `ds.from(desktop)`. Raw values do not respond to CSS-property overrides. Preserve the root sizing reset, font-family variables from `next/font/local`, and CSS keywords such as `inherit`, `currentColor`, and `transparent`.
+
+`_tokens.scss` generates `--color-<family>-<shade>` properties (plus `--color-white` and `--color-black`) and the existing `--text-*` properties from the maps. Retired color property names are not retained as aliases. The design-system color palette reads the generated CSS properties in a small client component, so swatches, family groups, shade labels, and displayed values derive from the Sass map and refresh when stylesheets change. Turbopack does not support ICSS `:export` rules; keep the remaining foundations content server-rendered. Component state properties such as `--button-background` remain dynamic; assign Sass values using interpolation: `--button-background: #{ds.color('amber-300')}`. Use interpolation around a font-size accessor in `font` shorthands to preserve the CSS slash separator: `font: 600 #{ds.font-size('card')}/1.25 var(--font-body), sans-serif`. Spacing, radii, composite shadows, motion, and breakpoint definitions keep their current organization; colors within composite shadows use the same color accessor.
+
+The dependency direction is variables → functions → token-generation/mixins → component styles. Internal partials import their dependencies directly; only consuming styles use the public entry point, preventing circular imports.
+
+All authored component classes use BEM. Name each block after its owning component or Sass filename, use `__element` for its internal parts, and `--modifier` for a variant. Compiled element names remain flat: use `calendar__month-button`, not `calendar__header__button`.
+
+Nest component styles inside their owning block with Sass's parent selector: `&__element` and `&--modifier`. Nest an element's modifiers, states, and descendants inside that element. Use two-space indentation and a blank line before nested rules and between sibling rules. Prettier formats existing nesting; it does not restructure flat selectors automatically.
 
 ```scss
 .button {
   /* base control */
+
+  &--primary {
+    /* .button--primary */
+  }
+
+  &--size-sm {
+    /* .button--size-sm */
+  }
+
+  &:focus-visible {
+    /* focus state */
+  }
 }
-.button--primary {
-  /* variant */
-}
-.button--size-sm {
-  /* size */
-}
-.picker-popover__trigger {
-  /* element */
-}
-.picker-popover__value--placeholder {
-  /* element modifier */
+
+.picker-popover {
+  &__trigger {
+    /* .picker-popover__trigger */
+  }
+
+  &__value {
+    &--placeholder {
+      /* .picker-popover__value--placeholder */
+    }
+  }
 }
 ```
 
 Access CSS Module exports with bracket notation, including block names: `styles['button']`. Apply the base class alongside modifiers using `cx`. Map variant, size, tone, and status props through explicit class maps; prop names and accepted values remain independent of CSS names. Size modifiers use `--size-sm`, tone modifiers use `--tone-muted`, and boolean modifiers use names such as `--compact` and `--with-action`.
 
-Keep browser pseudo-classes (`:hover`, `:focus-visible`, `:disabled`) and semantic ARIA/React Aria data-state selectors on the relevant BEM class. Existing class-driven states use modifiers such as `combobox__option--highlighted`; do not introduce duplicate state just to produce a class. Preserve selector specificity and import/rule order during naming changes. Sass nesting is appropriate for pseudo-classes, attributes, and responsive rules; element names must not mirror the DOM nesting depth.
+Keep browser pseudo-classes (`:hover`, `:focus-visible`, `:disabled`) and semantic ARIA/React Aria data-state selectors on the relevant BEM class. Existing class-driven states use modifiers such as `combobox__option--highlighted`; do not introduce duplicate state just to produce a class. Use descendant nesting only for actual descendant relationships: `.block { &__element {} }` must compile to `.block__element`, without adding a `.block` ancestor requirement.
+
+Place base declarations before nested rules where the cascade permits. Keep responsive rules inside their owning block or element; a breakpoint affecting several elements can remain grouped at block level. Preserve selector specificity and cascade-sensitive rule order, including later overrides, even when an element block must be reopened. Element names must not mirror the DOM nesting depth.
 
 Portaled elements retain their owning block names even when rendered elsewhere in the DOM. Components returning fragments can own BEM elements without an extra layout wrapper. CSS Modules still scope the compiled names; never select their generated hashes. The global `sr-only` and `skip-link` helpers remain standalone names, outside component modules.
 

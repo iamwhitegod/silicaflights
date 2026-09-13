@@ -2,11 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   defaultFilters,
-  validateSearch,
   createOfferRequest,
   searchFromQuery,
   searchToQuery,
 } from '../../src/lib/flights/search.js';
+import { flightSearchSchema, searchFieldError } from '../../src/lib/flights/schemas.js';
+import { validateForm } from '../../src/lib/validation.js';
 import {
   filterOffers,
   normalizeOffer,
@@ -61,7 +62,7 @@ const rawOffer = {
 };
 
 test('validates exact dates, airport selections, cabins, and traveler limits', () => {
-  assert.deepEqual(validateSearch(values), {});
+  assert.equal(flightSearchSchema.isValidSync(values), true);
   for (const changed of [
     null,
     {},
@@ -76,7 +77,7 @@ test('validates exact dates, airport selections, cabins, and traveler limits', (
     { ...values, filters: { ...defaultFilters, cabin: 'unknown' } },
     { ...values, filters: { ...defaultFilters, infants: 2 } },
   ])
-    assert.ok(Object.keys(validateSearch(changed)).length);
+    assert.equal(flightSearchSchema.isValidSync(changed), false);
 });
 
 test('round trips require a return date after departure and map children and lap infants', () => {
@@ -92,7 +93,7 @@ test('round trips require a return date after departure and map children and lap
       infants: 1,
     },
   };
-  assert.deepEqual(validateSearch(trip), {});
+  assert.equal(flightSearchSchema.isValidSync(trip), true);
   const payload = createOfferRequest(trip);
   assert.equal(payload.cabin_class, 'premium_economy');
   assert.deepEqual(payload.passengers, [
@@ -106,8 +107,20 @@ test('round trips require a return date after departure and map children and lap
     departure_date: '2027-01-22',
   });
   for (const returnDate of ['', '2027-01-14'])
-    assert.ok(validateSearch({ ...trip, filters: { ...trip.filters, returnDate } }).returnDate);
-  assert.ok(validateSearch({ ...trip, filters: { ...trip.filters, childAges: [''] } }).filters);
+    assert.ok(
+      validateForm(
+        flightSearchSchema,
+        { ...trip, filters: { ...trip.filters, returnDate } },
+        { mapError: searchFieldError },
+      ).errors.returnDate,
+    );
+  assert.ok(
+    validateForm(
+      flightSearchSchema,
+      { ...trip, filters: { ...trip.filters, childAges: [''] } },
+      { mapError: searchFieldError },
+    ).errors.filters,
+  );
 });
 
 test('queries round-trip correctly without allowing enormous traveler arrays', () => {
@@ -163,6 +176,7 @@ test('transport authenticates on the server, requests v2 test offers, and uses n
     token,
     fetcher: async (url, options) => {
       captured = { url, options };
+
       return Response.json({ data: { id: 'orq-test', live_mode: false, offers: [rawOffer] } });
     },
   });

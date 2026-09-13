@@ -3,12 +3,14 @@
   display: inline-block;
   width: 2rem;
   height: 2rem;
-}
-.icon--size-sm {
-  width: 1.6rem;
-  height: 1.6rem;
-}
-.icon--size-lg {
-  width: 2.4rem;
-  height: 2.4rem;
+
+  &--size-sm {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  &--size-lg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 }

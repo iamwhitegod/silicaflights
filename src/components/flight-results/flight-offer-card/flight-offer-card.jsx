@@ -1,4 +1,5 @@
 'use client';
+
 /* eslint-disable @next/next/no-img-element -- Duffel logos and exact exported Figma glyphs. */
 import { useState } from 'react';
 import { Button } from '@/components/ui/button/button';
@@ -7,6 +8,7 @@ import styles from './flight-offer-card.module.scss';
 
 function AirlineLogo({ carrier }) {
   const [failed, setFailed] = useState(false);
+
   return (
     <span className={styles['flight-offer-card__logo']}>
       {carrier.logo && !failed ? (
@@ -26,6 +28,7 @@ export function FlightOfferCard({ offer, travelers = 1, expired = false, onDetai
       ),
     ).values(),
   ];
+
   return (
     <article
       className={styles['flight-offer-card']}
@@ -44,6 +47,7 @@ export function FlightOfferCard({ offer, travelers = 1, expired = false, onDetai
           const first = slice.segments[0],
             last = slice.segments.at(-1);
           const stops = slice.segments.length - 1;
+
           return (
             <div key={slice.id || index} className={styles['flight-offer-card__journey']}>
               <p className={styles['flight-offer-card__duration']}>

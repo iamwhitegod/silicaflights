@@ -1,10 +1,12 @@
 'use client';
+
 import { Link } from '@/components/ui/link/link';
 import { usePageScroll } from '@/components/ui/scroll-provider/scroll-provider';
 import styles from './navigation.module.scss';
 
 export function Navigation() {
   const { scrollTo } = usePageScroll();
+
   return (
     <nav className={styles['navigation']} aria-label="Main navigation" data-hero-reveal>
       <Link href="/" variant="navigation" className={styles['navigation__logo']}>

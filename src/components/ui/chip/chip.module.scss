@@ -1,16 +1,20 @@
+@use '../../../styles' as ds;
+
 .chip {
   min-height: 4.4rem;
   padding: 0.6rem 1.2rem;
-  font-size: 1.4rem;
+  font-size: ds.font-size('label');
   font-weight: 500;
-}
-.chip--selected {
-  --button-background: var(--color-action);
-  --button-hover-background: var(--color-action-hover);
-  --button-pressed-background: var(--color-action-hover);
-  color: var(--color-white);
-}
-.chip--selected span {
-  font-size: 2rem;
-  line-height: 1;
+
+  &--selected {
+    --button-background: #{ds.color('blue-700')};
+    --button-hover-background: #{ds.color('blue-800')};
+    --button-pressed-background: #{ds.color('blue-800')};
+    color: ds.color('white');
+
+    span {
+      font-size: ds.font-size('small-heading');
+      line-height: 1;
+    }
+  }
 }

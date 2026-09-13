@@ -1,6 +1,7 @@
 import { test, expect } from '../support/fixtures.mjs';
 import AxeBuilder from '@axe-core/playwright';
 import { sampleOffer } from '../../src/data/flight-fixtures.js';
+import { defaultFilters } from '../../src/lib/flights/search.js';
 
 const searchUrl =
   '/flights?origin=LOS&destination=LHR&departure=2027-01-15&originLabel=Lagos&destinationLabel=London';
@@ -95,6 +96,7 @@ test('round-trip cabin changes submit two-date criteria and show both journeys',
   let sent;
   await page.route('**/api/flights/search', (route) => {
     sent = route.request().postDataJSON();
+
     return route.fulfill({
       json: { testMode: true, offers: [sampleOffer({ returnDate: sent.filters.returnDate })] },
     });
@@ -186,4 +188,36 @@ test('invalid URLs stay editable and malformed API inputs are rejected', async (
     ).status(),
   ).toBe(400);
   expect((await request.get('/api/airports?query=a')).status()).toBe(400);
+  for (const filters of [
+    null,
+    [],
+    { ...defaultFilters, adults: '1' },
+    { ...defaultFilters, children: 1, childAges: ['5'] },
+    { ...defaultFilters, trip: 'round-trip', returnDate: '' },
+  ]) {
+    const response = await request.post('/api/flights/search', {
+      data: { origin: 'LOS', destination: 'LHR', departure: '2027-01-15', filters },
+    });
+    expect(response.status()).toBe(400);
+    expect((await response.json()).errors).toBeTruthy();
+  }
+});
+
+test('price range validation recovers when bounds are corrected or cleared', async ({ page }) => {
+  await page.goto(searchUrl);
+  await expect(page.getByRole('article')).toBeVisible();
+  await page.getByText('Filter by price (USD)', { exact: true }).click();
+  const minimum = page.getByLabel('Minimum total (USD)');
+  const maximum = page.getByLabel('Maximum total (USD)');
+  await minimum.fill('100');
+  await maximum.fill('50');
+  await expect(page.getByText('Maximum price must be at least the minimum.')).toBeVisible();
+  await expect(maximum).toHaveAttribute('aria-invalid', 'true');
+  await maximum.fill('-1');
+  await expect(page.getByText('Enter a price of zero or more.')).toBeVisible();
+  await maximum.fill('1000');
+  await expect(maximum).toHaveAttribute('aria-invalid', 'false');
+  await minimum.fill('');
+  await maximum.fill('');
+  await expect(page.getByRole('article')).toBeVisible();
 });

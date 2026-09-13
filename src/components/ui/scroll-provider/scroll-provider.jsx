@@ -1,4 +1,5 @@
 'use client';
+
 import { createContext, useContext, useEffect, useMemo, useRef } from 'react';
 import Lenis from 'lenis';
 import { gsap, ScrollTrigger } from '@/lib/motion';
@@ -29,6 +30,7 @@ export function ScrollProvider({ children }) {
         const token = Symbol('scroll lock');
         locks.current.add(token);
         instance.current?.stop();
+
         return () => {
           if (!locks.current.delete(token)) return;
           releasePage();
@@ -58,6 +60,7 @@ export function ScrollProvider({ children }) {
       const restore = () => lenis.scrollTo(window.scrollY, { immediate: true, force: true });
       window.addEventListener('pageshow', restore);
       window.addEventListener('popstate', restore);
+
       return () => {
         window.removeEventListener('pageshow', restore);
         window.removeEventListener('popstate', restore);
@@ -83,6 +86,7 @@ export function ScrollProvider({ children }) {
       if (!link || link.target || link.hasAttribute('download')) return;
       if (link.classList.contains('skip-link')) {
         instance.current?.scrollTo(window.scrollY, { immediate: true });
+
         return;
       }
       const id = decodeURIComponent(link.hash.slice(1));
@@ -93,6 +97,7 @@ export function ScrollProvider({ children }) {
       api.scrollTo(target);
     };
     document.addEventListener('click', anchor);
+
     return () => {
       document.removeEventListener('click', anchor);
       media.revert();

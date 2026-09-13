@@ -1,7 +1,8 @@
 @use '../../../styles' as ds;
+
 .footer {
-  background: var(--color-sky) url('/images/footer-mobile.png') center/cover no-repeat;
-  color: white;
+  background: ds.color('sky-500') url('/images/footer-mobile.png') center/cover no-repeat;
+  color: ds.color('white');
   padding-top: 4.8rem;
   min-height: 68.5rem;
   display: flex;
@@ -9,82 +10,98 @@
   justify-content: space-between;
   position: relative;
   overflow: clip;
-}
-.footer__title {
-  font-size: 2.4rem;
-  line-height: 1.25;
-  max-width: 61.8rem;
-}
-.footer__links {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0 2.4rem;
-  margin: 2.4rem auto 6.4rem;
-  max-width: 104rem;
-}
-.footer__links a {
-  font-size: 1.4rem;
-  text-shadow: 0 0.1rem 0.4rem rgb(0 35 80 / 80%);
-}
-.footer__brand {
-  text-align: center;
-  isolation: isolate;
-}
-.footer__brand::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: auto -10% -5% 50%;
-  height: 28rem;
-  background: url('/images/cloud.png') center/contain no-repeat;
-}
-.footer__tagline {
-  font:
-    400 1.4rem/1.66 var(--font-script),
-    cursive;
-}
-.footer__wordmark {
-  font-weight: 700;
-  font-size: 4.4rem;
-  line-height: 1.16;
-  letter-spacing: -0.2rem;
-  text-transform: uppercase;
-  overflow-wrap: anywhere;
-}
-@include ds.from(tablet) {
-  .footer {
-    background-image: url('/images/footer-desktop.png');
+
+  &__title {
+    font-size: ds.font-size('card');
+    line-height: 1.25;
+    max-width: 61.8rem;
   }
-  .footer__links {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  &__links {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0 2.4rem;
+    margin: 2.4rem auto 6.4rem;
+    max-width: 104rem;
+
+    a {
+      font-size: ds.font-size('label');
+      text-shadow: 0 0.1rem 0.4rem ds.color('sky-900', 0.8);
+    }
   }
-  .footer__title {
+
+  &__brand {
     text-align: center;
-    margin-inline: auto;
-    font-size: var(--text-section);
+    isolation: isolate;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: auto -10% -5% 50%;
+      height: 28rem;
+      background: url('/images/cloud.png') center/contain no-repeat;
+    }
   }
-  .footer__wordmark {
-    font-size: 10rem;
-    letter-spacing: -0.4rem;
+
+  &__tagline {
+    font:
+      400 #{ds.font-size('label')}/ 1.66 var(--font-script),
+      cursive;
   }
-  .footer__tagline {
-    font-size: 2.4rem;
+
+  &__wordmark {
+    font-weight: 700;
+    font-size: ds.font-size('footer-wordmark');
+    line-height: 1.16;
+    letter-spacing: -0.2rem;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
   }
-}
-@include ds.from(desktop) {
-  .footer {
+
+  @include ds.from(tablet) {
+    background-image: url('/images/footer-desktop.png');
+
+    &__links {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &__title {
+      text-align: center;
+      margin-inline: auto;
+      font-size: ds.font-size('section');
+    }
+
+    &__wordmark {
+      font-size: ds.font-size('footer-wordmark-tablet');
+      letter-spacing: -0.4rem;
+    }
+
+    &__tagline {
+      font-size: ds.font-size('card');
+    }
+  }
+
+  @include ds.from(desktop) {
     min-height: 80rem;
     padding-top: 10rem;
-  }
-  .footer__links {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    margin-top: 6.4rem;
-  }
-  .footer__wordmark {
-    font-size: 15rem;
-    letter-spacing: -0.6rem;
-  }
-  .footer__tagline {
-    font-size: 3.12rem;
+
+    &__title {
+      font-size: ds.font-size('section-desktop');
+    }
+
+    &__links {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 6.4rem;
+    }
+
+    &__wordmark {
+      font-size: ds.font-size('footer-wordmark-desktop');
+      letter-spacing: -0.6rem;
+    }
+
+    &__tagline {
+      font-size: ds.font-size('footer-tagline-desktop');
+    }
   }
 }

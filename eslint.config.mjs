@@ -1,8 +1,27 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
 import nextVitals from 'eslint-config-next/core-web-vitals';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import stylistic from '@stylistic/eslint-plugin';
 
 const eslintConfig = defineConfig([
   ...nextVitals,
+  {
+    name: 'silicaflights/spacing',
+    files: ['**/*.{js,jsx,mjs,cjs}'],
+    plugins: { '@stylistic': stylistic },
+    rules: {
+      '@stylistic/padding-line-between-statements': [
+        'error',
+        { blankLine: 'always', prev: 'directive', next: '*' },
+        { blankLine: 'any', prev: 'directive', next: 'directive' },
+        { blankLine: 'always', prev: 'import', next: '*' },
+        { blankLine: 'any', prev: 'import', next: 'import' },
+        { blankLine: 'always', prev: '*', next: ['function', 'class', 'export'] },
+        { blankLine: 'always', prev: ['function', 'class', 'export'], next: '*' },
+        { blankLine: 'always', prev: '*', next: 'return' },
+      ],
+    },
+  },
   {
     files: ['src/**/*.{js,jsx}'],
     rules: {
@@ -95,8 +114,19 @@ const eslintConfig = defineConfig([
     '.next/**',
     'out/**',
     'build/**',
+    'dist/**',
+    '.vercel/**',
+    'coverage/**',
+    'test-results/**',
+    'playwright-report/**',
+    'blob-report/**',
+    'public/**',
+    'assets/**',
+    '**/*.min.js',
     'next-env.d.ts',
   ]),
+  // Keep last: disable conflicts with Prettier; statement padding remains enabled.
+  eslintConfigPrettier,
 ]);
 
 export default eslintConfig;

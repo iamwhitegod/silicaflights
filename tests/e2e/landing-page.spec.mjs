@@ -90,6 +90,18 @@ test('destination links prefill search and founder navigation focuses email', as
   await page.getByRole('link', { name: 'Join Founders', exact: true }).click();
   await expect(page.locator('#founder-email')).toBeFocused();
 });
+test('founder signup validates email and succeeds without a name', async ({ page }) => {
+  await page.goto('/');
+  const form = page.getByRole('form', { name: 'Founder signup' });
+  await form.getByRole('button', { name: 'Join', exact: true }).click();
+  await expect(form.getByLabel('Email address')).toBeFocused();
+  await expect(form.getByText('Enter a valid email address.')).toBeVisible();
+  await form.getByLabel('Email address').fill('founder@example.com');
+  await form.getByRole('button', { name: 'Join', exact: true }).click();
+  await expect(form.getByRole('status')).toContainText(
+    'Thanks for your interest in SilicaFlights!',
+  );
+});
 test('landing page meets automated accessibility checks', async ({ page }) => {
   // Audit the fully revealed page, with motion covered separately by motion.spec.mjs.
   await page.emulateMedia({ reducedMotion: 'reduce' });

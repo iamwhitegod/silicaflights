@@ -12,8 +12,8 @@
     "test": "playwright test",
     "test:unit": "node --test tests/unit/*.test.mjs",
     "test:duffel": "node scripts/smoke-duffel.mjs",
-    "format": "prettier --write src tests scripts docs README.md playwright.config.mjs eslint.config.mjs jsconfig.json package.json",
-    "format:check": "prettier --check src tests scripts docs README.md playwright.config.mjs eslint.config.mjs jsconfig.json package.json"
+    "format": "eslint --fix --fix-type layout && prettier --write .",
+    "format:check": "prettier --check . && eslint"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -24,15 +24,18 @@
     "react": "19.2.8",
     "react-aria": "^3.52.1",
     "react-aria-components": "^1.21.1",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.63.0",
+    "@stylistic/eslint-plugin": "5.10.0",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
-    "prettier": "^3.9.6",
+    "eslint-config-prettier": "10.1.8",
+    "prettier": "3.9.6",
     "sass": "^1.104.1"
   }
 }

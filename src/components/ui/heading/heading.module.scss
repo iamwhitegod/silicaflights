@@ -1,36 +1,53 @@
+@use '../../../styles' as ds;
+
 .heading {
   font-family: var(--font-display), serif;
   font-weight: 700;
   text-transform: uppercase;
   overflow-wrap: break-word;
-}
-.heading--hero {
-  font-size: var(--text-hero);
-  line-height: 1.11;
-}
-.heading--section {
-  font-size: var(--text-section);
-  line-height: 1.17;
-}
-.heading--card {
-  font:
-    600 var(--text-card)/1.25 var(--font-body),
-    sans-serif;
-  text-transform: none;
-  letter-spacing: -0.08rem;
-}
-.heading--small {
-  font:
-    600 2rem/1.3 var(--font-body),
-    sans-serif;
-  text-transform: none;
-}
-.heading--tone-brand {
-  color: var(--color-sky);
-}
-.heading--tone-inverse {
-  color: var(--color-white);
-}
-.heading--tone-muted {
-  color: var(--color-muted);
+
+  &--hero {
+    font-size: ds.font-size('hero');
+    line-height: 1.11;
+
+    @include ds.from(desktop) {
+      font-size: ds.font-size('hero-desktop');
+    }
+  }
+
+  &--section {
+    font-size: ds.font-size('section');
+    line-height: 1.17;
+
+    @include ds.from(desktop) {
+      font-size: ds.font-size('section-desktop');
+    }
+  }
+
+  &--card {
+    font:
+      600 #{ds.font-size('card')}/ 1.25 var(--font-body),
+      sans-serif;
+    text-transform: none;
+    letter-spacing: -0.08rem;
+  }
+
+  &--small {
+    font:
+      600 #{ds.font-size('small-heading')}/ 1.3 var(--font-body),
+      sans-serif;
+    text-transform: none;
+  }
+
+  &--tone-brand {
+    color: ds.color('sky-500');
+  }
+
+  &--tone-inverse {
+    color: ds.color('white');
+  }
+
+  &--tone-muted {
+    color: ds.color('gray-500');
+  }
 }

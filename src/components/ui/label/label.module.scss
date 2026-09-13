@@ -1,5 +1,7 @@
+@use '../../../styles' as ds;
+
 .label {
   display: block;
-  font-size: var(--text-label);
+  font-size: ds.font-size('label');
   line-height: 1.45;
 }

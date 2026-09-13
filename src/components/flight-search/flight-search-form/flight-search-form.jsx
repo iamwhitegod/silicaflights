@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button/button';
@@ -11,8 +12,9 @@ import { Modal } from '@/components/ui/modal/modal';
 import { cx } from '@/lib/cx';
 import { today } from '@/lib/dates';
 import { searchToQuery } from '@/lib/flights/search';
+import { flightSearchSchema, searchFieldError } from '@/lib/flights/schemas';
+import { validateForm } from '@/lib/validation';
 import { defaultFilters } from '../defaults';
-import { validateSearch } from '../validation';
 import { AdvancedSearchDialog } from '../advanced-search-dialog/advanced-search-dialog';
 import { loadAirports } from '../airport-search';
 import { airports } from '@/data/travel-locations';
@@ -53,6 +55,7 @@ export function FlightSearchForm({
           label: initialValues[`${key}Label`] || initialValues[key],
         });
     }
+
     return selected;
   });
   const [errors, setErrors] = useState({});
@@ -72,13 +75,17 @@ export function FlightSearchForm({
       });
     }
   }, [idPrefix, initialDestination, scrollTo]);
+
   async function submit(event) {
     event.preventDefault();
     if (pending.current || busy) return;
-    const next = validateSearch(values);
+    const { errors: next } = validateForm(flightSearchSchema, values, {
+      mapError: searchFieldError,
+    });
     setErrors(next);
     if (Object.keys(next).length) {
       document.getElementById(`${idPrefix}-${Object.keys(next)[0]}`)?.focus();
+
       return;
     }
     pending.current = true;
@@ -103,7 +110,9 @@ export function FlightSearchForm({
       pending.current = false;
     }
   }
+
   const travelers = values.filters.adults + values.filters.children + values.filters.infants;
+
   return (
     <div
       className={cx(styles['flight-search-form'], results && styles['flight-search-form--results'])}

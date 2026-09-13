@@ -1,69 +1,46 @@
 @use '../../../../styles' as ds;
-.foundations-section__intro {
-  color: var(--color-muted);
-  margin-bottom: 3.2rem;
-}
-.foundations-section__colors {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.6rem;
-  margin-bottom: 3.2rem;
-}
-.foundations-section__color {
-  min-width: 0;
-  font-size: 1.2rem;
-}
-.foundations-section__color div {
-  height: 8rem;
-  border-radius: 1rem;
-  border: 0.1rem solid rgb(0 0 0 / 5%);
-  margin-bottom: 0.8rem;
-}
-.foundations-section__color strong,
-.foundations-section__color code {
-  display: block;
-}
-.foundations-section__color code {
-  color: var(--color-muted);
-  margin-top: 0.2rem;
-}
-.foundations-section__specimens {
-  display: grid;
-  gap: 2.4rem;
-  margin-block: 2.4rem;
-}
-.foundations-section__script {
-  font-family: var(--font-script), cursive;
-  font-size: 2.4rem;
-}
-.foundations-section__spacing {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.4rem;
-  align-items: end;
-}
-.foundations-section__spacing > div {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  font-size: 1.2rem;
-}
-.foundations-section__spacing span {
-  display: block;
-  height: 1.2rem;
-  background: var(--color-action);
-  border-radius: 0.2rem;
-}
-@include ds.from(tablet) {
-  .foundations-section__colors {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+.foundations-section {
+  &__intro {
+    color: ds.color('gray-500');
+    margin-bottom: 3.2rem;
   }
-  .foundations-section__specimens {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  &__specimens {
+    display: grid;
+    gap: 2.4rem;
+    margin-block: 2.4rem;
   }
-}
-@include ds.from(desktop) {
-  .foundations-section__colors {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  &__script {
+    font-family: var(--font-script), cursive;
+    font-size: ds.font-size('card');
+  }
+
+  &__spacing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+    align-items: end;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      font-size: ds.font-size('caption');
+    }
+
+    span {
+      display: block;
+      height: 1.2rem;
+      background: ds.color('blue-700');
+      border-radius: 0.2rem;
+    }
+  }
+
+  @include ds.from(tablet) {
+    &__specimens {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 }

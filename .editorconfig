@@ -1,0 +1,17 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+tab_width = 2
+end_of_line = lf
+insert_final_newline = true
+
+# Preserve Markdown hard breaks and whitespace inside source string literals.
+# Prettier handles whitespace using the appropriate parser.
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab

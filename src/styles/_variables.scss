@@ -1,0 +1,97 @@
+// Custom palette: existing RGB values, ordered from light to dark within each family.
+
+// Sparse shades use 50–950; intermediate steps preserve distinct existing colors.
+
+// All base colors are opaque. Supply opacity through color($name, $alpha).
+
+$colors: (
+  'white': #ffffff,
+  'black': #000000,
+
+  'gray-100': #f5f5f5,
+  'gray-500': #666666,
+  'gray-700': #444444,
+  'gray-900': #1e1e1e,
+
+  'stone-50': #fcfcfa,
+
+  'slate-50': #f3f7fc,
+  'slate-100': #f0f4f8,
+  'slate-150': #e4e8ee,
+  'slate-200': #dbe6f3,
+  'slate-250': #cfdef0,
+  'slate-300': #d6dbe2,
+  'slate-350': #ccd8e8,
+  'slate-500': #71849d,
+  'slate-600': #536176,
+
+  'blue-400': #4f86fd,
+  'blue-500': #437efd,
+  'blue-700': #0045d7,
+  'blue-800': #0035a6,
+  'blue-850': #002566,
+  'blue-900': #002052,
+  'blue-950': #001941,
+
+  'sky-50': #e9f3ff,
+  'sky-100': #d5e8f6,
+  'sky-150': #d4e7f6,
+  'sky-200': #b4d7ed,
+  'sky-500': #0089fc,
+  'sky-700': #164375,
+  'sky-800': #173c67,
+  'sky-850': #123a63,
+  'sky-900': #002350,
+  'sky-950': #001e3c,
+
+  'navy-700': #163451,
+  'navy-750': #0e2b53,
+  'navy-800': #122a4a,
+  'navy-900': #031f41,
+  'navy-950': #081b38,
+
+  'amber-50': #fff1d5,
+  'amber-300': #fccb5f,
+  'amber-400': #f8be3a,
+  'amber-500': #edac22,
+  'amber-900': #684510,
+
+  'yellow-50': #fffdea,
+
+  'orange-100': #ffeadb,
+
+  'green-50': #f0fdf4,
+  'green-100': #e6fbf4,
+  'green-800': #166534,
+
+  'red-50': #fef3f2,
+  'red-700': #b42318,
+);
+
+$font-sizes: (
+  // Shared typography. Responsive variants are selected explicitly at breakpoints.
+  'hero': 3.2rem,
+  'hero-desktop': 5.6rem,
+  'section': 3.2rem,
+  'section-desktop': 4.8rem,
+  'card': 2.4rem,
+  'small-heading': 2rem,
+  'subheading': 1.8rem,
+  'body': 1.6rem,
+  'detail': 1.5rem,
+  'label': 1.4rem,
+  'compact': 1.3rem,
+  'caption': 1.2rem,
+
+  // Component-specific fixed and fluid sizes.
+  'chapter-title': 3.2rem,
+  'itinerary-price': clamp(2.6rem, 4vw, 3.2rem),
+  'itinerary-price-mobile': 2.6rem,
+  'offer-time': clamp(2rem, 4vw, 3.2rem),
+  'offer-time-desktop': 2.8rem,
+  'offer-price': clamp(2.4rem, 3vw, 3.2rem),
+  'footer-wordmark': 4.4rem,
+  'footer-wordmark-tablet': 10rem,
+  'footer-wordmark-desktop': 15rem,
+  'footer-tagline-desktop': 3.12rem
+);

@@ -1,6 +1,8 @@
 'use client';
+
 import { useRef, useState } from 'react';
-import { validateSignup } from './validation';
+import { validateForm } from '@/lib/validation';
+import { founderSignupSchema, weeklyDealsSchema } from './schemas';
 
 /**
  * @typedef {Object} SignupValues
@@ -24,19 +26,24 @@ export function useSignupSubmission({ onSubmit, idPrefix, requireName = false })
     setValues((previous) => ({ ...previous, [key]: value }));
     if (status === 'success') setStatus('idle');
   };
+
   async function submit(event) {
     event.preventDefault();
     if (pending.current) return;
-    const next = validateSignup(values, requireName);
+    const { values: submission, errors: next } = validateForm(
+      requireName ? weeklyDealsSchema : founderSignupSchema,
+      values,
+    );
     setErrors(next);
     if (Object.keys(next).length) {
       document.getElementById(`${idPrefix}-${next.name ? 'name' : 'email'}`)?.focus();
+
       return;
     }
     pending.current = true;
     setStatus('loading');
     try {
-      await onSubmit({ ...values, email: values.email.trim(), name: values.name.trim() });
+      await onSubmit(submission);
       setStatus('success');
     } catch (error) {
       setMessage(error.message || 'The request failed. Please try again.');
@@ -45,5 +52,6 @@ export function useSignupSubmission({ onSubmit, idPrefix, requireName = false })
       pending.current = false;
     }
   }
+
   return { values, errors, status, message, set, submit };
 }

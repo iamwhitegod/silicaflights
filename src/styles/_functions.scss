@@ -1,0 +1,36 @@
+@use 'sass:color';
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'variables' as vars;
+
+@function -token($tokens, $name, $kind) {
+  @if not map.has-key($tokens, $name) {
+    @error 'Unknown #{$kind} token #{meta.inspect($name)}. Available tokens: #{map.keys($tokens)}.';
+  }
+
+  @return map.get($tokens, $name);
+}
+
+// Return raw Sass values; callers own responsive and runtime state changes.
+@function color($name, $alpha: null) {
+  $value: -token(vars.$colors, $name, 'color');
+
+  @if $alpha == null {
+    @return $value;
+  }
+
+  @if meta.type-of($alpha) != 'number' {
+    @error 'Invalid color opacity #{meta.inspect($alpha)}. Expected a unitless number from 0 to 1.';
+  }
+
+  @if not math.is-unitless($alpha) or not ($alpha >= 0 and $alpha <= 1) {
+    @error 'Invalid color opacity #{meta.inspect($alpha)}. Expected a unitless number from 0 to 1.';
+  }
+
+  @return color.change($value, $alpha: $alpha);
+}
+
+@function font-size($name) {
+  @return -token(vars.$font-sizes, $name, 'font-size');
+}

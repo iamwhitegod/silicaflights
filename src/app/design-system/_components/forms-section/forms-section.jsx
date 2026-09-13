@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { Text } from '@/components/ui/text/text';
 import { Navigation } from '@/components/site/navigation/navigation';
@@ -10,8 +11,10 @@ import { demoFlightSearch } from '@/data/flight-fixtures';
 import { Chapter } from '../chapter/chapter';
 import { Specimen } from '../specimen/specimen';
 import styles from './forms-section.module.scss';
+
 export function FormsSection() {
   const [failure, setFailure] = useState(false);
+
   return (
     <Chapter id="organisms" number="04" title="Organisms">
       <div className={styles['forms-section__search-preview']}>

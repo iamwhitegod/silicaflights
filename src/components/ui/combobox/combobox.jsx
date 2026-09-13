@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useId, useState } from 'react';
 import { Input } from '@/components/ui/input/input';
 import { FormField } from '@/components/ui/form-field/form-field';
@@ -59,6 +60,7 @@ export function Combobox({
           });
       }
     }, 300);
+
     return () => {
       clearTimeout(timeout);
       controller.abort();
@@ -68,12 +70,14 @@ export function Combobox({
     if (open)
       document.getElementById(`${id}-option-${active}`)?.scrollIntoView({ block: 'nearest' });
   }, [open, active, id]);
+
   function choose(option) {
     onValueChange(option.value, option);
     setQuery('');
     setOpen(false);
     setActive(0);
   }
+
   return (
     <div
       className={cx(styles['combobox'], compact && styles['combobox--compact'])}

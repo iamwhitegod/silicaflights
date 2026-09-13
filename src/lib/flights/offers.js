@@ -1,5 +1,6 @@
 export function durationMinutes(value = '') {
   const match = /^P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$/.exec(value);
+
   return match
     ? Number(match[1] || 0) * 1440 +
         Number(match[2] || 0) * 60 +
@@ -10,6 +11,7 @@ export function durationMinutes(value = '') {
 
 export function formatDuration(value) {
   const minutes = Math.round(durationMinutes(value));
+
   return minutes ? `${Math.floor(minutes / 60)}h ${minutes % 60}m` : 'Duration unavailable';
 }
 
@@ -23,6 +25,7 @@ export function formatMoney(amount, currency) {
 
 export function formatLocalDate(value) {
   if (!value) return '';
+
   return new Intl.DateTimeFormat('en-GB', {
     day: 'numeric',
     month: 'short',
@@ -46,9 +49,11 @@ export function filterOffers(
       (maxPrice !== '' && price > Number(maxPrice))
     )
       return false;
+
     return offer.slices.every((slice, index) => {
       const prefix = index ? 'return' : 'depart';
       const time = slice.segments[0]?.departingAt.slice(11, 16);
+
       return (
         (!schedule[`${prefix}TimeStart`] || time >= schedule[`${prefix}TimeStart`]) &&
         (!schedule[`${prefix}TimeEnd`] || time <= schedule[`${prefix}TimeEnd`])
@@ -57,6 +62,7 @@ export function filterOffers(
   });
   const duration = (offer) =>
     offer.slices.reduce((sum, slice) => sum + durationMinutes(slice.duration), 0);
+
   return filtered.sort((a, b) => {
     if (sort === 'shortest')
       return duration(a) - duration(b) || Number(a.amount) - Number(b.amount);
@@ -65,6 +71,7 @@ export function filterOffers(
         a.slices[0].segments[0].departingAt.localeCompare(b.slices[0].segments[0].departingAt) ||
         Number(a.amount) - Number(b.amount)
       );
+
     return Number(a.amount) - Number(b.amount) || duration(a) - duration(b);
   });
 }
@@ -104,6 +111,7 @@ export function normalizeOffer(offer) {
       ? { allowed: c.allowed, penaltyAmount: c.penalty_amount, penaltyCurrency: c.penalty_currency }
       : null;
   }
+
   return {
     id: offer.id,
     expiresAt: offer.expires_at,

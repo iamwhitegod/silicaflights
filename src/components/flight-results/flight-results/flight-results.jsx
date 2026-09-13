@@ -1,4 +1,5 @@
 'use client';
+
 /* eslint-disable @next/next/no-img-element -- Exact exported Figma glyphs. */
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
@@ -9,7 +10,9 @@ import { Modal } from '@/components/ui/modal/modal';
 import { Status } from '@/components/ui/status/status';
 import { Spinner } from '@/components/ui/spinner/spinner';
 import { Icon } from '@/components/ui/icon/icon';
-import { cabins, searchToQuery, validateSearch } from '@/lib/flights/search';
+import { cabins, searchToQuery } from '@/lib/flights/search';
+import { flightPriceSchema, flightSearchSchema } from '@/lib/flights/schemas';
+import { validateForm } from '@/lib/validation';
 import { filterOffers, formatLocalDate } from '@/lib/flights/offers';
 import { FlightOfferCard } from '../flight-offer-card/flight-offer-card';
 import { FlightDetails } from '../flight-details/flight-details';
@@ -19,7 +22,7 @@ const initialFilters = { stops: 'any', sort: 'cheapest', currency: '', minPrice:
 
 export function FlightResults({ initialValues }) {
   const router = useRouter();
-  const valid = !Object.keys(validateSearch(initialValues)).length;
+  const valid = flightSearchSchema.isValidSync(initialValues);
   const [status, setStatus] = useState(valid ? 'loading' : 'idle');
   const [offers, setOffers] = useState([]);
   const [message, setMessage] = useState('');
@@ -36,16 +39,20 @@ export function FlightResults({ initialValues }) {
       if (budgetRef.current && !budgetRef.current.contains(event.target))
         budgetRef.current.open = false;
     }
+
     document.addEventListener('pointerdown', dismiss);
+
     return () => document.removeEventListener('pointerdown', dismiss);
   }, []);
   useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 15000);
+
     return () => clearInterval(timer);
   }, []);
   useEffect(() => {
     if (!valid) return;
     const controller = new AbortController();
+
     async function run() {
       try {
         const response = await fetch('/api/flights/search', {
@@ -78,7 +85,9 @@ export function FlightResults({ initialValues }) {
         setStatus('error');
       }
     }
+
     run();
+
     return () => controller.abort();
   }, [initialValues, valid, attempt]);
 
@@ -88,35 +97,30 @@ export function FlightResults({ initialValues }) {
     setLimit(20);
     setAttempt((value) => value + 1);
   }
+
   function submit(values) {
     setEditing(false);
     const query = searchToQuery(values);
     if (query === searchToQuery(initialValues)) retry();
     else router.push(`/flights?${query}`);
   }
+
   function changeSearch(key, value) {
     const next = { ...initialValues, filters: { ...initialValues.filters, [key]: value } };
-    if (Object.keys(validateSearch(next)).length) {
+    if (!flightSearchSchema.isValidSync(next)) {
       setEditValues(next);
       setEditing(true);
     } else submit(next);
   }
+
   function setFilter(key, value) {
     setFilters((previous) => ({ ...previous, [key]: value }));
     setLimit(20);
   }
+
   const liveOffers = offers.filter((offer) => Date.parse(offer.expiresAt) > now);
-  const priceError =
-    (filters.minPrice !== '' &&
-      (!Number.isFinite(Number(filters.minPrice)) || Number(filters.minPrice) < 0)) ||
-    (filters.maxPrice !== '' &&
-      (!Number.isFinite(Number(filters.maxPrice)) || Number(filters.maxPrice) < 0))
-      ? 'Enter a price of zero or more.'
-      : filters.minPrice !== '' &&
-          filters.maxPrice !== '' &&
-          Number(filters.minPrice) > Number(filters.maxPrice)
-        ? 'Maximum price must be at least the minimum.'
-        : '';
+  const { errors: priceErrors } = validateForm(flightPriceSchema, filters);
+  const priceError = priceErrors.minPrice || priceErrors.maxPrice || '';
   const visible = filterOffers(
     liveOffers,
     priceError ? { ...filters, minPrice: '', maxPrice: '' } : filters,
@@ -143,6 +147,7 @@ export function FlightResults({ initialValues }) {
       <Icon name="chevron-right" size="sm" className={styles['flight-results__chevron']} />
     </label>
   );
+
   return (
     <main id="main" className={styles['flight-results']}>
       <div className={styles['flight-results__background']} aria-hidden="true" />

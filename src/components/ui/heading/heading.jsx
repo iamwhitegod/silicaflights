@@ -23,6 +23,7 @@ export function Heading({
   ...props
 }) {
   const Tag = `h${level}`;
+
   return (
     <Tag
       className={cx(styles['heading'], variantClasses[variant], toneClasses[tone], className)}

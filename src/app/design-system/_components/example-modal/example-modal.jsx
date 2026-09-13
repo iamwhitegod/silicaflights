@@ -1,8 +1,10 @@
 'use client';
+
 import { Button } from '@/components/ui/button/button';
 import { TextField } from '@/components/ui/text-field/text-field';
 import { Modal } from '@/components/ui/modal/modal';
 import styles from './example-modal.module.scss';
+
 export function ExampleModal({ open, onOpenChange }) {
   return (
     <Modal

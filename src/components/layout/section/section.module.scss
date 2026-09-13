@@ -1,9 +1,9 @@
 @use '../../../styles' as ds;
+
 .section {
   padding-block: var(--space-12);
-}
-@include ds.from(desktop) {
-  .section {
+
+  @include ds.from(desktop) {
     padding-block: var(--space-24);
   }
 }

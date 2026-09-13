@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { Icon } from '@/components/ui/icon/icon';
 import { Button } from '@/components/ui/button/button';
@@ -11,8 +12,10 @@ import { Chapter } from '../chapter/chapter';
 import { Specimen } from '../specimen/specimen';
 import { ExampleModal } from '../example-modal/example-modal';
 import styles from './controls-section.module.scss';
+
 export function ControlsSection() {
   const [modal, setModal] = useState(false);
+
   return (
     <>
       <Chapter id="atoms" number="02" title="Atoms">

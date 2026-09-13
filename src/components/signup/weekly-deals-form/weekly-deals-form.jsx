@@ -1,4 +1,5 @@
 'use client';
+
 import { Button } from '@/components/ui/button/button';
 import { TextField } from '@/components/ui/text-field/text-field';
 import { MultiSelect } from '@/components/ui/multi-select/multi-select';
@@ -18,6 +19,7 @@ export function WeeklyDealsForm({ onSubmit = demoSubmit, idPrefix = 'weekly' }) 
     idPrefix,
     requireName: true,
   });
+
   return (
     <form
       onSubmit={submit}

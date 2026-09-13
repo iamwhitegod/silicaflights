@@ -64,7 +64,26 @@ npm run test:unit
 npm run build
 ```
 
-Playwright uses installed Google Chrome and starts the development server automatically when one is not running on port 3000. For production preview, run `npm run build` followed by `npm start`. Use `npm run format` to apply Prettier conventions.
+Playwright uses installed Google Chrome and starts the development server automatically when one is not running on port 3000. For production preview, run `npm run build` followed by `npm start`.
+
+### Formatting
+
+Run `npm run format` to apply ESLint layout fixes followed by Prettier, or `npm run format:check` for a read-only Prettier and ESLint check. Prettier covers source, tests, documentation, root configs, and GitHub workflows while honoring `.prettierignore` and `.gitignore`; ESLint covers JavaScript with its own configured ignores.
+
+The exact Prettier version is pinned in `package.json` and `package-lock.json`; use `npm ci` for reproducible installs. `.prettierrc.json` defines 100-column wrapping, two-space indentation, semicolons, single JavaScript quotes, double JSX quotes, trailing commas, and LF line endings. Markdown keeps its existing paragraph wrapping. `.editorconfig` aligns editor indentation and line endings; VS Code workspace settings enable formatting on save with the recommended Prettier extension.
+
+ESLint checks code quality and statement padding, with `eslint-config-prettier` last in the flat config to disable conflicting formatting rules. Build output, lockfiles, exported assets, source maps, and generated `.module.css` files are excluded from formatting. Edit the `.module.scss` sources; their generated CSS is also ignored by Git.
+
+Spacing conventions:
+
+- Two spaces per indentation level, spaces inside object/import braces, spaces around operators and after commas, and no padding inside function-call parentheses or array brackets. Prettier enforces these conventions and removes extra code whitespace.
+- A blank line after the import group and after directives such as `'use client'`. Consecutive imports and consecutive directives may stay together.
+- A blank line around function/class declarations and exports, and before a return statement when another statement precedes it. ESLint Stylistic adds these gaps; Prettier preserves them and collapses multiple empty lines to one.
+- One final newline and no unnecessary blank lines at the start or end of a file. Preserve meaningful whitespace in string literals, Markdown hard breaks, and inline HTML/JSX text.
+
+VS Code displays boundary whitespace, uses two-space indentation, and applies the statement-padding rule on explicit saves alongside Prettier. `npm run format` only applies ESLint fixes classified as layout changes before formatting.
+
+The Formatting GitHub Actions workflow checks pull requests and pushes to `main` using locked dependencies. Its **Prettier** check runs `format:check`, including ESLint spacing checks, and reports failures without rewriting files. Configure that check as required in branch protection if merges should be blocked by formatting failures.
 
 ## Documentation
 

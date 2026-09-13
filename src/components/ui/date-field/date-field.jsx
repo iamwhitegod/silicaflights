@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { Calendar } from '@/components/ui/calendar/calendar';
 import { formatDateValue } from '@/components/ui/calendar/date-values';
@@ -15,11 +16,13 @@ export function DateField({ value, defaultValue = '', onValueChange, min, max, .
   const [internalValue, setInternalValue] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const currentValue = value === undefined ? internalValue : value;
+
   function choose(next) {
     if (value === undefined) setInternalValue(next);
     onValueChange?.(next);
     setOpen(false);
   }
+
   return (
     <PickerPopover
       {...props}

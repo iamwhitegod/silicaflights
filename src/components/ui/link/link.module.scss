@@ -1,28 +1,36 @@
+@use '../../../styles' as ds;
+
 .link {
-  color: var(--color-action);
+  color: ds.color('blue-700');
   text-underline-offset: 0.3rem;
   border-radius: 0.2rem;
-}
-.link:hover {
-  text-decoration-thickness: 0.2rem;
-}
-.link--inline {
-  text-decoration: underline;
-}
-.link--navigation {
-  text-decoration: none;
-  font-weight: 600;
-}
-.link--navigation[aria-current] {
-  text-decoration: underline;
-}
-.link--footer {
-  display: inline-flex;
-  align-items: center;
-  min-height: 4.4rem;
-  color: var(--color-white);
-  text-decoration: none;
-}
-.link--footer:hover {
-  text-decoration: underline;
+
+  &:hover {
+    text-decoration-thickness: 0.2rem;
+  }
+
+  &--inline {
+    text-decoration: underline;
+  }
+
+  &--navigation {
+    text-decoration: none;
+    font-weight: 600;
+
+    &[aria-current] {
+      text-decoration: underline;
+    }
+  }
+
+  &--footer {
+    display: inline-flex;
+    align-items: center;
+    min-height: 4.4rem;
+    color: ds.color('white');
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

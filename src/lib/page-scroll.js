@@ -8,6 +8,7 @@ export function lockPageScroll() {
     document.body.style.overflow = 'hidden';
   }
   let released = false;
+
   return () => {
     if (released) return;
     released = true;
@@ -22,6 +23,7 @@ export function scrollDestination(target, offset) {
     offset ??
     (parseFloat(getComputedStyle(element).scrollMarginTop) || 0) +
       (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0);
+
   return { element, top: element.getBoundingClientRect().top + window.scrollY - inset };
 }
 

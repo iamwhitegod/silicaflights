@@ -1,21 +1,26 @@
-.founder-signup-form__fields {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  min-width: 0;
-}
+@use '../../../styles' as ds;
+
 .founder-signup-form {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   width: 100%;
-}
-.founder-signup-form__email {
-  text-align: left;
-}
-.founder-signup-form__email label {
-  color: white;
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+  }
+
+  &__email {
+    text-align: left;
+
+    label {
+      color: ds.color('white');
+    }
+  }
 }

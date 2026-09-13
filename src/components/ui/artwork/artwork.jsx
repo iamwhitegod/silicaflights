@@ -13,6 +13,7 @@ export function Artwork({ desktop, mobile = desktop, className }) {
     height: 1008,
     sizes: '100vw',
   });
+
   return (
     <picture className={cx(styles['artwork'], className)}>
       <source media="(min-width: 48rem)" srcSet={desktopSrcSet} sizes="100vw" />

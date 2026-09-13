@@ -1,16 +1,15 @@
 @use '../../../styles' as ds;
+
 .grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-6);
-}
-@include ds.from(tablet) {
-  .grid {
+
+  @include ds.from(tablet) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
-@include ds.from(desktop) {
-  .grid {
+
+  @include ds.from(desktop) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

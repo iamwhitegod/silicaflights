@@ -24,11 +24,14 @@ export function FlightDetails({ offer, onClose, expired = false }) {
     const value = offer?.conditions?.[key];
     if (!value || typeof value.allowed !== 'boolean') return 'Not provided by the airline';
     if (!value.allowed) return 'Not allowed';
+
     return value.penaltyAmount != null && value.penaltyCurrency
       ? `Allowed · penalty ${formatMoney(value.penaltyAmount, value.penaltyCurrency)}`
       : 'Allowed · check with the airline for fees';
   }
+
   const outbound = offer?.slices[0];
+
   return (
     <Modal
       open={!!offer}

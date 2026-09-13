@@ -9,6 +9,7 @@ export const metadata = {
 
 export default async function FlightsPage({ searchParams }) {
   const values = searchFromQuery(await searchParams);
+
   return (
     <ScrollProvider>
       <FlightResults key={searchToQuery(values)} initialValues={values} />

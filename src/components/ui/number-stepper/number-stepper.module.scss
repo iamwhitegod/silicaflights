@@ -1,15 +1,18 @@
 @use '../../../styles' as ds;
+
 .number-stepper {
   @include ds.field-surface;
   @include ds.field-content;
   display: flex;
   align-items: center;
   border-radius: var(--radius-pill);
-}
-.number-stepper input {
-  flex: 1;
-  appearance: textfield;
-}
-.number-stepper input::-webkit-inner-spin-button {
-  appearance: none;
+
+  input {
+    flex: 1;
+    appearance: textfield;
+
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
+  }
 }

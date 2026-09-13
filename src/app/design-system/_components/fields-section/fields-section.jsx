@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button/button';
 import { Text } from '@/components/ui/text/text';
@@ -17,6 +18,7 @@ import { Chapter } from '../chapter/chapter';
 import { Specimen } from '../specimen/specimen';
 import { ExampleModal } from '../example-modal/example-modal';
 import styles from './fields-section.module.scss';
+
 export function FieldsSection() {
   const [city, setCity] = useState('');
   const [trip, setTrip] = useState('one-way');
@@ -24,6 +26,7 @@ export function FieldsSection() {
   const [count, setCount] = useState(1);
   const [modal, setModal] = useState(false);
   const [chip, setChip] = useState(true);
+
   return (
     <>
       <Chapter id="molecules" number="03" title="Molecules">

@@ -1,4 +1,5 @@
 'use client';
+
 import { useId } from 'react';
 import { Input } from '@/components/ui/input/input';
 import { FormField } from '@/components/ui/form-field/form-field';
@@ -6,6 +7,7 @@ import { FormField } from '@/components/ui/form-field/form-field';
 export function TextField({ label, hint, error, id: suppliedId, action, ...props }) {
   const generatedId = useId();
   const id = suppliedId || generatedId;
+
   return (
     <FormField
       label={label}

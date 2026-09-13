@@ -1,4 +1,5 @@
 'use client';
+
 import { useRef } from 'react';
 import { gsap, useGSAP, ScrollTrigger, motion } from '@/lib/motion';
 
@@ -106,6 +107,7 @@ export function LandingMotion({ children }) {
             if (active) refresh();
           });
           const node = root.current;
+
           return () => {
             active = false;
             node.removeEventListener('focusin', focus);
@@ -117,10 +119,12 @@ export function LandingMotion({ children }) {
           };
         },
       );
+
       return () => media.revert();
     },
     { scope: root },
   );
+
   return (
     <div ref={root} data-landing-motion>
       {children}

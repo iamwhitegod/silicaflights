@@ -1,4 +1,5 @@
 'use client';
+
 import { useId, useRef } from 'react';
 import { gsap, useGSAP, motion } from '@/lib/motion';
 import styles from './tabs.module.scss';
@@ -21,10 +22,12 @@ export function Tabs({ label, items, value, onValueChange }) {
           { opacity: 1, duration: 0.18, ease: motion.ease, clearProps: 'opacity' },
         );
       });
+
       return () => media.revert();
     },
     { scope: root, dependencies: [value], revertOnUpdate: true },
   );
+
   return (
     <div ref={root} className={styles['tabs']}>
       <div

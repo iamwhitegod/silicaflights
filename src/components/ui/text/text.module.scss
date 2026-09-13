@@ -1,28 +1,37 @@
-.text--tone-brand {
-  color: var(--color-sky);
-}
-.text--tone-inverse {
-  color: var(--color-white);
-}
-.text--tone-muted {
-  color: var(--color-muted);
-}
+@use '../../../styles' as ds;
+
 .text {
   overflow-wrap: anywhere;
-}
-.text--size-body {
-  font-size: var(--text-body);
-}
-.text--size-compact {
-  font-size: var(--text-body);
-  line-height: 1.25;
-}
-.text--size-caption {
-  font-size: var(--text-caption);
-  line-height: 1.5;
-}
-.text--size-label {
-  display: block;
-  font-size: var(--text-label);
-  line-height: 1.45;
+
+  &--tone-brand {
+    color: ds.color('sky-500');
+  }
+
+  &--tone-inverse {
+    color: ds.color('white');
+  }
+
+  &--tone-muted {
+    color: ds.color('gray-500');
+  }
+
+  &--size-body {
+    font-size: ds.font-size('body');
+  }
+
+  &--size-compact {
+    font-size: ds.font-size('body');
+    line-height: 1.25;
+  }
+
+  &--size-caption {
+    font-size: ds.font-size('caption');
+    line-height: 1.5;
+  }
+
+  &--size-label {
+    display: block;
+    font-size: ds.font-size('label');
+    line-height: 1.45;
+  }
 }

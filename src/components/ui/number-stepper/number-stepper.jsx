@@ -1,4 +1,5 @@
 'use client';
+
 import { useId } from 'react';
 import { IconButton } from '@/components/ui/icon-button/icon-button';
 import { Input } from '@/components/ui/input/input';
@@ -7,6 +8,7 @@ import styles from './number-stepper.module.scss';
 
 export function NumberStepper({ label, value, onValueChange, min = 0, max = 9 }) {
   const id = useId();
+
   return (
     <FormField id={id} label={label}>
       <div className={styles['number-stepper']}>

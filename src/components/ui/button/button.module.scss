@@ -1,6 +1,8 @@
+@use '../../../styles' as ds;
+
 .button {
   --button-background: transparent;
-  --button-hover-background: var(--color-surface);
+  --button-hover-background: #{ds.color('gray-100')};
   --button-pressed-background: var(--button-hover-background);
   --button-hover-shadow: var(--shadow-control-hover);
   --button-shadow: 0 0 0 0 transparent;
@@ -13,7 +15,7 @@
   border-radius: var(--radius-pill);
   padding: 1.2rem 2.4rem;
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: ds.font-size('body');
   line-height: 1.25;
   text-decoration: none;
   background: var(--button-background);
@@ -23,57 +25,69 @@
     box-shadow var(--motion-fast),
     transform var(--motion-fast);
   min-width: 0;
-}
-.button--primary {
-  --button-background: var(--color-yellow);
-  --button-hover-background: var(--color-yellow-hover);
-  --button-pressed-background: var(--color-yellow-pressed);
-  --button-shadow: var(--shadow-inset);
-  --button-hover-shadow: var(--shadow-inset);
-  color: var(--color-text);
-}
-.button--secondary {
-  --button-background: var(--color-white);
-  --button-shadow: var(--shadow-control-rest);
-  color: var(--color-action);
-}
-.button--neutral {
-  --button-background: var(--color-surface);
-  --button-shadow: var(--shadow-control-rest);
-  color: var(--color-text);
-}
-.button--ghost {
-  color: var(--color-action);
-}
-.button--size-sm {
-  min-height: var(--control-sm);
-}
-.button--size-md {
-  min-height: var(--control-md);
-}
-.button--size-lg {
-  min-height: var(--control-lg);
-}
-@media (hover: hover) {
-  .button:hover:not(:disabled) {
-    --button-shadow: var(--button-hover-shadow);
-    background: var(--button-hover-background);
+
+  &--primary {
+    --button-background: #{ds.color('amber-300')};
+    --button-hover-background: #{ds.color('amber-400')};
+    --button-pressed-background: #{ds.color('amber-500')};
+    --button-shadow: var(--shadow-inset);
+    --button-hover-shadow: var(--shadow-inset);
+    color: ds.color('gray-900');
   }
-}
-.button:focus-visible {
-  --button-focus: var(--focus-ring);
-  outline: none;
-  box-shadow: var(--button-focus), var(--button-shadow);
-}
-.button:active:not(:disabled) {
-  --button-shadow: var(--button-hover-shadow);
-  background: var(--button-pressed-background);
-  transform: translateY(0.1rem);
-}
-.button:disabled {
-  opacity: 0.55;
-}
-.button[aria-busy='true'] {
-  opacity: 1;
-  cursor: progress;
+
+  &--secondary {
+    --button-background: #{ds.color('white')};
+    --button-shadow: var(--shadow-control-rest);
+    color: ds.color('blue-700');
+  }
+
+  &--neutral {
+    --button-background: #{ds.color('gray-100')};
+    --button-shadow: var(--shadow-control-rest);
+    color: ds.color('gray-900');
+  }
+
+  &--ghost {
+    color: ds.color('blue-700');
+  }
+
+  &--size-sm {
+    min-height: var(--control-sm);
+  }
+
+  &--size-md {
+    min-height: var(--control-md);
+  }
+
+  &--size-lg {
+    min-height: var(--control-lg);
+  }
+
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      --button-shadow: var(--button-hover-shadow);
+      background: var(--button-hover-background);
+    }
+  }
+
+  &:focus-visible {
+    --button-focus: var(--focus-ring);
+    outline: none;
+    box-shadow: var(--button-focus), var(--button-shadow);
+  }
+
+  &:active:not(:disabled) {
+    --button-shadow: var(--button-hover-shadow);
+    background: var(--button-pressed-background);
+    transform: translateY(0.1rem);
+  }
+
+  &:disabled {
+    opacity: 0.55;
+  }
+
+  &[aria-busy='true'] {
+    opacity: 1;
+    cursor: progress;
+  }
 }

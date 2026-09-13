@@ -52,7 +52,12 @@ test('signup validates, simulates failure, retries, and removes chips', async ({
   const form = page.getByRole('form', { name: 'Weekly deals signup' });
   await form.getByRole('button', { name: 'Subscribe', exact: true }).click();
   await expect(form.getByText('Enter your full name.')).toBeVisible();
+  await expect(form.getByLabel('Full name')).toBeFocused();
   await form.getByLabel('Full name').fill('Alex Morgan');
+  await form.getByLabel('Email address').fill('alex@@example.com');
+  await form.getByRole('button', { name: 'Subscribe', exact: true }).click();
+  await expect(form.getByText('Enter a valid email address.')).toBeVisible();
+  await expect(form.getByLabel('Email address')).toBeFocused();
   await form.getByLabel('Email address').fill('alex@example.com');
   const places = form.getByRole('combobox', { name: 'Places of interest' });
   await places.fill('Nigeria');

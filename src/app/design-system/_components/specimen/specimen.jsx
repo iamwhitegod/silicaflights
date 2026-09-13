@@ -1,5 +1,6 @@
 import { cx } from '@/lib/cx';
 import styles from './specimen.module.scss';
+
 export function Specimen({ title, children, wide }) {
   return (
     <div className={cx(styles['specimen'], wide && styles['specimen--wide'])}>

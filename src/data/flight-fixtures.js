@@ -37,6 +37,7 @@ export function sampleOffer({
       duration: 'PT2H30M',
       segments: [segment(1, lhr, los, returnDate, '10')],
     });
+
   return {
     id,
     amount,
@@ -52,6 +53,7 @@ export function sampleOffer({
 
 export async function demoFlightSearch(values) {
   await new Promise((resolve) => setTimeout(resolve, 500));
+
   return {
     testMode: true,
     offers: [

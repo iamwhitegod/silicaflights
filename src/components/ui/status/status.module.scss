@@ -1,27 +1,34 @@
+@use '../../../styles' as ds;
+
 .status {
   animation: status-enter 180ms ease-out;
-  font-size: 1.4rem;
+  font-size: ds.font-size('label');
   padding: 1.2rem 1.6rem;
   border-radius: var(--radius-sm);
   overflow-wrap: anywhere;
-}
-@keyframes status-enter {
-  from {
-    opacity: 0;
+
+  @keyframes status-enter {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
-  to {
-    opacity: 1;
+
+  &--info {
+    background: ds.color('gray-100');
+    color: ds.color('gray-700');
   }
-}
-.status--info {
-  background: var(--color-surface);
-  color: var(--color-secondary);
-}
-.status--error {
-  background: var(--color-error-surface);
-  color: var(--color-error);
-}
-.status--success {
-  background: var(--color-success-surface);
-  color: var(--color-success);
+
+  &--error {
+    background: ds.color('red-50');
+    color: ds.color('red-700');
+  }
+
+  &--success {
+    background: ds.color('green-50');
+    color: ds.color('green-800');
+  }
 }
