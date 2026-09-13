@@ -1,0 +1,142 @@
+.flight-offer-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 3.2rem;
+  padding: 2.4rem 1.6rem;
+  border-radius: 2rem;
+  box-shadow: inset 0 0 0 0.05rem rgb(255 255 255 / 90%);
+  background: rgb(3 31 65 / 74%);
+  backdrop-filter: blur(6rem);
+  color: white;
+  text-align: center;
+}
+.flight-offer-card__airlines {
+  min-width: 0;
+  p {
+    margin-top: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+}
+.flight-offer-card__logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.flight-offer-card__logo {
+  width: 4rem;
+  height: 4rem;
+  flex: 0 0 4rem;
+  display: grid;
+  place-items: center;
+  background: white;
+  color: #164375;
+  border-radius: 1rem;
+  img {
+    width: 3.6rem;
+    height: 3.6rem;
+    object-fit: contain;
+  }
+}
+.flight-offer-card__journeys {
+  display: grid;
+  gap: 2.4rem;
+  min-width: 0;
+}
+.flight-offer-card__duration,
+.flight-offer-card__arrival {
+  font-size: 1.2rem;
+  color: #d5e8f6;
+}
+.flight-offer-card__route {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1.6rem;
+  > div:not(.flight-offer-card__connection) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  time {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.08rem;
+  }
+  span {
+    font-size: 1.2rem;
+    color: #d5e8f6;
+  }
+}
+.flight-offer-card__connection {
+  flex: 1;
+  max-width: 27.2rem;
+  min-width: 3rem;
+}
+.flight-offer-card__line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    border-top: 0.2rem dashed #b4d7ed;
+  }
+  img {
+    width: 2rem;
+    height: 2rem;
+    transform: rotate(45deg);
+    padding: 0.2rem;
+    border: 0.1rem solid #d5e8f6;
+    border-radius: 50%;
+  }
+}
+.flight-offer-card__price {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 0;
+  strong {
+    font-size: clamp(2.4rem, 3vw, 3.2rem);
+    line-height: 1.2;
+    letter-spacing: -0.08rem;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+  }
+  > span {
+    font-size: 1.2rem;
+    margin-top: 0.4rem;
+  }
+}
+.flight-offer-card__button {
+  margin-top: 1.6rem;
+  background: #d4e7f6;
+  color: #163451;
+  min-height: 4.4rem;
+  &:hover {
+    background: white;
+  }
+}
+@media (min-width: 900px) {
+  .flight-offer-card {
+    grid-template-columns: minmax(12rem, 1fr) minmax(30rem, 2.2fr) minmax(20rem, 1.25fr);
+    gap: 2.4rem;
+  }
+  .flight-offer-card__airlines {
+    text-align: left;
+  }
+  .flight-offer-card__logos {
+    justify-content: start;
+  }
+  .flight-offer-card__price {
+    align-items: end;
+    text-align: right;
+  }
+  .flight-offer-card__price strong {
+    font-size: 2.8rem;
+  }
+}

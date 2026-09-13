@@ -78,3 +78,27 @@
     justify-content: space-between;
   }
 }
+.flight-search-form__preview {
+  display: grid;
+  gap: 1.6rem;
+  margin-top: 2.4rem;
+  padding: 1.6rem;
+  background: var(--color-action);
+  border-radius: var(--radius-md);
+}
+@include ds.from(desktop) {
+  .flight-search-form__fields:has(> :nth-child(4)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .flight-search-form__frame:has(.flight-search-form__fields > :nth-child(4)) {
+    border-radius: var(--radius-lg);
+  }
+}
+.flight-search-form--results .flight-search-form__meta {
+  justify-content: flex-end;
+  margin-top: 0.4rem;
+  button {
+    min-height: 3.2rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

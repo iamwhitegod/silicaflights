@@ -1,6 +1,6 @@
 # SilicaFlights
 
-A responsive flight discovery landing page and design system built with Next.js 16, React 19, JavaScript, and Sass Modules. Search and signup use local demo adapters: they do not book flights, send personal information, or create subscriptions.
+A responsive flight discovery app and design system built with Next.js 16, React 19, JavaScript, and Sass Modules. Flight search uses Duffel test mode with worldwide airport lookup, one-way/round-trip results, filters, and itinerary details. Booking is unavailable; signup forms remain local demos.
 
 ## Development
 
@@ -11,22 +11,38 @@ npm run dev
 
 Open `http://localhost:3000` for the landing page and `/design-system` for the interactive component reference. The design-system route returns 404 outside development.
 
+## Duffel test search
+
+Copy `.env.example` to `.env.local` and set `DUFFEL_ACCESS_TOKEN` to a Duffel test access token. The setting is server-only and `.env.local` is ignored by Git. Restart the development server after changing it. Live tokens are deliberately rejected.
+
+Search from `/` or open `/flights` to choose a journey. Use exact dates, up to nine travelers (including an adult), and a separate age for every child aged 2–11. Infants travel on an adult’s lap. Round trips require a return date. Fare totals include taxes for all travelers, use the returned currency, and exclude optional extras. Times are local to each airport. Sandbox schedules and prices are illustrative.
+
+`GET /api/airports?query=...` provides airport suggestions; `POST /api/flights/search` validates criteria and returns a reduced offer response. Neither endpoint returns Duffel credentials or client keys. Offers are not stored in a database; reloading results performs another search. Failed requests display errors instead of substitute sample fares.
+
+Automated browser tests mock these endpoints, and unit tests mock the Duffel transport. The design-system search uses local fixtures. To separately verify the configured token against Duffel’s sandbox:
+
+```sh
+npm run test:duffel
+```
+
+This sends an airport lookup and a flight search; it creates no order. It prints only mode, result counts, and currencies. The supplied environment setting is for local development; deployment and live mode are separate work.
+
 ## Project structure
 
-| Location                       | Responsibility                                            |
-| ------------------------------ | --------------------------------------------------------- |
-| `src/app`                      | Routes, metadata, and private page composition            |
-| `src/components/ui`            | Domain-independent atoms and molecules                    |
-| `src/components/layout`        | Container, stack, grid, and section primitives            |
-| `src/components/site`          | Navigation and footer                                     |
-| `src/components/flight-search` | Search, filters, defaults, and validation                 |
-| `src/components/signup`        | Signup forms, shared submission hook, and validation      |
-| `src/data`                     | Shared travel reference data                              |
-| `src/lib`                      | Shared utilities and demo submission adapters             |
-| `src/styles`                   | Global styles, tokens, and Sass mixins                    |
-| `assets/fonts`                 | Local Switzer, Recoleta Alt, and Cintarini fonts          |
-| `public/images`                | Local images and provenance manifest                      |
-| `tests/e2e`                    | Playwright behavior, accessibility, and responsive checks |
+| Location                       | Responsibility                                              |
+| ------------------------------ | ----------------------------------------------------------- |
+| `src/app`                      | Routes, metadata, and private page composition              |
+| `src/components/ui`            | Domain-independent atoms and molecules                      |
+| `src/components/layout`        | Container, stack, grid, and section primitives              |
+| `src/components/site`          | Navigation and footer                                       |
+| `src/components/flight-search` | Search, filters, defaults, and validation                   |
+| `src/components/signup`        | Signup forms, shared submission hook, and validation        |
+| `src/data`                     | Shared travel reference data                                |
+| `src/lib`                      | Shared utilities, Duffel transport, and submission adapters |
+| `src/styles`                   | Global styles, tokens, and Sass mixins                      |
+| `assets/fonts`                 | Local Switzer, Recoleta Alt, and Cintarini fonts            |
+| `public/images`                | Local images and provenance manifest                        |
+| `tests/e2e`                    | Playwright behavior, accessibility, and responsive checks   |
 
 `src/app/(landing-page)` owns `/`, and `src/app/design-system` owns the development showcase. The root layout supplies shared fonts and global styling.
 
@@ -38,6 +54,7 @@ Each reusable component has a named `.jsx` file and a colocated Sass Module when
 npm run lint
 npm run format:check
 npm test
+npm run test:unit
 npm run build
 ```
 

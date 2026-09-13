@@ -6,6 +6,7 @@ import { FlightSearchForm } from '@/components/flight-search/flight-search-form/
 import { FounderSignupForm } from '@/components/signup/founder-signup-form/founder-signup-form';
 import { WeeklyDealsForm } from '@/components/signup/weekly-deals-form/weekly-deals-form';
 import { demoSubmit, demoFailure } from '@/lib/demo-submission';
+import { demoFlightSearch } from '@/data/flight-fixtures';
 import { Chapter } from '../chapter/chapter';
 import { Specimen } from '../specimen/specimen';
 import styles from './forms-section.module.scss';
@@ -16,8 +17,9 @@ export function FormsSection() {
       <div className={styles['forms-section__search-preview']}>
         <Navigation />
         <FlightSearchForm
+          demo
           idPrefix="showcase-flight"
-          onSubmit={failure ? demoFailure : demoSubmit}
+          onSubmit={failure ? demoFailure : demoFlightSearch}
         />
       </div>
       <div className={styles['forms-section__demo-control']}>

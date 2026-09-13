@@ -1,0 +1,50 @@
+.flight-details {
+  display: grid;
+  gap: 2.4rem;
+  padding-top: 2.4rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+  h4 {
+    font-size: 1.6rem;
+  }
+  dt {
+    margin-top: 1.2rem;
+    font-weight: 600;
+  }
+  dd {
+    margin: 0;
+  }
+}
+.flight-details__price {
+  font-size: 2.4rem;
+  font-weight: 600;
+  span {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+}
+.flight-details__segments {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.6rem;
+  li {
+    padding: 1.6rem;
+    border-radius: 1rem;
+    background: var(--color-surface);
+  }
+  p {
+    margin-top: 0.8rem;
+    font-size: 1.4rem;
+  }
+}
+.flight-details__connection {
+  color: var(--color-action);
+  font-weight: 600;
+}

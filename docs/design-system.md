@@ -64,7 +64,7 @@ Component classes follow BEM throughout the app and showcase: `block`, `block__e
 | Signup forms      | Async `onSubmit(values)`, optional unique `idPrefix`. Weekly values contain name, email, departures, interests; founder signup uses email.                                                                                                                     |
 | FlightSearchForm  | Async `onSubmit(values)`, `initialDestination` airport code, optional unique `idPrefix`. Values contain origin, destination, departure, filters.                                                                                                               |
 
-`onSubmit` resolves for success and throws for failure. Production service integrations must replace the demo adapter and demo copy together; the current adapter sends no requests and stores no personal data. Duplicate submissions are guarded while pending.
+`onSubmit` resolves for success and throws for failure. Public flight search navigates to Duffel test results; its optional submission callback can supply local showcase fixtures. Signup callbacks remain local demos. Duplicate submissions are guarded while pending.
 
 ## Interaction and state rules
 
@@ -94,7 +94,7 @@ Intentional differences from the Figma frames:
 - Input borders no longer change height on focus.
 - Both layouts show six destinations, with consistently cropped images and corrected copy.
 - The destination heading does not claim location awareness. Fares and founder availability are labeled sample content.
-- Signup and search outcomes explicitly identify the demo; no subscription or booking is claimed.
+- Signup outcomes identify the demo, public search identifies Duffel test mode, and showcase search uses local sample offers. No subscription or booking is claimed.
 - Navigation is present on both desktop and mobile. Destination links prefill search through a query parameter.
 - Background illustration positioning is responsive; surrounding content uses normal document flow.
 

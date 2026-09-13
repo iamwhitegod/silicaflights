@@ -26,22 +26,49 @@ export function Combobox({
   compact = false,
   disabled,
   required,
+  loadOptions,
 }) {
   const generatedId = useId();
   const id = suppliedId || generatedId;
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
-  const filtered = options.filter((option) =>
+  const [remote, setRemote] = useState({ query: '', options: [], error: '' });
+  const [retry, setRetry] = useState(0);
+  const searching = !!loadOptions && open && query.trim().length >= 2;
+  const loading = searching && remote.query !== query;
+  const available = searching && remote.query === query && !remote.error ? remote.options : options;
+  const filtered = available.filter((option) =>
     `${option.label} ${option.detail || ''}`.toLowerCase().includes(query.toLowerCase()),
   );
   const selected = options.find((option) => option.value === value);
+  useEffect(() => {
+    if (!searching) return;
+    const controller = new AbortController();
+    const timeout = setTimeout(async () => {
+      try {
+        const next = await loadOptions(query.trim(), controller.signal);
+        if (!controller.signal.aborted) setRemote({ query, options: next, error: '' });
+      } catch (error) {
+        if (!controller.signal.aborted)
+          setRemote({
+            query,
+            options: [],
+            error: error.message || 'Search unavailable. Try again.',
+          });
+      }
+    }, 300);
+    return () => {
+      clearTimeout(timeout);
+      controller.abort();
+    };
+  }, [query, searching, loadOptions, retry]);
   useEffect(() => {
     if (open)
       document.getElementById(`${id}-option-${active}`)?.scrollIntoView({ block: 'nearest' });
   }, [open, active, id]);
   function choose(option) {
-    onValueChange(option.value);
+    onValueChange(option.value, option);
     setQuery('');
     setOpen(false);
     setActive(0);
@@ -78,6 +105,8 @@ export function Combobox({
           disabled={disabled}
           required={required}
           autoComplete="off"
+          maxLength={100}
+          aria-busy={loading || undefined}
           placeholder={placeholder}
           value={open ? query : selected?.label || ''}
           onFocus={() => {
@@ -147,7 +176,26 @@ export function Combobox({
               </li>
             ))}
           </ul>
-          {!filtered.length && (
+          {loading && (
+            <p className={styles['combobox__empty']} role="status">
+              Searching airports…
+            </p>
+          )}
+          {searching && remote.query === query && remote.error && (
+            <div className={styles['combobox__empty']} role="status">
+              <p>{remote.error}</p>
+              <button
+                type="button"
+                onClick={() => {
+                  setRemote({ query: '', options: [], error: '' });
+                  setRetry((value) => value + 1);
+                }}
+              >
+                Retry airport search
+              </button>
+            </div>
+          )}
+          {!filtered.length && !loading && !(searching && remote.error) && (
             <p className={styles['combobox__empty']} role="status">
               No matching places. Try another city.
             </p>

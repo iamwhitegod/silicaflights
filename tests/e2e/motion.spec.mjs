@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../support/fixtures.mjs';
 
 test.use({ video: 'on' });
 
@@ -68,7 +68,7 @@ test('rapid tab changes and repeated dialog closes retain a usable form', async 
     await page.keyboard.press('Home');
     await page.keyboard.press('ArrowRight');
     await page.keyboard.press('ArrowRight');
-    await expect(modal(page).getByRole('tab', { name: 'Schedule', exact: true })).toBeFocused();
+    await expect(modal(page).getByRole('tab', { name: 'Travelers', exact: true })).toBeFocused();
     await expect(modal(page).getByRole('tabpanel')).toHaveCount(1);
     await expect(modal(page).getByRole('tabpanel')).toHaveCSS('opacity', '1');
     await page.keyboard.press('Escape');

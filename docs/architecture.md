@@ -4,18 +4,18 @@
 
 Application code lives in `src/`. Configuration, scripts, documentation, fonts, and public assets stay at the root. `@/` resolves to `src/` through `jsconfig.json`.
 
-| Owner                      | Contains                                             | May depend on                                              |
-| -------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- |
-| `app`                      | Routes, metadata, private page components, page copy | Components, shared data, utilities, explicit page examples |
-| `components/ui`            | Domain-independent atoms and molecules               | Other UI primitives, generic utilities                     |
-| `components/layout`        | Structural primitives                                | Generic utilities and shared styles                        |
-| `components/site`          | Navigation and footer                                | UI, layout, shared data and utilities                      |
-| `components/flight-search` | Search UI, settings editor, defaults, validation     | UI, layout, shared data and utilities                      |
-| `components/signup`        | Founder/weekly forms, submission hook, validation    | UI, shared data and utilities                              |
-| `data`                     | Shared travel reference data                         | Shared data and utilities                                  |
-| `lib`                      | Small shared utilities and demo adapters             | Generic libraries and utilities                            |
+| Owner                      | Contains                                                           | May depend on                                              |
+| -------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------- |
+| `app`                      | Routes, metadata, private page components, page copy               | Components, shared data, utilities, explicit page examples |
+| `components/ui`            | Domain-independent atoms and molecules                             | Other UI primitives, generic utilities                     |
+| `components/layout`        | Structural primitives                                              | Generic utilities and shared styles                        |
+| `components/site`          | Navigation and footer                                              | UI, layout, shared data and utilities                      |
+| `components/flight-search` | Search UI, settings editor, defaults, validation                   | UI, layout, shared data and utilities                      |
+| `components/signup`        | Founder/weekly forms, submission hook, validation                  | UI, shared data and utilities                              |
+| `data`                     | Shared travel reference data                                       | Shared data and utilities                                  |
+| `lib`                      | Shared utilities, flight request/offer logic, and service adapters | Generic libraries and utilities                            |
 
-Dependencies flow from page composition into domain components and shared primitives. Shared code cannot import from `app`. UI/layout primitives cannot depend on domain components or travel data. Utilities and data cannot depend on components. ESLint enforces these boundaries for alias and relative imports.
+Dependencies flow from page composition into domain components and shared primitives. Shared code cannot import from `app`. UI/layout primitives cannot depend on domain components or travel data. Utilities and data cannot depend on components. `lib/flights` owns shared request validation, query serialization, offer normalization, and transport; its `duffel.js` entry point is server-only and reads credentials. Domain components import pure flight logic directly. ESLint enforces these boundaries for alias and relative imports.
 
 The design-system route intentionally renders landing-page cards as examples. Those imports remain within `app`; the cards retain their page ownership.
 
@@ -122,9 +122,9 @@ import styles from './flight-search-form.module.scss';
 - Share stateful behavior through focused hooks. `useSignupSubmission` owns validation, invalid-field focus, pending protection, and loading/success/error states for separately composed forms.
 - Use effects to synchronize with browser APIs, such as dialogs and query-driven focus. Handle direct user actions in event handlers.
 - Use explicit props and callbacks. Document complex value shapes and callback contracts with JSDoc. Submission callbacks resolve on success and throw on failure.
-- Keep validation pure and local to its feature. Shared dates live in `lib/dates.js`; travel data lives in `data/travel-locations.js`.
+- Keep validation pure and local to its feature. Shared dates live in `lib/dates.js`; travel data lives in `data/travel-locations.js`. Flight criteria live in `lib/flights/search.js` so server validation and client controls share one contract.
 - Keep React Compiler enabled. Add manual memoization only for an identified need.
-- Preserve `/`, destination query initialization, and the development-only `/design-system` route. Demo adapters send no network requests and persist no personal information.
+- Preserve `/`, destination query initialization, and the development-only `/design-system` route. Signup and design-system demo adapters send no network requests and persist no personal information. Public flight search uses the server API routes; the design-system explicitly opts into local fixtures.
 
 ## Styling
 

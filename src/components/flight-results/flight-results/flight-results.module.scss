@@ -1,0 +1,262 @@
+.flight-results {
+  min-height: 100svh;
+  position: relative;
+  isolation: isolate;
+  color: white;
+  padding: 2.4rem 1.6rem 6.4rem;
+  background: #0089fc;
+}
+.flight-results__background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #0089fc url('/images/results-mobile.png') center top / cover no-repeat;
+  pointer-events: none;
+}
+.flight-results__header {
+  max-width: 128.9rem;
+  margin: 0 auto;
+  position: relative;
+}
+.flight-results__back {
+  display: grid;
+  place-items: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  margin: -0.8rem 0 1.6rem;
+  img {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+  &:hover {
+    background: rgb(0 30 60 / 35%);
+  }
+}
+.flight-results__desktop-search {
+  display: none;
+}
+.flight-results__mobile-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  width: 100%;
+  color: white;
+  background: rgb(0 25 65 / 65%);
+  border: 0;
+  border-radius: 10rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  span {
+    border-radius: 10rem;
+    background: rgb(255 255 255 / 18%);
+    padding: 1rem 1.2rem;
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: 1.4rem;
+  }
+  img {
+    flex: 0 0 2rem;
+  }
+}
+.flight-results__content {
+  max-width: 103.9rem;
+  margin: 3.2rem auto 0;
+}
+.flight-results__notice {
+  display: table;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background: rgb(0 25 65 / 75%);
+  margin-bottom: 1.2rem;
+}
+.flight-results__dates {
+  font-size: 1.4rem;
+  display: table;
+  background: rgb(0 25 65 / 65%);
+  border-radius: 1rem;
+  padding: 0.4rem 1rem;
+  margin-bottom: 1.6rem;
+}
+.flight-results__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 2.4rem;
+}
+.flight-results__count {
+  font-weight: 600;
+  background: rgb(0 25 65 / 65%);
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+}
+.flight-results__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.flight-results__select select {
+  max-width: 100%;
+  min-height: 4.4rem;
+  color: white;
+  border: none;
+  border-radius: 10rem;
+  background: rgb(0 25 65 / 75%);
+  padding: 0.8rem 1.2rem;
+  font: inherit;
+  cursor: pointer;
+  option {
+    background: #173c67;
+    color: white;
+  }
+}
+.flight-results__budget {
+  background: rgb(0 25 65 / 75%);
+  border-radius: 1.6rem;
+  margin: -0.8rem 0 2.4rem;
+  padding: 0.8rem 1.6rem;
+  summary {
+    cursor: pointer;
+    min-height: 3.2rem;
+    align-content: center;
+    font-size: 1.4rem;
+  }
+}
+.flight-results__budget-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  align-items: end;
+  padding: 1.2rem 0;
+  > label {
+    flex: 1;
+    min-width: 15rem;
+    font-size: 1.2rem;
+  }
+  input {
+    display: block;
+    width: 100%;
+    margin-top: 0.4rem;
+    min-height: 4.4rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 1rem;
+    color: #173c67;
+    background: white;
+    font: inherit;
+    font-size: 1.6rem;
+  }
+}
+.flight-results__message {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 4.8rem 2.4rem;
+  text-align: center;
+  background: rgb(3 31 65 / 80%);
+  backdrop-filter: blur(3rem);
+  border-radius: 2rem;
+  h2,
+  p {
+    width: 100%;
+  }
+  h2 {
+    font-size: 2.4rem;
+  }
+}
+.flight-results__list {
+  display: grid;
+  gap: 1.6rem;
+}
+.flight-results__more {
+  display: flex;
+  margin: 3.2rem auto 0;
+}
+@media (min-width: 900px) {
+  .flight-results {
+    padding: 3.8rem 4.8rem 6.4rem;
+  }
+  .flight-results__background {
+    background-image: url('/images/results-desktop.png'), url('/images/results-sky.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .flight-results__desktop-search {
+    display: flex;
+    justify-content: center;
+    padding: 0 5.6rem;
+  }
+  .flight-results__mobile-search {
+    display: none;
+  }
+  .flight-results__back {
+    position: absolute;
+    left: 0;
+    top: 1.6rem;
+  }
+  .flight-results__content {
+    margin-top: 4rem;
+  }
+}
+.flight-results__mobile-search {
+  flex-wrap: wrap;
+  border-radius: 2.4rem;
+  small {
+    width: 100%;
+    font-size: 1.2rem;
+    padding-bottom: 0.4rem;
+  }
+}
+.flight-results__content {
+  margin-top: 2.4rem;
+}
+.flight-results__filters {
+  position: relative;
+}
+.flight-results__budget {
+  padding: 0;
+  margin: 0;
+  background: none;
+  summary {
+    padding: 0.8rem 1.2rem;
+    min-height: 4.4rem;
+    border-radius: 10rem;
+    background: rgb(0 25 65 / 75%);
+  }
+}
+.flight-results__budget-fields {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: calc(100% + 0.8rem);
+  width: min(48rem, calc(100vw - 3.2rem));
+  padding: 1.6rem;
+  border-radius: 1.6rem;
+  background: #123a63;
+  box-shadow: var(--shadow-popover);
+}
+@media (min-width: 900px) {
+  .flight-results__content {
+    margin-top: 1.6rem;
+  }
+  .flight-results__toolbar {
+    flex-wrap: nowrap;
+    align-items: start;
+  }
+  .flight-results__count {
+    flex-shrink: 0;
+    align-content: center;
+    min-height: 4.4rem;
+  }
+  .flight-results__filters {
+    justify-content: flex-end;
+  }
+}

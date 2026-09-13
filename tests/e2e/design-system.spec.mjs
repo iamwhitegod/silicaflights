@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../support/fixtures.mjs';
 import AxeBuilder from '@axe-core/playwright';
 
 test.beforeEach(async ({ page }) => {
@@ -67,6 +67,7 @@ test('signup validates, simulates failure, retries, and removes chips', async ({
   await expect(form.getByRole('status')).toContainText('Nothing was submitted');
 });
 test('design system has no serious accessibility violations', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   const report = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
     .analyze();

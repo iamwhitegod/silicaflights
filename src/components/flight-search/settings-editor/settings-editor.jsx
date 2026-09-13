@@ -20,18 +20,6 @@ export function SettingsEditor({ initial, onApply, onCancel, departure }) {
   const [tab, setTab] = useState('details');
   const [errors, setErrors] = useState({});
   const set = (key, value) => setDraft((previous) => ({ ...previous, [key]: value }));
-  const field = (key, label, type = 'number') => (
-    <TextField
-      key={key}
-      label={label}
-      type={type}
-      min={type === 'number' ? '0' : undefined}
-      step={type === 'number' ? '0.01' : undefined}
-      value={draft[key]}
-      onChange={(event) => set(key, event.target.value)}
-      error={errors[key]}
-    />
-  );
   const date = (key, label) => (
     <DateField
       key={key}
@@ -83,30 +71,17 @@ export function SettingsEditor({ initial, onApply, onCancel, departure }) {
       ),
     },
     {
-      value: 'price',
-      label: 'Price range',
-      content: (
-        <div className={styles['settings-editor__pair']}>
-          {field('minPrice', 'Minimum price (USD)')}
-          {field('maxPrice', 'Maximum price (USD)')}
-        </div>
-      ),
-    },
-    {
       value: 'schedule',
       label: 'Schedule',
       content: (
         <Stack>
           <div className={styles['settings-editor__pair']}>
-            {date('departStart', 'Earliest departure')}
-            {date('departEnd', 'Latest departure')}
             {time('departTimeStart', 'Earliest departure time')}
             {time('departTimeEnd', 'Latest departure time')}
           </div>
           {draft.trip === 'round-trip' && (
             <div className={styles['settings-editor__pair']}>
-              {date('returnStart', 'Earliest return')}
-              {date('returnEnd', 'Latest return')}
+              {date('returnDate', 'Return date')}
               {time('returnTimeStart', 'Earliest return time')}
               {time('returnTimeEnd', 'Latest return time')}
             </div>
@@ -122,16 +97,50 @@ export function SettingsEditor({ initial, onApply, onCancel, departure }) {
           {[
             ['adults', 'Adults (12+ years)', 1],
             ['children', 'Children (2–11 years)', 0],
-            ['infants', 'Infants (under 2)', 0],
+            ['infants', 'Infants on lap (under 2)', 0],
           ].map(([key, label, min]) => (
             <NumberStepper
               key={key}
               label={label}
               value={draft[key]}
               min={min}
-              onValueChange={(value) => set(key, value)}
+              onValueChange={(value) => {
+                setDraft((previous) => ({
+                  ...previous,
+                  [key]: value,
+                  ...(key === 'children'
+                    ? {
+                        childAges: Array.from(
+                          { length: value },
+                          (_, index) => previous.childAges[index] ?? '',
+                        ),
+                      }
+                    : {}),
+                }));
+              }}
             />
           ))}
+          {Array.from({ length: draft.children }, (_, index) => (
+            <TextField
+              key={index}
+              label={`Child ${index + 1} age on departure`}
+              type="number"
+              min="2"
+              max="11"
+              step="1"
+              value={draft.childAges[index] ?? ''}
+              onChange={(event) => {
+                const ages = [...draft.childAges];
+                ages[index] = event.target.value === '' ? '' : Number(event.target.value);
+                set('childAges', ages);
+              }}
+              error={errors.childAges}
+            />
+          ))}
+          <Text size="caption" tone="muted">
+            Up to 9 travelers. Each infant travels on an adult’s lap.
+          </Text>
+          {errors.travelers && <Status kind="error">{errors.travelers}</Status>}
           {errors.infants && <Status kind="error">{errors.infants}</Status>}
         </Stack>
       ),
@@ -147,7 +156,11 @@ export function SettingsEditor({ initial, onApply, onCancel, departure }) {
         setErrors(next);
         if (Object.keys(next).length) {
           setTab(
-            next.minPrice || next.maxPrice ? 'price' : next.infants ? 'travelers' : 'schedule',
+            next.travelers || next.infants || next.childAges
+              ? 'travelers'
+              : next.trip || next.cabin
+                ? 'details'
+                : 'schedule',
           );
           return;
         }

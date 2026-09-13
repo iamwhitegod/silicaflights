@@ -130,5 +130,41 @@
     "src": "/images/loading.svg",
     "sourceNode": "441:751",
     "url": "https://www.figma.com/api/mcp/asset/5e827093-0450-40ba-9e02-adb634bb1fea.svg"
+  },
+  {
+    "name": "results-desktop",
+    "src": "/images/results-desktop.png",
+    "sourceNode": "472:2204",
+    "url": "https://www.figma.com/api/mcp/asset/9ab1fd25-ed99-423b-8841-edd941ac214b.png"
+  },
+  {
+    "name": "results-mobile",
+    "src": "/images/results-mobile.png",
+    "sourceNode": "547:2700",
+    "url": "https://www.figma.com/api/mcp/asset/4ba68a35-1bc1-4acd-abba-5d5552c19895.png"
+  },
+  {
+    "name": "results-sky",
+    "src": "/images/results-sky.png",
+    "sourceNode": "394:1134",
+    "url": "https://www.figma.com/api/mcp/asset/cc1b9148-b599-4a33-91c8-c27544532ecf.png"
+  },
+  {
+    "name": "flight-plane",
+    "src": "/images/flight-plane.svg",
+    "sourceNode": "394:1887",
+    "url": "https://www.figma.com/api/mcp/asset/2250d1f7-9477-41b6-8c1a-3781d0685da5.svg"
+  },
+  {
+    "name": "flight-back",
+    "src": "/images/flight-back.svg",
+    "sourceNode": "547:2700",
+    "url": "https://www.figma.com/api/mcp/asset/d3716bb5-41b6-4911-b5cf-7f8ffc9d7c3d.svg"
+  },
+  {
+    "name": "flight-forward",
+    "src": "/images/flight-forward.svg",
+    "sourceNode": "547:2700",
+    "url": "https://www.figma.com/api/mcp/asset/6f4105ae-44ae-45f6-ae8b-69c9ad08e0de.svg"
   }
 ]

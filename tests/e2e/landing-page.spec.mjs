@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../support/fixtures.mjs';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdir } from 'node:fs/promises';
 
@@ -36,7 +36,7 @@ for (const width of [320, 393, 768, 1024, 1445]) {
     });
   });
 }
-test('search validates airports and dates, then presents a demo summary', async ({ page }) => {
+test('search validates airports and dates, then opens flight results', async ({ page }) => {
   await page.goto('/');
   const form = page.getByRole('form', { name: 'Flight search', exact: true });
   await form.getByRole('button', { name: 'Search flights' }).click();
@@ -52,11 +52,9 @@ test('search validates airports and dates, then presents a demo summary', async 
   await expect(form.getByText('Choose a different destination airport.')).toBeVisible();
   await choose(page, 'To', 'Dubai');
   await form.getByRole('button', { name: 'Search flights' }).click();
-  const dialog = page.getByRole('dialog', { name: 'Your demo flight search' });
-  await expect(dialog).toBeVisible();
-  await expect(dialog).toContainText('Lagos');
-  await expect(dialog).toContainText('Dubai');
-  await expect(dialog).toContainText('no booking was made');
+  await expect(page).toHaveURL(/\/flights\?/);
+  await expect(page.getByRole('article')).toBeVisible();
+  await expect(page.getByText(/Test mode · sample fares and schedules/)).toBeVisible();
 });
 test('advanced filters apply, cancel, clear, and validate ranges', async ({ page }) => {
   await page.goto('/');
@@ -67,18 +65,19 @@ test('advanced filters apply, cancel, clear, and validate ranges', async ({ page
   await dialog.getByRole('button', { name: 'Cancel', exact: true }).click();
   await trigger.click();
   await expect(dialog.getByRole('radio', { name: 'One-way', exact: true })).toBeChecked();
-  await dialog.getByRole('tab', { name: 'Price range', exact: true }).click();
-  await dialog.getByLabel('Minimum price (USD)').fill('1000');
-  await dialog.getByLabel('Maximum price (USD)').fill('500');
+  await dialog.getByRole('tab', { name: 'Travelers', exact: true }).click();
+  await dialog.getByRole('button', { name: 'Increase Children (2–11 years)', exact: true }).click();
   await dialog.getByRole('button', { name: 'Apply filters' }).click();
-  await expect(dialog.getByText('Maximum price must be at least the minimum.')).toBeVisible();
-  await dialog.getByLabel('Maximum price (USD)').fill('1500');
+  await expect(
+    dialog.getByText('Enter an age from 2 to 11 for each child on the departure date.'),
+  ).toBeVisible();
+  await dialog.getByLabel('Child 1 age on departure').fill('5');
   await dialog.getByRole('button', { name: 'Apply filters' }).click();
   await trigger.click();
-  await dialog.getByRole('tab', { name: 'Price range', exact: true }).click();
-  await expect(dialog.getByLabel('Maximum price (USD)')).toHaveValue('1500');
+  await dialog.getByRole('tab', { name: 'Travelers', exact: true }).click();
+  await expect(dialog.getByLabel('Child 1 age on departure')).toHaveValue('5');
   await dialog.getByRole('button', { name: 'Clear filters' }).click();
-  await expect(dialog.getByLabel('Maximum price (USD)')).toHaveValue('');
+  await expect(dialog.getByLabel('Child 1 age on departure')).toHaveCount(0);
   const report = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
     .analyze();

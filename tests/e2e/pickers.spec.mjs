@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../support/fixtures.mjs';
 import AxeBuilder from '@axe-core/playwright';
 
 const field = (page, label) => page.getByLabel(label, { exact: true });
@@ -165,7 +165,7 @@ for (const width of [320, 1445]) {
     const modal = page.getByRole('dialog', { name: 'Advanced search', exact: true });
     await modal.getByRole('radio', { name: 'Round trip', exact: true }).check();
     await modal.getByRole('tab', { name: 'Schedule', exact: true }).click();
-    for (const label of ['Earliest departure', 'Earliest return time']) {
+    for (const label of ['Return date', 'Earliest return time']) {
       const trigger = field(page, label);
       await trigger.click();
       const popup = picker(page, label);
