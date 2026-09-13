@@ -123,7 +123,7 @@
   border: none;
   border-radius: 10rem;
   background: rgb(0 25 65 / 75%);
-  padding: 0.8rem 3.6rem 0.8rem 1.6rem;
+  padding: 0.8rem 3.2rem 0.8rem 1.6rem;
   font: inherit;
   line-height: 2rem;
   cursor: pointer;
@@ -207,7 +207,7 @@
 }
 @media (min-width: 900px) {
   .flight-results {
-    padding: 3.8rem 4.8rem 6.4rem;
+    padding: 6.4rem 4.8rem 6.4rem;
   }
   .flight-results__background {
     background-image: url('/images/results-desktop.png'), url('/images/results-sky.png');
@@ -251,7 +251,7 @@
   margin: 0;
   background: none;
   summary {
-    padding: 0.8rem 3.6rem 0.8rem 1.6rem;
+    padding: 0.8rem 3.2rem 0.8rem 1.6rem;
     min-height: 4.4rem;
     border-radius: 10rem;
     background: rgb(0 25 65 / 75%);
