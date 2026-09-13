@@ -120,13 +120,20 @@ export function FlightSearchForm({
                 options={selectedAirports}
                 value={values[key]}
                 loadOptions={demo ? undefined : loadAirports}
+                openOnFocus={false}
                 onValueChange={(value, option) => {
                   set(key, value);
-                  if (option)
+                  if (option) {
                     setSelectedAirports((previous) => [
                       ...previous.filter((a) => a.value !== value),
                       option,
                     ]);
+                    const nextField = document.getElementById(
+                      `${idPrefix}-${key === 'origin' ? 'destination' : 'departure'}`,
+                    );
+                    if (nextField && !nextField.disabled && nextField.getClientRects().length)
+                      nextField.focus();
+                  }
                 }}
                 error={errors[key]}
                 disabled={loading}

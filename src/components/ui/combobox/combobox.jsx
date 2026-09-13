@@ -10,9 +10,9 @@ import styles from './combobox.module.scss';
 /**
  * Controlled selection; free text filters options but does not commit a value.
  * @param {{label: string, options: SelectOption[], value: string,
- *   onValueChange: (value: string) => void, error?: string, hint?: string,
+ *   onValueChange: (value: string, option?: SelectOption) => void, error?: string, hint?: string,
  *   placeholder?: string, id?: string, compact?: boolean,
- *   disabled?: boolean, required?: boolean}} props
+ *   disabled?: boolean, required?: boolean, openOnFocus?: boolean}} props
  */
 export function Combobox({
   label,
@@ -27,6 +27,7 @@ export function Combobox({
   disabled,
   required,
   loadOptions,
+  openOnFocus = true,
 }) {
   const generatedId = useId();
   const id = suppliedId || generatedId;
@@ -111,7 +112,7 @@ export function Combobox({
           value={open ? query : selected?.label || ''}
           onFocus={() => {
             setQuery(selected?.label || '');
-            setOpen(true);
+            setOpen(openOnFocus);
             setActive(0);
           }}
           onClick={() => {
