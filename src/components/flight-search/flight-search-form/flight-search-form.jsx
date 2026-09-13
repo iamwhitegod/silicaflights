@@ -166,7 +166,7 @@ export function FlightSearchForm({
         <div className={styles['flight-search-form__meta']}>
           {!results && (
             <Text size="caption">
-              {demo ? 'Design preview' : 'Test mode · sample fares'} · {travelers} traveler
+              {travelers} traveler
               {travelers === 1 ? '' : 's'}
             </Text>
           )}
@@ -198,8 +198,8 @@ export function FlightSearchForm({
         onOpenChange={(open) => {
           if (!open) setPreview(null);
         }}
-        title="Flight search preview"
-        description="Local sample results for the design system."
+        title="Flight results"
+        description="Compare flights for your selected journey."
       >
         <div className={styles['flight-search-form__preview']}>
           {preview?.offers.map((offer) => (

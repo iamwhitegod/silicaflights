@@ -4,5 +4,5 @@ export async function demoSubmit() {
 
 export async function demoFailure() {
   await demoSubmit();
-  throw new Error('The demo request failed. Please try again.');
+  throw new Error('The request failed. Please try again.');
 }

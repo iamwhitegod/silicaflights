@@ -78,9 +78,6 @@ export function LandingPage({ initialDestination = '' }) {
               </Heading>
             </div>
             <DestinationGrid items={destinations} />
-            <Text size="caption" tone="muted" className={styles['landing-page__fare-note']}>
-              Sample fares for inspiration. Prices are not live.
-            </Text>
           </Container>
         </Section>
         <Section id="founder" aria-labelledby="founder-title">
@@ -102,9 +99,6 @@ export function LandingPage({ initialDestination = '' }) {
                 </Heading>
                 <Text>Get in early. Pay less on all trips forever.</Text>
                 <FounderSignupForm />
-                <Text size="caption" className={styles['landing-page__spots']}>
-                  53 founder spots left · sample availability
-                </Text>
               </div>
             </div>
           </Container>

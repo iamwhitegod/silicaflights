@@ -77,7 +77,7 @@ test('results sort, filter, paginate, and display accessible itinerary details',
   const dialog = page.getByRole('dialog', { name: 'Itinerary details' });
   await expect(dialog).toContainText('1 checked bag');
   await expect(dialog).toContainText('Changes before departure');
-  await expect(dialog).toContainText('Booking is not available');
+  await expect(dialog).toContainText('Times are local to each airport.');
   await expect(dialog).toContainText('Duffel Airways');
   await expect(dialog).toHaveCSS('opacity', '1');
   expect(

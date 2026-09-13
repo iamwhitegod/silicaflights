@@ -188,9 +188,6 @@ export function FlightResults({ initialValues }) {
         </button>
       </header>
       <div className={styles['flight-results__content']}>
-        <p className={styles['flight-results__notice']}>
-          Test mode · sample fares and schedules · booking unavailable
-        </p>
         <div className={styles['flight-results__toolbar']}>
           <p role="status" className={styles['flight-results__count']}>
             {status === 'loading'

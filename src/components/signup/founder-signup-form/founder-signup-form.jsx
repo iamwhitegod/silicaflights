@@ -46,7 +46,7 @@ export function FounderSignupForm({ onSubmit = demoSubmit, idPrefix = 'founder' 
                 {status === 'loading'
                   ? 'Joining…'
                   : status === 'success'
-                    ? 'Demo complete'
+                    ? 'Done'
                     : status === 'error'
                       ? 'Try again'
                       : 'Join'}

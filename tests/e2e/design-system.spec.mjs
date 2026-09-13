@@ -61,10 +61,12 @@ test('signup validates, simulates failure, retries, and removes chips', async ({
   await expect(form.getByRole('button', { name: 'Remove Nigeria' })).toHaveCount(0);
   await page.getByLabel('Simulate submission failure').check();
   await form.getByRole('button', { name: 'Subscribe', exact: true }).click();
-  await expect(form.getByText('The demo request failed. Please try again.')).toBeVisible();
+  await expect(form.getByText('The request failed. Please try again.')).toBeVisible();
   await page.getByLabel('Simulate submission failure').uncheck();
   await form.getByRole('button', { name: 'Try again' }).click();
-  await expect(form.getByRole('status')).toContainText('Nothing was submitted');
+  await expect(form.getByRole('status')).toContainText(
+    'Thanks for your interest in SilicaFlights!',
+  );
 });
 test('design system has no serious accessibility violations', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });

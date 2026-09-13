@@ -109,7 +109,7 @@ export function FieldsSection() {
           <Specimen title="Destination card">
             <DestinationCard {...destinations[0]} />
             <Text size="caption" tone="muted">
-              Sample fare. Selecting the card prefills search.
+              Selecting the card prefills search.
             </Text>
           </Specimen>
         </div>

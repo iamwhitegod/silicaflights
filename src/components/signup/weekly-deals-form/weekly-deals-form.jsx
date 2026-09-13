@@ -71,9 +71,9 @@ export function WeeklyDealsForm({ onSubmit = demoSubmit, idPrefix = 'weekly' }) 
           success={status === 'success'}
         >
           {status === 'loading'
-            ? 'Adding you to the demo list…'
+            ? 'Submitting…'
             : status === 'success'
-              ? 'Demo complete'
+              ? 'Done'
               : status === 'error'
                 ? 'Try again'
                 : 'Subscribe'}

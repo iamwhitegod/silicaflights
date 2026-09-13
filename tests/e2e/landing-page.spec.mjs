@@ -54,7 +54,7 @@ test('search validates airports and dates, then opens flight results', async ({ 
   await form.getByRole('button', { name: 'Search flights' }).click();
   await expect(page).toHaveURL(/\/flights\?/);
   await expect(page.getByRole('article')).toBeVisible();
-  await expect(page.getByText(/Test mode · sample fares and schedules/)).toBeVisible();
+  await expect(page.getByText(/Test mode · sample fares and schedules/)).toHaveCount(0);
 });
 test('advanced filters apply, cancel, clear, and validate ranges', async ({ page }) => {
   await page.goto('/');

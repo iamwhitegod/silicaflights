@@ -11,7 +11,7 @@ export class FlightServiceError extends Error {
 export async function duffelRequest(path, { data, signal, token, fetcher = fetch } = {}) {
   if (!token?.startsWith('duffel_test_'))
     throw new FlightServiceError(
-      'Test flight search is not configured. Please try again later.',
+      'Flight search is temporarily unavailable. Please try again later.',
       503,
     );
   try {

@@ -39,7 +39,7 @@ export function useSignupSubmission({ onSubmit, idPrefix, requireName = false })
       await onSubmit({ ...values, email: values.email.trim(), name: values.name.trim() });
       setStatus('success');
     } catch (error) {
-      setMessage(error.message || 'The demo request failed. Please try again.');
+      setMessage(error.message || 'The request failed. Please try again.');
       setStatus('error');
     } finally {
       pending.current = false;

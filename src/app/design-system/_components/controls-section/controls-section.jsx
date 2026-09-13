@@ -29,7 +29,7 @@ export function ControlsSection() {
             <div className={styles['controls-section__row']}>
               <Button disabled>Unavailable</Button>
               <Button loading>Searching…</Button>
-              <Button success>Demo complete</Button>
+              <Button success>Complete</Button>
               <IconButton label="Open settings" icon="settings" onClick={() => setModal(true)} />
             </div>
           </Specimen>
@@ -63,8 +63,8 @@ export function ControlsSection() {
             </Text>
           </Specimen>
           <Specimen title="Status messages">
-            <Status kind="info">Your choices stay in this demo.</Status>
-            <Status kind="success">Demo complete. Nothing was submitted.</Status>
+            <Status kind="info">Review your choices.</Status>
+            <Status kind="success">Complete.</Status>
             <Status kind="error">Something went wrong. Please try again.</Status>
           </Specimen>
         </div>

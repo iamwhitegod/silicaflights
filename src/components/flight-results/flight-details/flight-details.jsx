@@ -18,7 +18,7 @@ export function FlightDetails({ offer, onClose, expired = false }) {
         if (!open) onClose();
       }}
       title="Itinerary details"
-      description="Test offer · times are local to each airport. Booking is not available."
+      description="Times are local to each airport."
     >
       {offer && (
         <div className={styles['flight-details']}>

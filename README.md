@@ -31,7 +31,7 @@ This sends an airport lookup and a flight search; it creates no order. It prints
 
 Set `DUFFEL_ACCESS_TOKEN` to the Duffel test token in the Vercel project's **Settings → Environment Variables**, targeting **Production**. Use a sensitive environment variable and keep the token server-only. Add it separately to **Preview** if preview deployments need flight search. Vercel does not receive the ignored `.env.local` file through Git.
 
-Deploy again after saving the variable so the new deployment receives it. Verify that `/api/airports?query=Singapore` returns airport suggestions, then submit a flight search on the deployed site. A `503` response saying “Test flight search is not configured” means the deployment is missing a valid test token. Live mode remains unsupported.
+Deploy again after saving the variable so the new deployment receives it. Verify that `/api/airports?query=Singapore` returns airport suggestions, then submit a flight search on the deployed site. If search returns `503`, check that the deployment has a valid test token. Live mode remains unsupported.
 
 ## Project structure
 
