@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button/button';
 import { Modal } from '@/components/ui/modal/modal';
 import { Status } from '@/components/ui/status/status';
 import { Spinner } from '@/components/ui/spinner/spinner';
+import { Icon } from '@/components/ui/icon/icon';
 import { cabins, searchToQuery, validateSearch } from '@/lib/flights/search';
 import { filterOffers, formatLocalDate } from '@/lib/flights/offers';
 import { FlightOfferCard } from '../flight-offer-card/flight-offer-card';
@@ -139,6 +140,7 @@ export function FlightResults({ initialValues }) {
           </option>
         ))}
       </select>
+      <Icon name="chevron-right" size="sm" className={styles['flight-results__chevron']} />
     </label>
   );
   return (
@@ -245,7 +247,14 @@ export function FlightResults({ initialValues }) {
                   }
                 }}
               >
-                <summary>Filter by price{filters.currency ? ` (${filters.currency})` : ''}</summary>
+                <summary>
+                  Filter by price{filters.currency ? ` (${filters.currency})` : ''}
+                  <Icon
+                    name="chevron-right"
+                    size="sm"
+                    className={styles['flight-results__chevron']}
+                  />
+                </summary>
                 <div className={styles['flight-results__budget-fields']}>
                   {currencies.length > 1 &&
                     select(

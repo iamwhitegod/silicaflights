@@ -101,15 +101,31 @@
   flex-wrap: wrap;
   gap: 0.6rem;
 }
+.flight-results__select {
+  display: inline-flex;
+  position: relative;
+  max-width: 100%;
+}
+.flight-results__chevron {
+  position: absolute;
+  inset-inline-end: 1.2rem;
+  top: 50%;
+  width: 1.6rem;
+  height: 1.6rem;
+  pointer-events: none;
+  transform: translateY(-50%) rotate(90deg);
+}
 .flight-results__select select {
+  appearance: none;
   max-width: 100%;
   min-height: 4.4rem;
   color: white;
   border: none;
   border-radius: 10rem;
   background: rgb(0 25 65 / 75%);
-  padding: 0.8rem 1.2rem;
+  padding: 0.8rem 3.6rem 0.8rem 1.6rem;
   font: inherit;
+  line-height: 2rem;
   cursor: pointer;
   option {
     background: #173c67;
@@ -123,9 +139,18 @@
   padding: 0.8rem 1.6rem;
   summary {
     cursor: pointer;
-    min-height: 3.2rem;
-    align-content: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    list-style: none;
+    line-height: 2rem;
     font-size: 1.4rem;
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+  &[open] > summary .flight-results__chevron {
+    transform: translateY(-50%) rotate(-90deg);
   }
 }
 .flight-results__budget-fields {
@@ -226,7 +251,7 @@
   margin: 0;
   background: none;
   summary {
-    padding: 0.8rem 1.2rem;
+    padding: 0.8rem 3.6rem 0.8rem 1.6rem;
     min-height: 4.4rem;
     border-radius: 10rem;
     background: rgb(0 25 65 / 75%);
