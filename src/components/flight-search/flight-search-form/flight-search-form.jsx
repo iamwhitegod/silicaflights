@@ -65,6 +65,7 @@ export function FlightSearchForm({
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
   const pending = useRef(false);
+  const focusingInvalidField = useRef(false);
   const loading = busy || status === 'loading';
   const set = (key, value) => setValues((previous) => ({ ...previous, [key]: value }));
   useEffect(() => {
@@ -76,6 +77,16 @@ export function FlightSearchForm({
     }
   }, [idPrefix, initialDestination, scrollTo]);
 
+  function dismissErrors() {
+    // Submission moves focus to the invalid field; keep its new feedback visible.
+    if (focusingInvalidField.current) return;
+    setErrors((previous) => (Object.keys(previous).length ? {} : previous));
+    if (status === 'error') {
+      setStatus('idle');
+      setMessage('');
+    }
+  }
+
   async function submit(event) {
     event.preventDefault();
     if (pending.current || busy) return;
@@ -84,7 +95,9 @@ export function FlightSearchForm({
     });
     setErrors(next);
     if (Object.keys(next).length) {
+      focusingInvalidField.current = true;
       document.getElementById(`${idPrefix}-${Object.keys(next)[0]}`)?.focus();
+      focusingInvalidField.current = false;
 
       return;
     }
@@ -119,7 +132,13 @@ export function FlightSearchForm({
     >
       <form onSubmit={submit} noValidate aria-label="Flight search">
         <div className={styles['flight-search-form__frame']}>
-          <div className={styles['flight-search-form__fields']}>
+          <div
+            className={styles['flight-search-form__fields']}
+            onFocusCapture={dismissErrors}
+            onPointerDownCapture={dismissErrors}
+            onKeyDownCapture={dismissErrors}
+            onInputCapture={dismissErrors}
+          >
             {['origin', 'destination'].map((key) => (
               <Combobox
                 key={key}
@@ -172,18 +191,13 @@ export function FlightSearchForm({
             )}
           </div>
           <Button type="submit" loading={loading}>
-            {status === 'loading'
-              ? 'Searching…'
-              : status === 'error'
-                ? 'Try again'
-                : 'Search flights'}
+            {loading ? 'Searching…' : status === 'error' ? 'Try again' : 'Search flights'}
           </Button>
         </div>
         <div className={styles['flight-search-form__meta']}>
           {!results && (
             <Text size="caption">
-              {travelers} traveler
-              {travelers === 1 ? '' : 's'}
+              {travelers} traveler{travelers === 1 ? '' : 's'}
             </Text>
           )}
           <Button
@@ -191,7 +205,10 @@ export function FlightSearchForm({
             variant="secondary"
             size="sm"
             disabled={loading}
-            onClick={() => setAdvanced(true)}
+            onClick={() => {
+              dismissErrors();
+              setAdvanced(true);
+            }}
           >
             <Icon name="settings" /> Advanced settings
           </Button>

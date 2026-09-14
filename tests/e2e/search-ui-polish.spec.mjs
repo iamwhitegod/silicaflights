@@ -29,10 +29,22 @@ for (const width of [320, 393, 768, 1024, 1445]) {
     await expect(page.getByRole('article')).toHaveCount(20);
     const header = page.locator('main > header');
     const before = await header.boundingBox();
+    expect(before.height).toBeCloseTo(width < 900 ? 144 : 196, 0);
+    const backIcon = header.getByRole('link', { name: 'Back to flight search' }).locator('img');
+    await expect(backIcon).toHaveAttribute('src', '/images/flight-back.svg');
+    await expect(backIcon).toHaveCSS('width', '24px');
+    const backdrop = header.locator('[aria-hidden="true"]').first();
+    await expect(backdrop).toHaveCSS('pointer-events', 'none');
+    await expect(backdrop).toHaveCSS(
+      'background-image',
+      'linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0))',
+    );
+    await expect(backdrop.locator('span').first()).not.toHaveCSS('backdrop-filter', 'none');
+    await expect(backdrop.locator('span').first()).not.toHaveCSS('mask-image', 'none');
     const stops = page.getByRole('combobox', { name: 'Stops', exact: true });
     const toolbarBefore = await stops.boundingBox();
     await page.evaluate(() => window.scrollTo(0, 650));
-    await expect(header).toHaveAttribute('data-scrolled', 'true');
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(600);
     await expectSameFrame(header, before);
     expect((await stops.boundingBox()).y).toBeLessThan(toolbarBefore.y - 600);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
@@ -41,6 +53,10 @@ for (const width of [320, 393, 768, 1024, 1445]) {
     await page.screenshot({ path: `test-results/search-sticky-${width}.png` });
 
     if (width < 900) {
+      const summary = page.getByRole('button', { name: 'Edit flight search', exact: true });
+      expect((await summary.boundingBox()).height).toBeCloseTo(52, 0);
+      await expect(summary.locator('small')).toHaveCount(0);
+      await expect(summary).toHaveAccessibleDescription(/15 Jan 2027.*1 traveler/);
       await page.getByRole('button', { name: 'Edit flight search', exact: true }).click();
       const edit = page.getByRole('dialog', { name: 'Edit flight search', exact: true });
       await expect(edit.getByRole('combobox', { name: 'From', exact: true })).toHaveValue('Lagos');
@@ -48,10 +64,30 @@ for (const width of [320, 393, 768, 1024, 1445]) {
       await expect(edit).not.toBeVisible();
       await expect(page.getByRole('button', { name: 'Edit flight search' })).toBeFocused();
     } else {
+      const form = header.getByRole('form', { name: 'Flight search' });
+      const frame = form.locator('> div').first();
+      await expect(frame).toHaveCSS('border-top-width', '8px');
+      await expect(frame).toHaveCSS('border-top-color', 'rgba(255, 255, 255, 0.3)');
+      const advancedButton = header.getByRole('button', { name: 'Advanced settings', exact: true });
+      const frameBox = await frame.boundingBox();
+      const advancedBox = await advancedButton.boundingBox();
+      expect(advancedBox.y).toBeGreaterThanOrEqual(frameBox.y + frameBox.height);
+      expect(advancedBox.x + advancedBox.width).toBeCloseTo(frameBox.x + frameBox.width, 0);
       const from = header.getByRole('combobox', { name: 'From', exact: true });
       await from.fill('Singapore');
       await page.getByRole('option', { name: /Singapore/ }).click();
       await expect(from).toHaveValue('Singapore (SIN)');
+      await expect(advancedButton).toBeVisible();
+      await page.getByRole('button', { name: 'Advanced settings', exact: true }).click();
+      const advanced = page.getByRole('dialog', { name: 'Advanced search', exact: true });
+      await expect(advanced).toBeVisible();
+      await advanced.getByRole('radio', { name: 'Business', exact: true }).check();
+      await advanced.getByRole('button', { name: 'Apply filters' }).click();
+      await expect(advanced).not.toBeVisible();
+      await expect(page.getByRole('button', { name: 'Advanced settings' })).toBeFocused();
+      await page.getByRole('button', { name: 'Advanced settings', exact: true }).click();
+      await expect(advanced.getByRole('radio', { name: 'Business', exact: true })).toBeChecked();
+      await page.keyboard.press('Escape');
     }
     await expectSameFrame(header, before);
     await page.getByRole('link', { name: 'Back to flight search' }).click();
@@ -86,7 +122,7 @@ for (const { width, height, largeText } of [
     const clearBox = await clear.boundingBox();
     const rem = largeText ? 20 : 10;
     expect(initial.height).toBeCloseTo(
-      Math.min((width < 900 ? 44.2 : 43.4) * rem, height - 3.2 * rem),
+      Math.min((width < 900 ? 50 : 56) * rem, height - 3.2 * rem),
       0,
     );
     expect(initial.x).toBeGreaterThanOrEqual(0);

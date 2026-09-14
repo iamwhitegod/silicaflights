@@ -33,15 +33,7 @@ export function FlightResults({ initialValues }) {
   const [editing, setEditing] = useState(false);
   const [editValues, setEditValues] = useState(initialValues);
   const [now, setNow] = useState(() => Date.now());
-  const [scrolled, setScrolled] = useState(false);
   const budgetRef = useRef(null);
-  useEffect(() => {
-    const update = () => setScrolled(window.scrollY > 0);
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-
-    return () => window.removeEventListener('scroll', update);
-  }, []);
   useEffect(() => {
     function dismiss(event) {
       if (budgetRef.current && !budgetRef.current.contains(event.target))
@@ -159,7 +151,12 @@ export function FlightResults({ initialValues }) {
   return (
     <main id="main" className={styles['flight-results']}>
       <div className={styles['flight-results__background']} aria-hidden="true" />
-      <header className={styles['flight-results__header']} data-scrolled={scrolled}>
+      <header className={styles['flight-results__header']}>
+        <div className={styles['flight-results__header-backdrop']} aria-hidden="true">
+          {Array.from({ length: 8 }, (_, index) => (
+            <span key={index} />
+          ))}
+        </div>
         <div className={styles['flight-results__header-inner']}>
           <Link
             href="/"
@@ -186,23 +183,24 @@ export function FlightResults({ initialValues }) {
               setEditing(true);
             }}
             aria-label="Edit flight search"
+            aria-describedby={valid ? 'results-journey-details' : undefined}
           >
             <span>{initialValues.originLabel || initialValues.origin || 'From'}</span>
-            <img src="/images/flight-forward.svg" width="20" height="20" alt="to" />
+            <img src="/images/flight-forward.svg" width="24" height="24" alt="to" />
             <span>{initialValues.destinationLabel || initialValues.destination || 'To'}</span>
-            {valid && (
-              <small>
-                {formatLocalDate(initialValues.departure)}
-                {initialValues.filters.trip === 'round-trip'
-                  ? ` — ${formatLocalDate(initialValues.filters.returnDate)}`
-                  : ''}{' '}
-                · {travelers} traveler{travelers === 1 ? '' : 's'}
-              </small>
-            )}
           </button>
         </div>
       </header>
       <div className={styles['flight-results__content']}>
+        {valid && (
+          <p id="results-journey-details" className={styles['flight-results__journey-details']}>
+            {formatLocalDate(initialValues.departure)}
+            {initialValues.filters.trip === 'round-trip'
+              ? ` — ${formatLocalDate(initialValues.filters.returnDate)}`
+              : ''}{' '}
+            · {travelers} traveler{travelers === 1 ? '' : 's'}
+          </p>
+        )}
         <div className={styles['flight-results__toolbar']}>
           <p role="status" className={styles['flight-results__count']}>
             {status === 'loading'

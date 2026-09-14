@@ -119,3 +119,67 @@ test('failed airport lookup does not advance focus', async ({ page }) => {
     'false',
   );
 });
+
+for (const [surface, inputMethod] of [
+  ['homepage', 'mouse'],
+  ['desktop results', 'keyboard'],
+  ['mobile edit', 'touch'],
+]) {
+  test(`${surface} dismisses search errors on ${inputMethod} interaction and revalidates on submit`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: inputMethod === 'touch' ? 393 : 1445, height: 900 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto(surface === 'homepage' ? '/' : resultsUrl);
+    let scope = page;
+    if (surface !== 'homepage') await expect(page.getByRole('article').first()).toBeVisible();
+    if (surface === 'mobile edit') {
+      await page.getByRole('button', { name: 'Edit flight search', exact: true }).tap();
+      scope = page.getByRole('dialog', { name: 'Edit flight search', exact: true });
+    }
+    const originalUrl = page.url();
+    const form = scope.getByRole('form', { name: 'Flight search', exact: true });
+    const from = form.getByRole('combobox', { name: 'From', exact: true });
+    const to = form.getByRole('combobox', { name: 'To', exact: true });
+    const search = form.getByRole('button', { name: 'Search flights', exact: true });
+    const invalidFields = form.locator('[aria-invalid="true"]');
+    await from.fill('');
+    await to.fill('');
+    await search.click();
+    await expect(from).toBeFocused();
+    await expect(from).toHaveAttribute('aria-invalid', 'true');
+    await expect(to).toHaveAttribute('aria-invalid', 'true');
+    await expect(form.getByText('Choose a departure airport.', { exact: true })).toBeVisible();
+    await expect(form.getByText('Choose a destination airport.', { exact: true })).toBeVisible();
+
+    if (inputMethod === 'touch') await from.tap();
+    else if (inputMethod === 'keyboard') await from.press('ArrowRight');
+    else await from.click();
+    await expect(invalidFields).toHaveCount(0);
+    await expect(form.getByText('Choose a departure airport.', { exact: true })).toHaveCount(0);
+    await expect(form.getByText('Choose a destination airport.', { exact: true })).toHaveCount(0);
+    await expect(from).toHaveValue('');
+
+    await search.click();
+    await expect(from).toHaveAttribute('aria-invalid', 'true');
+    await expect(to).toHaveAttribute('aria-invalid', 'true');
+    await from.press('Tab');
+    await expect(to).toBeFocused();
+    await expect(invalidFields).toHaveCount(0);
+
+    await search.click();
+    await expect(from).toHaveAttribute('aria-invalid', 'true');
+    await form.getByRole('combobox', { name: 'Departure date', exact: true }).click();
+    await expect(invalidFields).toHaveCount(0);
+    await page.keyboard.press('Escape');
+
+    await search.click();
+    await expect(from).toHaveAttribute('aria-invalid', 'true');
+    await from.fill('Unselected airport');
+    await expect(invalidFields).toHaveCount(0);
+    await from.press('Escape');
+    await search.click();
+    await expect(from).toHaveAttribute('aria-invalid', 'true');
+    await expect(page).toHaveURL(originalUrl);
+  });
+}

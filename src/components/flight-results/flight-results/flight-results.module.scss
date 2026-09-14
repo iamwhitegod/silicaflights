@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use '../../../styles' as ds;
 
 .flight-results {
@@ -20,18 +21,41 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    padding: 2.4rem 1.6rem;
+    min-height: 14.4rem;
+    padding: 1.6rem 2.1rem 2.4rem;
+  }
 
-    &[data-scrolled='true'] {
-      background: ds.color('sky-850');
-      box-shadow: 0 0.4rem 1.6rem ds.color('navy-950', 0.15);
+  &__header-backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, ds.color('white', 0.4), ds.color('white', 0));
+
+    // Strong background blur fades to clear below the pinned search controls.
+    span {
+      position: absolute;
+      inset: 0;
+
+      @for $band from 1 through 8 {
+        &:nth-child(#{$band}) {
+          // Overlapping bands keep sharp content from bleeding between masks.
+          backdrop-filter: blur(math.sqrt(17 - 2 * $band) * 0.625rem);
+          mask-image: linear-gradient(
+            to bottom,
+            ds.color('black') 0%,
+            ds.color('black') (($band - 1) * 12.5%),
+            transparent ($band * 12.5%)
+          );
+        }
+      }
     }
   }
 
   &__header-inner {
-    max-width: 128.9rem;
+    max-width: 35.1rem;
     margin: 0 auto;
     position: relative;
+    z-index: 1;
   }
 
   &__back {
@@ -60,10 +84,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.8rem;
+    gap: 0.4rem;
     width: 100%;
+    max-width: 34.4rem;
+    min-height: 5.2rem;
     color: ds.color('white');
-    background: ds.color('blue-950', 0.65);
+    background: ds.color('black', 0.4);
+    backdrop-filter: blur(2.54rem);
     border: 0;
     border-radius: 10rem;
     padding: 0.8rem;
@@ -71,16 +98,24 @@
 
     span {
       border-radius: 10rem;
-      background: ds.color('white', 0.18);
-      padding: 1rem 1.2rem;
+      background: ds.color('gray-100', 0.2);
+      backdrop-filter: blur(0.445rem);
+      padding: 0.8rem;
       flex: 1;
       min-width: 0;
-      overflow-wrap: anywhere;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       font-size: ds.font-size('label');
+      font-weight: 500;
+      line-height: 2rem;
+      letter-spacing: -0.014rem;
     }
 
     img {
-      flex: 0 0 2rem;
+      flex: 0 0 2.4rem;
+      width: 2.4rem;
+      height: 2.4rem;
     }
   }
 
@@ -90,7 +125,7 @@
     margin: 0.8rem auto 0;
   }
 
-  &__dates {
+  &__journey-details {
     font-size: ds.font-size('label');
     display: table;
     background: ds.color('blue-950', 0.65);
@@ -245,7 +280,11 @@
 
   @media (min-width: 900px) {
     &__header {
-      padding: 6.4rem 4.8rem;
+      padding: 3.8rem 4.8rem;
+    }
+
+    &__header-inner {
+      max-width: 130.2rem;
     }
 
     &__background {
@@ -260,7 +299,8 @@
       padding: 0 5.6rem;
     }
 
-    &__mobile-search {
+    &__mobile-search,
+    &__journey-details {
       display: none;
     }
 
@@ -273,17 +313,6 @@
     &__content {
       width: calc(100% - 9.6rem);
       margin-top: 0;
-    }
-  }
-
-  &__mobile-search {
-    flex-wrap: wrap;
-    border-radius: 2.4rem;
-
-    small {
-      width: 100%;
-      font-size: ds.font-size('caption');
-      padding-bottom: 0.4rem;
     }
   }
 

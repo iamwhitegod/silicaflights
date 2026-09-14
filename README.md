@@ -32,9 +32,9 @@ Search from `/` or open `/flights` to choose a journey. Use exact dates, up to n
 
 ### Search interface
 
-The results-page search controls stay pinned while the result count, filters, and flight cards scroll. Mobile uses a pinned journey summary that opens the search editor.
+The results-page search controls stay pinned while the result count, filters, and flight cards scroll. The header uses a white fade and strong progressive blur, with room for the search form's translucent outer outline and Advanced settings beneath it. Mobile uses a compact route pill that opens the search editor; journey dates and traveler counts scroll below it. Interacting with the search inputs clears displayed validation feedback; submitting again revalidates the values and focuses the first invalid field.
 
-Advanced filters use a consistent dialog height: `43.4rem` on desktop and `44.2rem` below 900px, capped to the visible viewport. Only the active tab panel scrolls; the heading, tabs, and Cancel/Apply actions stay in place. Clear filters sits beside Close and resets the draft and its errors without switching tabs. Apply commits the draft; Cancel, Close, and Escape discard it. Trip and cabin selections use `blue-500` (`#437EFD`) with `blue-950` labels for readable contrast.
+Advanced filters use a consistent dialog height: `56rem` on desktop and `50rem` below 900px, capped to the visible viewport. Only the active tab panel scrolls; the heading, tabs, and Cancel/Apply actions stay in place. Clear filters sits beside Close and resets the draft and its errors without switching tabs. Apply commits the draft; Cancel, Close, and Escape discard it. Trip and cabin selections use `blue-500` (`#437EFD`) with `blue-950` labels for readable contrast.
 
 `Modal` supports optional `headerActions`, `className`, and `layout="fixed"`; its default sizing remains content-driven. `Tabs fill` fills the available space and scrolls the active panel. The focused checks in `tests/e2e/search-ui-polish.spec.mjs` cover pinned search controls, short screens, enlarged text, and draft reset behavior.
 
@@ -114,6 +114,8 @@ TestSprite MCP supports the local app on port 3000 and requires Node.js 22 or ne
 The `scripts/testsprite-mcp.mjs` launcher reads only that key from `.env.local` and starts the installed server. Register it in Codex with `codex mcp add testsprite -- /absolute/path/to/node /absolute/path/to/project/scripts/testsprite-mcp.mjs /absolute/path/to/@testsprite/testsprite-mcp/dist/index.js`. Restart the MCP connection after adding or changing the key.
 
 Run against the current local app using frontend mode, port 3000, no login, and [the UI requirements](tests/testsprite/ui-requirements.md). TestSprite runs browser tests in its cloud and consumes account credits. Generated tests, configuration, and reports stay in the ignored `testsprite_tests/` directory. Existing Playwright checks remain available through `npm test`.
+
+Review the generated replay assertions alongside TestSprite's reported status. In the initial run, some passing cases omitted their required checks, and the browser agent could not install the request delays needed for loading-state tests. Use the existing Playwright suite for precise layout and network timing checks. The reviewed local report is saved at `testsprite_tests/testsprite-mcp-test-report.md`.
 
 ### Formatting
 
