@@ -33,7 +33,15 @@ export function FlightResults({ initialValues }) {
   const [editing, setEditing] = useState(false);
   const [editValues, setEditValues] = useState(initialValues);
   const [now, setNow] = useState(() => Date.now());
+  const [scrolled, setScrolled] = useState(false);
   const budgetRef = useRef(null);
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 0);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+
+    return () => window.removeEventListener('scroll', update);
+  }, []);
   useEffect(() => {
     function dismiss(event) {
       if (budgetRef.current && !budgetRef.current.contains(event.target))
@@ -151,46 +159,48 @@ export function FlightResults({ initialValues }) {
   return (
     <main id="main" className={styles['flight-results']}>
       <div className={styles['flight-results__background']} aria-hidden="true" />
-      <header className={styles['flight-results__header']}>
-        <Link
-          href="/"
-          className={styles['flight-results__back']}
-          aria-label="Back to flight search"
-        >
-          <img src="/images/flight-back.svg" alt="" width="24" height="24" />
-        </Link>
-        <h1 className="sr-only">Compare flights</h1>
-        <div className={styles['flight-results__desktop-search']}>
-          <FlightSearchForm
-            results
-            busy={status === 'loading'}
-            initialValues={initialValues}
-            idPrefix="results"
-            onSubmit={submit}
-          />
+      <header className={styles['flight-results__header']} data-scrolled={scrolled}>
+        <div className={styles['flight-results__header-inner']}>
+          <Link
+            href="/"
+            className={styles['flight-results__back']}
+            aria-label="Back to flight search"
+          >
+            <img src="/images/flight-back.svg" alt="" width="24" height="24" />
+          </Link>
+          <h1 className="sr-only">Compare flights</h1>
+          <div className={styles['flight-results__desktop-search']}>
+            <FlightSearchForm
+              results
+              busy={status === 'loading'}
+              initialValues={initialValues}
+              idPrefix="results"
+              onSubmit={submit}
+            />
+          </div>
+          <button
+            className={styles['flight-results__mobile-search']}
+            type="button"
+            onClick={() => {
+              setEditValues(initialValues);
+              setEditing(true);
+            }}
+            aria-label="Edit flight search"
+          >
+            <span>{initialValues.originLabel || initialValues.origin || 'From'}</span>
+            <img src="/images/flight-forward.svg" width="20" height="20" alt="to" />
+            <span>{initialValues.destinationLabel || initialValues.destination || 'To'}</span>
+            {valid && (
+              <small>
+                {formatLocalDate(initialValues.departure)}
+                {initialValues.filters.trip === 'round-trip'
+                  ? ` — ${formatLocalDate(initialValues.filters.returnDate)}`
+                  : ''}{' '}
+                · {travelers} traveler{travelers === 1 ? '' : 's'}
+              </small>
+            )}
+          </button>
         </div>
-        <button
-          className={styles['flight-results__mobile-search']}
-          type="button"
-          onClick={() => {
-            setEditValues(initialValues);
-            setEditing(true);
-          }}
-          aria-label="Edit flight search"
-        >
-          <span>{initialValues.originLabel || initialValues.origin || 'From'}</span>
-          <img src="/images/flight-forward.svg" width="20" height="20" alt="to" />
-          <span>{initialValues.destinationLabel || initialValues.destination || 'To'}</span>
-          {valid && (
-            <small>
-              {formatLocalDate(initialValues.departure)}
-              {initialValues.filters.trip === 'round-trip'
-                ? ` — ${formatLocalDate(initialValues.filters.returnDate)}`
-                : ''}{' '}
-              · {travelers} traveler{travelers === 1 ? '' : 's'}
-            </small>
-          )}
-        </button>
       </header>
       <div className={styles['flight-results__content']}>
         <div className={styles['flight-results__toolbar']}>

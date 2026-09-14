@@ -1,26 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {
-  defaultFilters,
-  createOfferRequest,
-  searchFromQuery,
-  searchToQuery,
-} from '../../src/lib/flights/search.js';
+import { defaultFilters, searchFromQuery, searchToQuery } from '../../src/lib/flights/search.js';
 import { flightSearchSchema, searchFieldError } from '../../src/lib/flights/schemas.js';
 import { validateForm } from '../../src/lib/validation.js';
-import {
-  filterOffers,
-  normalizeOffer,
-  formatLocalDate,
-  durationMinutes,
-} from '../../src/lib/flights/offers.js';
+import { filterOffers, formatLocalDate, durationMinutes } from '../../src/lib/flights/offers.js';
 import {
   duffelRequest,
-  searchFlights,
-  searchAirports,
-  serviceErrorResponse,
-} from '../../src/lib/flights/duffel-client.js';
+  createDuffelClient,
+  createOfferRequest,
+  normalizeOffer,
+} from '../../src/lib/flights/providers/duffel.js';
+import { serviceErrorResponse } from '../../src/lib/flights/errors.js';
+
+const searchFlights = (values, signal, { token, fetcher }) =>
+  createDuffelClient({ DUFFEL_ACCESS_TOKEN: token }, { fetcher }).search(values, signal);
 import { sampleOffer } from '../../src/data/flight-fixtures.js';
+import { rawOffer } from '../fixtures/duffel/offer.js';
 
 const values = {
   origin: 'LOS',
@@ -29,37 +24,6 @@ const values = {
   filters: { ...defaultFilters },
 };
 const token = 'duffel_test_unit_fixture';
-const rawOffer = {
-  id: 'off-test',
-  total_amount: '180.50',
-  total_currency: 'USD',
-  expires_at: '2099-01-01T00:00:00Z',
-  client_key: 'private-client-key',
-  passengers: [{ id: 'private-passenger-id' }],
-  conditions: { refund_before_departure: { allowed: false } },
-  slices: [
-    {
-      id: 'slice-1',
-      duration: 'PT6H',
-      segments: [
-        {
-          id: 'segment-1',
-          duration: 'PT6H',
-          origin: { iata_code: 'LOS', name: 'Lagos' },
-          destination: { iata_code: 'LHR', name: 'Heathrow' },
-          departing_at: '2027-01-15T23:30:00',
-          arriving_at: '2027-01-16T05:30:00',
-          operating_carrier: {
-            name: 'Operating Airline',
-            iata_code: 'OP',
-            logo_symbol_url: 'https://example.com/logo.svg',
-          },
-          passengers: [{ cabin_class: 'economy', baggages: [{ type: 'checked', quantity: 1 }] }],
-        },
-      ],
-    },
-  ],
-};
 
 test('validates exact dates, airport selections, cabins, and traveler limits', () => {
   assert.equal(flightSearchSchema.isValidSync(values), true);
@@ -189,22 +153,6 @@ test('transport authenticates on the server, requests v2 test offers, and uses n
   assert.ok(!JSON.stringify(result).includes(token));
 });
 
-test('airport lookup expands city airports and removes duplicates', async () => {
-  const airport = {
-    type: 'airport',
-    iata_code: 'SIN',
-    name: 'Changi',
-    city_name: 'Singapore',
-    iata_country_code: 'SG',
-  };
-  const result = await searchAirports('Singapore', undefined, {
-    token,
-    fetcher: async () =>
-      Response.json({ data: [airport, { type: 'city', name: 'Singapore', airports: [airport] }] }),
-  });
-  assert.deepEqual(result, [{ value: 'SIN', label: 'Singapore (SIN)', detail: 'Changi · SG' }]);
-});
-
 test('missing/live tokens fail before any external request', async () => {
   for (const token of [undefined, 'duffel_live_unit_fixture']) {
     await assert.rejects(
@@ -217,6 +165,60 @@ test('missing/live tokens fail before any external request', async () => {
       (e) => e.status === 503,
     );
   }
+});
+
+test('simulated offers are removed by owner or any operating/marketing carrier', async () => {
+  for (const airline of [{ iata_code: 'ZZ' }, { name: ' Duffel Airways ' }]) {
+    for (const field of ['owner', 'operating_carrier', 'marketing_carrier']) {
+      const simulated = structuredClone(rawOffer);
+      if (field === 'owner') simulated.owner = airline;
+      else simulated.slices[0].segments[0][field] = airline;
+      const result = await searchFlights(values, undefined, {
+        token,
+        fetcher: async () =>
+          Response.json({ data: { live_mode: false, offers: [simulated, rawOffer] } }),
+      });
+      assert.deepEqual(
+        result.offers.map((offer) => offer.id),
+        [rawOffer.id],
+      );
+    }
+  }
+});
+
+test('simulated-only searches return empty results while malformed remaining offers still fail', async () => {
+  const simulated = { ...rawOffer, owner: { iata_code: 'ZZ', name: 'Duffel Airways' } };
+  const search = (offers) =>
+    searchFlights(values, undefined, {
+      token,
+      fetcher: async () => Response.json({ data: { live_mode: false, offers } }),
+    });
+  assert.deepEqual(await search([simulated]), { offers: [], testMode: true });
+  assert.deepEqual(await search([]), { offers: [], testMode: true });
+  await assert.rejects(
+    search([simulated, { ...rawOffer, total_amount: 'invalid' }]),
+    (error) => error.category === 'malformed',
+  );
+});
+
+test('a simulated inbound segment excludes the whole round-trip fare', async () => {
+  const offer = structuredClone(rawOffer);
+  const inbound = structuredClone(offer.slices[0]);
+  const segment = inbound.segments[0];
+  [segment.origin, segment.destination] = [segment.destination, segment.origin];
+  segment.departing_at = '2027-01-22T10:00:00';
+  segment.arriving_at = '2027-01-22T16:00:00';
+  segment.marketing_carrier = { iata_code: 'ZZ' };
+  offer.slices.push(inbound);
+  const result = await searchFlights(
+    { ...values, filters: { ...values.filters, trip: 'round-trip', returnDate: '2027-01-22' } },
+    undefined,
+    {
+      token,
+      fetcher: async () => Response.json({ data: { live_mode: false, offers: [offer] } }),
+    },
+  );
+  assert.deepEqual(result.offers, []);
 });
 
 test('service failures and timeouts expose only safe messages', async () => {

@@ -14,7 +14,7 @@
   box-shadow: var(--shadow-popover);
 
   &__viewport {
-    padding: 2.4rem;
+    padding: var(--modal-padding, 2.4rem);
     max-height: calc(100dvh - 3.2rem);
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -27,6 +27,56 @@
 
   &--wide {
     max-width: 96rem;
+  }
+
+  &--fixed {
+    height: min(var(--modal-height, 44.2rem), calc(100dvh - 3.2rem));
+
+    .modal__viewport {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .modal__content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 0;
+    }
+
+    .modal__body {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .modal__header {
+      flex-wrap: wrap;
+      margin-bottom: min(1.6rem, 2dvh);
+    }
+
+    .modal__title {
+      flex: 1 1 12rem;
+    }
+
+    .modal__header-actions {
+      margin-inline-start: auto;
+    }
+  }
+
+  &__heading {
+    flex-shrink: 0;
+  }
+
+  &__title {
+    min-width: 0;
+    font-size: var(--modal-title-size, #{ds.font-size('small-heading')});
+  }
+
+  &__header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-shrink: 0;
   }
 
   &__heading--sticky {
@@ -62,7 +112,7 @@
 
   &__header {
     display: flex;
-    gap: 1.6rem;
+    gap: var(--modal-header-gap, 1.6rem);
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.6rem;

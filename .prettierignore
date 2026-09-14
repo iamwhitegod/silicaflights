@@ -32,3 +32,5 @@ src/**/*.module.css
 
 # Next.js maintains this file
 AGENTS.md
+# Generated, deterministic data snapshot. Update using npm run airports:update.
+src/data/airport-catalog.json

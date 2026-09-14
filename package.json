@@ -11,7 +11,9 @@
     "lint": "eslint",
     "test": "playwright test",
     "test:unit": "node --test tests/unit/*.test.mjs",
-    "test:duffel": "node scripts/smoke-duffel.mjs",
+    "test:flights": "node scripts/smoke-flights.mjs",
+    "test:duffel": "node scripts/smoke-flights.mjs --provider duffel",
+    "airports:update": "python3 scripts/update-airports.py",
     "format": "eslint --fix --fix-type layout && prettier --write .",
     "format:check": "prettier --check . && eslint"
   },

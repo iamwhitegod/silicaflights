@@ -1,0 +1,1507 @@
+{
+  "CatalogProductOfferingsResponse": {
+    "@type": "CatalogProductOfferingsResponse",
+    "CatalogProductOfferings": {
+      "@type": "CatalogProductOfferings",
+      "CatalogProductOffering": [
+        {
+          "@type": "CatalogProductOffering",
+          "sequence": 1,
+          "id": "o1",
+          "Departure": "ORD",
+          "Arrival": "DEN",
+          "Brand": [
+            {
+              "@type": "BrandID",
+              "BrandRef": "b0"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b1"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b2"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b3"
+            }
+          ],
+          "ProductBrandOptions": [
+            {
+              "@type": "ProductBrandOptions",
+              "flightRefs": ["s1"],
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p0"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T0"
+                  },
+                  "CombinabilityCode": ["j1"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 770,
+                    "TotalTaxes": 151.8,
+                    "TotalFees": 0,
+                    "TotalPrice": 921.8
+                  },
+                  "ContentSource": "GDS"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b3"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p2"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T1"
+                  },
+                  "CombinabilityCode": ["j2"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 1004,
+                    "TotalTaxes": 169.4,
+                    "TotalFees": 0,
+                    "TotalPrice": 1173.4
+                  },
+                  "ContentSource": "GDS"
+                }
+              ]
+            },
+            {
+              "@type": "ProductBrandOptions",
+              "flightRefs": ["s2"],
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p1"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T0"
+                  },
+                  "CombinabilityCode": ["j1"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 770,
+                    "TotalTaxes": 151.8,
+                    "TotalFees": 0,
+                    "TotalPrice": 921.8
+                  },
+                  "ContentSource": "GDS"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b3"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p3"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T1"
+                  },
+                  "CombinabilityCode": ["j2"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 1004,
+                    "TotalTaxes": 169.4,
+                    "TotalFees": 0,
+                    "TotalPrice": 1173.4
+                  },
+                  "ContentSource": "GDS"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "@type": "CatalogProductOffering",
+          "sequence": 2,
+          "id": "o2",
+          "Departure": "DEN",
+          "Arrival": "ORD",
+          "Brand": [
+            {
+              "@type": "BrandID",
+              "BrandRef": "b0"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b1"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b2"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b3"
+            }
+          ],
+          "ProductBrandOptions": [
+            {
+              "@type": "ProductBrandOptions",
+              "flightRefs": ["s31"],
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p4"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T2"
+                  },
+                  "CombinabilityCode": ["j1"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 770,
+                    "TotalTaxes": 151.8,
+                    "TotalFees": 0,
+                    "TotalPrice": 921.8
+                  },
+                  "ContentSource": "GDS"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b3"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p6"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T3"
+                  },
+                  "CombinabilityCode": ["j2"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 1004,
+                    "TotalTaxes": 169.4,
+                    "TotalFees": 0,
+                    "TotalPrice": 1173.4
+                  },
+                  "ContentSource": "GDS"
+                }
+              ]
+            },
+            {
+              "@type": "ProductBrandOptions",
+              "flightRefs": ["s32"],
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p5"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T2"
+                  },
+                  "CombinabilityCode": ["j1"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 770,
+                    "TotalTaxes": 151.8,
+                    "TotalFees": 0,
+                    "TotalPrice": 921.8
+                  },
+                  "ContentSource": "GDS"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b3"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p7"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T3"
+                  },
+                  "CombinabilityCode": ["j2"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 1004,
+                    "TotalTaxes": 169.4,
+                    "TotalFees": 0,
+                    "TotalPrice": 1173.4
+                  },
+                  "ContentSource": "GDS"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Result": {
+      "@type": "Result"
+    },
+    "ReferenceList": [
+      {
+        "@type": "ReferenceListProduct",
+        "Product": [
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H48M",
+            "id": "p0",
+            "Quantity": 7,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s1"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 2,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "G",
+                    "cabin": "Economy",
+                    "fareBasisCode": "GVAIZNM3",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "SIP",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b0"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H49M",
+            "id": "p1",
+            "Quantity": 7,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s2"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 2,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "G",
+                    "cabin": "Economy",
+                    "fareBasisCode": "GVAIZNM3",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "SIP",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b0"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H48M",
+            "id": "p2",
+            "Quantity": 7,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s1"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 2,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "G",
+                    "cabin": "Economy",
+                    "fareBasisCode": "GVAIZRU3",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "EOF",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b3"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H49M",
+            "id": "p3",
+            "Quantity": 7,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s2"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 2,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "G",
+                    "cabin": "Economy",
+                    "fareBasisCode": "GVAIZRU3",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "EOF",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b3"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H36M",
+            "id": "p4",
+            "Quantity": 7,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s31"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 2,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "O",
+                    "cabin": "Economy",
+                    "fareBasisCode": "OWAUZNM3",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "SIP",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b0"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H40M",
+            "id": "p5",
+            "Quantity": 7,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s32"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 2,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "O",
+                    "cabin": "Economy",
+                    "fareBasisCode": "OWAUZNM3",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "SIP",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b0"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H36M",
+            "id": "p6",
+            "Quantity": 7,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s31"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 2,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "O",
+                    "cabin": "Economy",
+                    "fareBasisCode": "OWAUZRU3",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "EOF",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b3"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H40M",
+            "id": "p7",
+            "Quantity": 7,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s32"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 2,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "O",
+                    "cabin": "Economy",
+                    "fareBasisCode": "OWAUZRU3",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "EOF",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b3"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListFlight",
+        "Flight": [
+          {
+            "@type": "FlightDetail",
+            "distance": 903,
+            "duration": "PT2H48M",
+            "carrier": "AA",
+            "number": "2833",
+            "equipment": "738",
+            "id": "s1",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "terminal": "3",
+              "location": "ORD",
+              "date": "2026-01-02",
+              "time": "08:20:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "location": "DEN",
+              "date": "2026-01-02",
+              "time": "10:08:00"
+            },
+            "AvailabilitySourceCode": "S"
+          },
+          {
+            "@type": "FlightDetail",
+            "distance": 903,
+            "duration": "PT2H49M",
+            "carrier": "AA",
+            "number": "1387",
+            "equipment": "738",
+            "id": "s2",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "terminal": "3",
+              "location": "ORD",
+              "date": "2026-01-02",
+              "time": "20:37:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "location": "DEN",
+              "date": "2026-01-02",
+              "time": "22:26:00"
+            },
+            "AvailabilitySourceCode": "S"
+          },
+          {
+            "@type": "FlightDetail",
+            "distance": 903,
+            "duration": "PT2H36M",
+            "carrier": "AA",
+            "number": "2833",
+            "equipment": "738",
+            "id": "s31",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "location": "DEN",
+              "date": "2026-01-09",
+              "time": "12:34:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "terminal": "3",
+              "location": "ORD",
+              "date": "2026-01-09",
+              "time": "16:10:00"
+            },
+            "AvailabilitySourceCode": "S"
+          },
+          {
+            "@type": "FlightDetail",
+            "distance": 903,
+            "duration": "PT2H40M",
+            "carrier": "AA",
+            "number": "2832",
+            "equipment": "738",
+            "id": "s32",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "location": "DEN",
+              "date": "2026-01-09",
+              "time": "16:30:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "terminal": "3",
+              "location": "ORD",
+              "date": "2026-01-09",
+              "time": "20:10:00"
+            },
+            "AvailabilitySourceCode": "S"
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListTermsAndConditions",
+        "TermsAndConditions": [
+          {
+            "@type": "TermsAndConditionsAir",
+            "secureFlightPassengerDataRequiredInd": true,
+            "id": "T0",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p0", "p1"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 62
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "SecondCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p0", "p1"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 69
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p0", "p1"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "UPTO45LI/115LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["2P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p0", "p1"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "UPTO40LI/101LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["2P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "BaggageEmbargo",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p0", "p1"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem"
+                  }
+                ],
+                "SegmentSequenceList": [1]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-12-06T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelPermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyPercent",
+                        "Percent": 100
+                      }
+                    ]
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "secureFlightPassengerDataRequiredInd": true,
+            "id": "T1",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p2", "p3"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 62
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "SecondCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p2", "p3"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 69
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p2", "p3"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "UPTO45LI/115LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["2P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p2", "p3"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "UPTO40LI/101LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["2P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "BaggageEmbargo",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p2", "p3"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem"
+                  }
+                ],
+                "SegmentSequenceList": [1]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-12-06T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelPermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "secureFlightPassengerDataRequiredInd": true,
+            "id": "T2",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p4", "p5"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 62
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "SecondCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p4", "p5"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 69
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p4", "p5"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "UPTO45LI/115LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["2P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p4", "p5"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "UPTO40LI/101LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["2P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "BaggageEmbargo",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p4", "p5"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem"
+                  }
+                ],
+                "SegmentSequenceList": [1]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-12-06T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelPermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyPercent",
+                        "Percent": 100
+                      }
+                    ]
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "secureFlightPassengerDataRequiredInd": true,
+            "id": "T3",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p6", "p7"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 62
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "SecondCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p6", "p7"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 69
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p6", "p7"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "UPTO45LI/115LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["2P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p6", "p7"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "UPTO40LI/101LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["2P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/AA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "BaggageEmbargo",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["p6", "p7"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem"
+                  }
+                ],
+                "SegmentSequenceList": [1]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-12-06T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelPermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListBrand",
+        "Brand": [
+          {
+            "@type": "Brand",
+            "name": "Main Cabin",
+            "tier": 4,
+            "shelfNumbers": [],
+            "code": "MAIN",
+            "id": "b0",
+            "BrandAttribute": [
+              {
+                "@type": "BrandAttribute",
+                "classification": "Refund",
+                "inclusion": "Not Offered",
+                "groupCode": "BF",
+                "subGroupCode": "RF",
+                "subCode": "056"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Rebooking",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subGroupCode": "VC",
+                "subCode": "059"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Meals",
+                "inclusion": "Chargeable",
+                "groupCode": "ML",
+                "subGroupCode": "SN",
+                "subCode": "0AT"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CheckedBag",
+                "inclusion": "Chargeable",
+                "groupCode": "BG",
+                "subCode": "0CC"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "WiFi",
+                "inclusion": "Included",
+                "groupCode": "IE",
+                "subGroupCode": "IT",
+                "subCode": "032"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CarryOn",
+                "inclusion": "Included",
+                "groupCode": "BG",
+                "subGroupCode": "CY",
+                "subCode": "0MM"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "SeatAssignment",
+                "inclusion": "Included",
+                "groupCode": "SA",
+                "subCode": "PSA"
+              }
+            ],
+            "ImageURL": ["https://cdn.travelport.com/americanairlines/AA_general_medium_210976.jpg"]
+          },
+          {
+            "@type": "Brand",
+            "name": "Main Cabin Flexible",
+            "tier": 7,
+            "shelfNumbers": [],
+            "code": "MAINFL",
+            "id": "b3",
+            "BrandAttribute": [
+              {
+                "@type": "BrandAttribute",
+                "classification": "Refund",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subGroupCode": "RF",
+                "subCode": "056"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Rebooking",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subGroupCode": "VC",
+                "subCode": "059"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Meals",
+                "inclusion": "Chargeable",
+                "groupCode": "ML",
+                "subGroupCode": "SN",
+                "subCode": "0AT"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CheckedBag",
+                "inclusion": "Chargeable",
+                "groupCode": "BG",
+                "subCode": "0CC"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "WiFi",
+                "inclusion": "Included",
+                "groupCode": "IE",
+                "subGroupCode": "IT",
+                "subCode": "032"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CarryOn",
+                "inclusion": "Included",
+                "groupCode": "BG",
+                "subGroupCode": "CY",
+                "subCode": "0MM"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "SeatAssignment",
+                "inclusion": "Included",
+                "groupCode": "SA",
+                "subCode": "PSA"
+              }
+            ],
+            "ImageURL": ["https://cdn.travelport.com/americanairlines/AA_general_large_214474.jpg"]
+          }
+        ]
+      }
+    ]
+  }
+}

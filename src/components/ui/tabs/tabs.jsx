@@ -2,14 +2,15 @@
 
 import { useId, useRef } from 'react';
 import { gsap, useGSAP, motion } from '@/lib/motion';
+import { cx } from '@/lib/cx';
 import styles from './tabs.module.scss';
 
 /**
  * @param {{label: string, items: {value: string, label: string,
  *   content: import('react').ReactNode, disabled?: boolean}[], value: string,
- *   onValueChange: (value: string) => void}} props
+ *   onValueChange: (value: string) => void, fill?: boolean}} props
  */
-export function Tabs({ label, items, value, onValueChange }) {
+export function Tabs({ label, items, value, onValueChange, fill = false }) {
   const id = useId();
   const root = useRef(null);
   useGSAP(
@@ -29,7 +30,7 @@ export function Tabs({ label, items, value, onValueChange }) {
   );
 
   return (
-    <div ref={root} className={styles['tabs']}>
+    <div ref={root} className={cx(styles['tabs'], fill && styles['tabs--fill'])}>
       <div
         role="tablist"
         aria-label={label}

@@ -16,6 +16,7 @@ export const test = base.extend({
           },
         });
       });
+
       await page.route('**/api/flights/search', async (route) => {
         const values = route.request().postDataJSON();
         await route.fulfill({
@@ -31,6 +32,7 @@ export const test = base.extend({
           },
         });
       });
+
       await use();
     },
     { auto: true },

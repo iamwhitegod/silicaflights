@@ -61,7 +61,9 @@ export function filterOffers(
     });
   });
   const duration = (offer) =>
-    offer.slices.reduce((sum, slice) => sum + durationMinutes(slice.duration), 0);
+    offer.slices.some((slice) => !durationMinutes(slice.duration))
+      ? Infinity
+      : offer.slices.reduce((sum, slice) => sum + durationMinutes(slice.duration), 0);
 
   return filtered.sort((a, b) => {
     if (sort === 'shortest')
@@ -76,70 +78,21 @@ export function filterOffers(
   });
 }
 
-const place = (p) => ({
-  code: p.iata_code,
-  name: p.name,
-  city: p.city_name || p.city?.name || '',
-  timeZone: p.time_zone,
-});
-const carrier = (c) => ({
-  name: c?.name || 'Airline unavailable',
-  code: c?.iata_code || '',
-  logo: /^https:\/\//.test(c?.logo_symbol_url || '') ? c.logo_symbol_url : null,
-});
+export function formatBaggage(bag) {
+  const name = bag.type.replaceAll('_', ' ');
+  const quantity = Number.isInteger(bag.quantity)
+    ? `${bag.quantity} ${name} bag${bag.quantity === 1 ? '' : 's'}`
+    : `${name} baggage`;
+  const weight =
+    bag.quantity !== 0 && bag.weight > 0 && ['kg', 'lb'].includes(bag.weightUnit)
+      ? ` · ${bag.weight} ${bag.weightUnit}${bag.quantity > 0 ? ' per bag' : ''}`
+      : '';
+  const inclusion =
+    bag.included === false
+      ? ' · additional charge'
+      : bag.included === null
+        ? ' · inclusion not supplied'
+        : '';
 
-export function normalizeOffer(offer) {
-  if (
-    !offer?.id ||
-    !/^\d+(\.\d+)?$/.test(offer.total_amount) ||
-    !/^[A-Z]{3}$/.test(offer.total_currency) ||
-    !Number.isFinite(Date.parse(offer.expires_at)) ||
-    !offer.slices?.length ||
-    offer.slices.some(
-      (slice) =>
-        !slice.segments?.length ||
-        slice.segments.some(
-          (s) => !s.origin || !s.destination || !s.departing_at || !s.arriving_at,
-        ),
-    )
-  )
-    return null;
-  const conditions = {};
-  for (const key of ['change_before_departure', 'refund_before_departure']) {
-    const c = offer.conditions?.[key];
-    conditions[key] = c
-      ? { allowed: c.allowed, penaltyAmount: c.penalty_amount, penaltyCurrency: c.penalty_currency }
-      : null;
-  }
-
-  return {
-    id: offer.id,
-    expiresAt: offer.expires_at,
-    amount: offer.total_amount,
-    currency: offer.total_currency,
-    conditions,
-    slices: offer.slices.map((slice) => ({
-      id: slice.id,
-      duration: slice.duration,
-      segments: slice.segments.map((segment) => ({
-        id: segment.id,
-        origin: place(segment.origin),
-        destination: place(segment.destination),
-        departingAt: segment.departing_at,
-        arrivingAt: segment.arriving_at,
-        duration: segment.duration,
-        carrier: carrier(segment.operating_carrier),
-        flightNumber:
-          `${segment.operating_carrier?.iata_code || ''} ${segment.operating_carrier_flight_number || ''}`.trim(),
-        passengers: (segment.passengers || []).map((passenger) => ({
-          cabin: passenger.cabin_class,
-          cabinName: passenger.cabin_class_marketing_name,
-          baggage: (passenger.baggages || []).map((bag) => ({
-            type: bag.type,
-            quantity: bag.quantity,
-          })),
-        })),
-      })),
-    })),
-  };
+  return `${quantity}${weight}${inclusion}`;
 }

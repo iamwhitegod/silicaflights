@@ -1,0 +1,20 @@
+@use '../../../styles' as ds;
+
+.advanced-search-dialog {
+  --modal-height: 50rem;
+  --modal-padding: min(1.6rem, 4vw);
+  --modal-header-gap: 0.8rem;
+  --modal-title-size: #{ds.font-size('body')};
+
+  &__clear {
+    min-height: 4.4rem;
+    padding: 0.4rem 1.2rem;
+    font-size: ds.font-size('caption');
+    white-space: nowrap;
+  }
+
+  @media (min-width: 900px) {
+    --modal-height: 56rem;
+    --modal-padding: 2.4rem;
+  }
+}

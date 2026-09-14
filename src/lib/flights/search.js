@@ -14,29 +14,6 @@ export const defaultFilters = {
   childAges: [],
 };
 
-export function createOfferRequest(values) {
-  const f = values.filters;
-  const slices = [
-    { origin: values.origin, destination: values.destination, departure_date: values.departure },
-  ];
-  if (f.trip === 'round-trip')
-    slices.push({
-      origin: values.destination,
-      destination: values.origin,
-      departure_date: f.returnDate,
-    });
-
-  return {
-    slices,
-    cabin_class: f.cabin.replace(' ', '_'),
-    passengers: [
-      ...Array.from({ length: f.adults }, () => ({ type: 'adult' })),
-      ...f.childAges.map((age) => ({ age })),
-      ...Array.from({ length: f.infants }, () => ({ type: 'infant_without_seat' })),
-    ],
-  };
-}
-
 export function searchToQuery(values) {
   const query = new URLSearchParams();
   for (const key of ['origin', 'destination', 'departure', 'originLabel', 'destinationLabel'])

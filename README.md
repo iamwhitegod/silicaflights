@@ -1,6 +1,6 @@
 # SilicaFlights
 
-A responsive flight discovery app and design system built with Next.js 16, React 19, JavaScript, and Sass Modules. Flight search uses Duffel test mode with worldwide airport lookup, one-way/round-trip results, filters, and itinerary details. Booking is unavailable; signup forms remain local demos.
+A responsive flight discovery app and design system built with Next.js 16, React 19, JavaScript, and Sass Modules. Flight search supports Duffel test mode and Travelport pre-production through one provider-independent API, with local worldwide airport lookup, one-way/round-trip results, filters, and itinerary details. Booking is unavailable; signup forms remain local demos.
 
 ## Development
 
@@ -11,44 +11,85 @@ npm run dev
 
 Open `http://localhost:3000` for the landing page and `/design-system` for the interactive component reference. The design-system route returns 404 outside development.
 
-## Duffel test search
+## Flight search providers
 
-Copy `.env.example` to `.env.local` and set `DUFFEL_ACCESS_TOKEN` to a Duffel test access token. The setting is server-only and `.env.local` is ignored by Git. Restart the development server after changing it. Live tokens are deliberately rejected.
+Copy `.env.example` to `.env.local`. Set `FLIGHTS_PROVIDER` to exactly `duffel` or `travelport` and fill in the selected provider's credentials. All settings are server-only; `.env.local` is ignored by Git. Restart the development server after changing them. Only the selected provider's credentials are required, and only that provider receives a search. There is no automatic fallback or merging between providers.
+
+| Setting                      | Purpose                                                         |
+| ---------------------------- | --------------------------------------------------------------- |
+| `FLIGHTS_PROVIDER`           | `duffel` or `travelport`; required                              |
+| `DUFFEL_ACCESS_TOKEN`        | Duffel token beginning with `duffel_test_`                      |
+| `TRAVELPORT_CLIENT_ID`       | Provisioned Travelport OAuth client ID                          |
+| `TRAVELPORT_CLIENT_SECRET`   | Provisioned Travelport OAuth client secret                      |
+| `TRAVELPORT_USERNAME`        | Provisioned API username                                        |
+| `TRAVELPORT_PASSWORD`        | Provisioned API password                                        |
+| `TRAVELPORT_PCC`             | PCC and GDS identifier, for example `TEST_1G`                   |
+| `TRAVELPORT_CONTENT_SOURCES` | `GDS`, `NDC`, or `GDS,NDC` (default); subject to account access |
+
+Duffel remains the initial selection. Switch to Travelport after its account coverage check passes. This implementation supports trial searches only: Duffel live tokens are rejected, and Travelport uses fixed pre-production endpoints. No order, booking, payment, or ticketing API is called.
 
 Search from `/` or open `/flights` to choose a journey. Use exact dates, up to nine travelers (including an adult), and a separate age for every child aged 2–11. Infants travel on an adult’s lap. Round trips require a return date. Fare totals include taxes for all travelers, use the returned currency, and exclude optional extras. Times are local to each airport. Sandbox schedules and prices are illustrative.
 
-`GET /api/airports?query=...` provides airport suggestions; `POST /api/flights/search` validates criteria and returns a reduced offer response. Neither endpoint returns Duffel credentials or client keys. Offers are not stored in a database; reloading results performs another search. Failed requests display errors instead of substitute sample fares.
+### Search interface
 
-Automated browser tests mock these endpoints, and unit tests mock the Duffel transport. The design-system search uses local fixtures. To separately verify the configured token against Duffel’s sandbox:
+The results-page search controls stay pinned while the result count, filters, and flight cards scroll. Mobile uses a pinned journey summary that opens the search editor.
+
+Advanced filters use a consistent dialog height: `43.4rem` on desktop and `44.2rem` below 900px, capped to the visible viewport. Only the active tab panel scrolls; the heading, tabs, and Cancel/Apply actions stay in place. Clear filters sits beside Close and resets the draft and its errors without switching tabs. Apply commits the draft; Cancel, Close, and Escape discard it. Trip and cabin selections use `blue-500` (`#437EFD`) with `blue-950` labels for readable contrast.
+
+`Modal` supports optional `headerActions`, `className`, and `layout="fixed"`; its default sizing remains content-driven. `Tabs fill` fills the available space and scrolls the active panel. The focused checks in `tests/e2e/search-ui-polish.spec.mjs` cover pinned search controls, short screens, enlarged text, and draft reset behavior.
+
+### API and normalization
+
+`GET /api/airports?query=...` returns `{ airports: [{ value, label, detail }] }`. It searches a checked-in OurAirports catalog and needs no supplier credentials or network calls. Queries match IATA codes, city names, and airport names, with accents normalized and up to 20 suggestions. Catalog membership does not guarantee airline inventory. To refresh the public-domain snapshot with Python 3:
 
 ```sh
+npm run airports:update
+```
+
+The updater checks required fields, unique IATA codes, and minimum catalog size before replacing `src/data/airport-catalog.json`. Its source URL, retrieval date, license, and source SHA-256 are stored with the data. The generated file is excluded from formatting. Review the data diff before committing a refresh.
+
+`POST /api/flights/search` retains the existing Yup criteria and `{ id, testMode, offers }` response. `service.js` is the server-only entry point; `client.js` selects the configured adapter and serializes an explicit public contract. Search, offer, slice, and segment IDs are opaque UUIDs valid only within the current search display. Credentials, raw supplier references, and supplier selection never enter the public response. No database is needed for these temporary search results.
+
+Adapters preserve whole-itinerary prices in the original currency, airport-local times, operating carriers where supplied, baggage quantities or weights, and fare conditions. Travelport round trips match product references and combinability codes with the same content source, currency, and total; the journey price is never added twice. Unsupported split tickets are excluded. Missing baggage inclusion and fare conditions remain unknown. Weight-based allowances are not displayed as bag counts. Travelport results require a refresh after ten minutes, or sooner if the supplier supplies an earlier expiry; this freshness limit is not a price guarantee.
+
+Both providers share a 30-second request deadline and caller cancellation. Travelport caches OAuth tokens in the server process, shares concurrent refreshes, refreshes before expiry, and retries one search after a 401. It follows the provisioned dashboard's password-grant JSON request at `auth.pp.travelport.com` and sends the PCC through `TVP-PCC-Core`. Authentication, rate-limit, timeout, malformed-response, and upstream errors become safe public messages. Server diagnostics record provider, elapsed time, result count, category, and invalid configuration field names, without raw payloads or credentials.
+
+### Nigeria coverage check
+
+Automated tests use synthetic Duffel data and reduced official Travelport GDS/NDC examples. Browser tests exercise both adapters' normalized output through the shared UI at mobile and desktop widths. The design-system search uses local fixtures. Account access is checked separately:
+
+```sh
+npm run test:flights -- --provider travelport
 npm run test:duffel
 ```
 
-This sends an airport lookup and a flight search; it creates no order. It prints only mode, result counts, and currencies.
+The first command tests Travelport without changing `.env.local` or the app's active provider. `npm run test:flights` without an override tests the configured provider. The command searches LOS–ABV, ABV–PHC, LOS–LHR, and ABV–LHR at 7, 14, and 30 days ahead for one adult. It records route, date, result count, airline codes, currencies, latency, and safe failure categories in ignored `test-results/flights-{provider}-coverage.json`. Authentication and rate-limit failures stop the matrix early.
+
+One fresh priced itinerary on any airline serving a Nigerian airport passes the initial account check. The Duffel adapter removes simulated Duffel Airways (`ZZ`) offers before returning search results, checking the offer owner and every operating and marketing carrier. If only simulated offers are returned, visitors see the normal “No flights found” state. Domestic and international availability are reported separately. This does not establish production coverage or require any particular Nigerian airline. Keep Duffel selected until Travelport credentials and account results have been verified; trial responses alone cannot establish production availability.
 
 ### Vercel deployment
 
-Set `DUFFEL_ACCESS_TOKEN` to the Duffel test token in the Vercel project's **Settings → Environment Variables**, targeting **Production**. Use a sensitive environment variable and keep the token server-only. Add it separately to **Preview** if preview deployments need flight search. Vercel does not receive the ignored `.env.local` file through Git.
+Set `FLIGHTS_PROVIDER` and the selected provider's settings in the Vercel project's **Settings → Environment Variables**, targeting **Production**. Mark credentials sensitive and keep them server-only. Add settings separately to **Preview** if preview deployments need flight search. Vercel does not receive the ignored `.env.local` file through Git. The deployment environment named Production still runs trial flight searches with this implementation.
 
-Deploy again after saving the variable so the new deployment receives it. Verify that `/api/airports?query=Singapore` returns airport suggestions, then submit a flight search on the deployed site. If search returns `503`, check that the deployment has a valid test token. Live mode remains unsupported.
+Deploy again after saving variables so the new deployment receives them. Verify that `/api/airports?query=Singapore` returns airport suggestions, then submit a flight search on the deployed site. If search returns `503`, check the server's safe diagnostic category and configuration field names. Provider changes require no frontend changes.
 
 ## Project structure
 
-| Location                       | Responsibility                                              |
-| ------------------------------ | ----------------------------------------------------------- |
-| `src/app`                      | Routes, metadata, and private page composition              |
-| `src/components/ui`            | Domain-independent atoms and molecules                      |
-| `src/components/layout`        | Container, stack, grid, and section primitives              |
-| `src/components/site`          | Navigation and footer                                       |
-| `src/components/flight-search` | Search, filters, defaults, and validation                   |
-| `src/components/signup`        | Signup forms, shared submission hook, and validation        |
-| `src/data`                     | Shared travel reference data                                |
-| `src/lib`                      | Shared utilities, Duffel transport, and submission adapters |
-| `src/styles`                   | Global styles, tokens, and Sass mixins                      |
-| `assets/fonts`                 | Local Switzer, Recoleta Alt, and Cintarini fonts            |
-| `public/images`                | Local images and provenance manifest                        |
-| `tests/e2e`                    | Playwright behavior, accessibility, and responsive checks   |
+| Location                       | Responsibility                                             |
+| ------------------------------ | ---------------------------------------------------------- |
+| `src/app`                      | Routes, metadata, and private page composition             |
+| `src/components/ui`            | Domain-independent atoms and molecules                     |
+| `src/components/layout`        | Container, stack, grid, and section primitives             |
+| `src/components/site`          | Navigation and footer                                      |
+| `src/components/flight-search` | Search, filters, defaults, and validation                  |
+| `src/components/signup`        | Signup forms, shared submission hook, and validation       |
+| `src/data`                     | Shared travel reference data                               |
+| `src/lib`                      | Shared utilities, airport lookup, and submission adapters  |
+| `src/lib/flights/providers`    | Duffel and Travelport transport and response normalization |
+| `src/styles`                   | Global styles, tokens, and Sass mixins                     |
+| `assets/fonts`                 | Local Switzer, Recoleta Alt, and Cintarini fonts           |
+| `public/images`                | Local images and provenance manifest                       |
+| `tests/e2e`                    | Playwright behavior, accessibility, and responsive checks  |
 
 `src/app/(landing-page)` owns `/`, and `src/app/design-system` owns the development showcase. The root layout supplies shared fonts and global styling.
 
@@ -65,6 +106,14 @@ npm run build
 ```
 
 Playwright uses installed Google Chrome and starts the development server automatically when one is not running on port 3000. For production preview, run `npm run build` followed by `npm start`.
+
+### TestSprite UI testing
+
+TestSprite MCP supports the local app on port 3000 and requires Node.js 22 or newer plus a TestSprite account/API key. Install the official server with `npm install --global @testsprite/testsprite-mcp@0.0.45` using that Node runtime. Add `TESTSPRITE_API_KEY` to the ignored `.env.local` file.
+
+The `scripts/testsprite-mcp.mjs` launcher reads only that key from `.env.local` and starts the installed server. Register it in Codex with `codex mcp add testsprite -- /absolute/path/to/node /absolute/path/to/project/scripts/testsprite-mcp.mjs /absolute/path/to/@testsprite/testsprite-mcp/dist/index.js`. Restart the MCP connection after adding or changing the key.
+
+Run against the current local app using frontend mode, port 3000, no login, and [the UI requirements](tests/testsprite/ui-requirements.md). TestSprite runs browser tests in its cloud and consumes account credits. Generated tests, configuration, and reports stay in the ignored `testsprite_tests/` directory. Existing Playwright checks remain available through `npm test`.
 
 ### Formatting
 

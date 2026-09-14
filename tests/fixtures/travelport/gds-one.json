@@ -1,0 +1,1398 @@
+{
+  "CatalogProductOfferingsResponse": {
+    "@type": "CatalogProductOfferingsResponse",
+    "CatalogProductOfferings": {
+      "@type": "CatalogProductOfferings",
+      "CatalogProductOffering": [
+        {
+          "@type": "CatalogProductOffering",
+          "sequence": 1,
+          "id": "o1",
+          "Departure": "DEN",
+          "Arrival": "ATL",
+          "Brand": [
+            {
+              "@type": "BrandID",
+              "BrandRef": "b0"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b1"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b2"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b3"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b4"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b5"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "b6"
+            }
+          ],
+          "ProductBrandOptions": [
+            {
+              "@type": "ProductBrandOptions",
+              "flightRefs": ["s1"],
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p0"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T0"
+                  },
+                  "CombinabilityCode": ["j1"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 333,
+                    "TotalTaxes": 48.5,
+                    "TotalFees": 0,
+                    "TotalPrice": 381.5
+                  },
+                  "ContentSource": "GDS"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b3"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p2"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T1"
+                  },
+                  "CombinabilityCode": ["j2"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 390,
+                    "TotalTaxes": 52.8,
+                    "TotalFees": 0,
+                    "TotalPrice": 442.8
+                  },
+                  "ContentSource": "GDS"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b4"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p4"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T2"
+                  },
+                  "CombinabilityCode": ["j3"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 480,
+                    "TotalTaxes": 59.5,
+                    "TotalFees": 0,
+                    "TotalPrice": 539.5
+                  },
+                  "ContentSource": "GDS"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b5"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p6"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T3"
+                  },
+                  "CombinabilityCode": ["j4"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 552,
+                    "TotalTaxes": 64.9,
+                    "TotalFees": 0,
+                    "TotalPrice": 616.9
+                  },
+                  "ContentSource": "GDS"
+                }
+              ]
+            },
+            {
+              "@type": "ProductBrandOptions",
+              "flightRefs": ["s2"],
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p1"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T0"
+                  },
+                  "CombinabilityCode": ["j1"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 333,
+                    "TotalTaxes": 48.5,
+                    "TotalFees": 0,
+                    "TotalPrice": 381.5
+                  },
+                  "ContentSource": "GDS"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b3"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p3"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T1"
+                  },
+                  "CombinabilityCode": ["j2"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 390,
+                    "TotalTaxes": 52.8,
+                    "TotalFees": 0,
+                    "TotalPrice": 442.8
+                  },
+                  "ContentSource": "GDS"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b4"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p5"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T2"
+                  },
+                  "CombinabilityCode": ["j3"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 480,
+                    "TotalTaxes": 59.5,
+                    "TotalFees": 0,
+                    "TotalPrice": 539.5
+                  },
+                  "ContentSource": "GDS"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "b5"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "p7"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "T3"
+                  },
+                  "CombinabilityCode": ["j4"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 552,
+                    "TotalTaxes": 64.9,
+                    "TotalFees": 0,
+                    "TotalPrice": 616.9
+                  },
+                  "ContentSource": "GDS"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Result": {
+      "@type": "Result"
+    },
+    "ReferenceList": [
+      {
+        "@type": "ReferenceListProduct",
+        "Product": [
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT3H",
+            "id": "p0",
+            "Quantity": 9,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s1"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "T",
+                    "cabin": "Economy",
+                    "fareBasisCode": "TAA5AFDN",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "SIO",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b0"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT3H1M",
+            "id": "p1",
+            "Quantity": 9,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s2"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "T",
+                    "cabin": "Economy",
+                    "fareBasisCode": "TAA5AFDN",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "SIO",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b0"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT3H",
+            "id": "p2",
+            "Quantity": 9,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s1"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "T",
+                    "cabin": "Economy",
+                    "fareBasisCode": "TAA5AFDM",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "EOF",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b3"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT3H1M",
+            "id": "p3",
+            "Quantity": 9,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s2"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "T",
+                    "cabin": "Economy",
+                    "fareBasisCode": "TAA5AFDM",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "EOF",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b3"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT3H",
+            "id": "p4",
+            "Quantity": 9,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s1"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "B",
+                    "cabin": "PremiumEconomy",
+                    "fareBasisCode": "TAA5AFIN",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "EON",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b4"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT3H1M",
+            "id": "p5",
+            "Quantity": 9,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s2"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "B",
+                    "cabin": "PremiumEconomy",
+                    "fareBasisCode": "TAA5AFIN",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "EON",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b4"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT3H",
+            "id": "p6",
+            "Quantity": 9,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s1"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "B",
+                    "cabin": "PremiumEconomy",
+                    "fareBasisCode": "TAA5AFIM",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "EUF",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b5"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT3H1M",
+            "id": "p7",
+            "Quantity": 9,
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "s2"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "B",
+                    "cabin": "PremiumEconomy",
+                    "fareBasisCode": "TAA5AFIM",
+                    "fareType": "PublicFare",
+                    "fareTypeCode": "EUF",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "b5"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListFlight",
+        "Flight": [
+          {
+            "@type": "FlightDetail",
+            "distance": 1207,
+            "duration": "PT3H",
+            "carrier": "UA",
+            "number": "2424",
+            "equipment": "320",
+            "id": "s1",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "location": "DEN",
+              "date": "2026-01-01",
+              "time": "10:15:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "terminal": "N",
+              "location": "ATL",
+              "date": "2026-01-01",
+              "time": "15:15:00"
+            },
+            "AvailabilitySourceCode": "S"
+          },
+          {
+            "@type": "FlightDetail",
+            "distance": 1207,
+            "duration": "PT3H1M",
+            "carrier": "UA",
+            "number": "1305",
+            "equipment": "319",
+            "id": "s2",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "location": "DEN",
+              "date": "2026-01-01",
+              "time": "17:45:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "terminal": "N",
+              "location": "ATL",
+              "date": "2026-01-01",
+              "time": "22:46:00"
+            },
+            "AvailabilitySourceCode": "S"
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListTermsAndConditions",
+        "TermsAndConditions": [
+          {
+            "@type": "TermsAndConditionsAir",
+            "secureFlightPassengerDataRequiredInd": true,
+            "id": "T0",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/UA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p0", "p1"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 62
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/UA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "SecondCheckedBag",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p0", "p1"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 77
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p0", "p1"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "CARRY ON HAND BAGGAGE"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["1P"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "UA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-12-02T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelPermitted",
+                    "penaltyTypes": ["NoShow"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyPercent",
+                        "Percent": 100
+                      }
+                    ]
+                  },
+                  {
+                    "@type": "CancelPermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyPercent",
+                        "Percent": 100
+                      }
+                    ]
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "secureFlightPassengerDataRequiredInd": true,
+            "id": "T1",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/UA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p2", "p3"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 62
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/UA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "SecondCheckedBag",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p2", "p3"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 77
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p2", "p3"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "CARRY ON HAND BAGGAGE"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["1P"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "UA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-12-02T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelPermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "secureFlightPassengerDataRequiredInd": true,
+            "id": "T2",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/UA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p4", "p5"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 46
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/UA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "SecondCheckedBag",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p4", "p5"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 62
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p4", "p5"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "CARRY ON HAND BAGGAGE"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["1P"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "UA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-12-02T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelPermitted",
+                    "penaltyTypes": ["NoShow"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyPercent",
+                        "Percent": 100
+                      }
+                    ]
+                  },
+                  {
+                    "@type": "CancelPermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyPercent",
+                        "Percent": 100
+                      }
+                    ]
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "secureFlightPassengerDataRequiredInd": true,
+            "id": "T3",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/UA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p6", "p7"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 46
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "url": "http://VIEWTRIP.TRAVELPORT.COM/BAGGAGEPOLICY/UA",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "SecondCheckedBag",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p6", "p7"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "No",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 62
+                    },
+                    "Text": "UPTO50LB/23KG AND UPTO62LI/158LCM"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["0P"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "UA",
+                "ProductRef": ["p6", "p7"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "includedInOfferPrice": "Yes",
+                    "soldByPieceInd": true,
+                    "BaggageFee": {
+                      "code": "AUD",
+                      "approximateInd": true,
+                      "value": 0
+                    },
+                    "Text": "CARRY ON HAND BAGGAGE"
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["1P"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "UA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-12-02T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelPermitted",
+                    "penaltyTypes": ["Anytime"],
+                    "PenaltyAppliesTo": "PerTicket",
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListBrand",
+        "Brand": [
+          {
+            "@type": "Brand",
+            "name": "Economy",
+            "tier": 2,
+            "shelfNumbers": [],
+            "code": "ECONOMY",
+            "id": "b0",
+            "BrandAttribute": [
+              {
+                "@type": "BrandAttribute",
+                "classification": "Refund",
+                "inclusion": "Not Offered",
+                "groupCode": "BF",
+                "subGroupCode": "RF",
+                "subCode": "056"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Rebooking",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subGroupCode": "VC",
+                "subCode": "059"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "SeatAssignment",
+                "inclusion": "Included",
+                "groupCode": "SA",
+                "subCode": "0B5"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CarryOn",
+                "inclusion": "Included",
+                "groupCode": "BG",
+                "subGroupCode": "CY",
+                "subCode": "0MU"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CheckedBag",
+                "inclusion": "Chargeable",
+                "groupCode": "BG",
+                "subCode": "0CC"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "PersonalItem",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subCode": "PSL"
+              }
+            ]
+          },
+          {
+            "@type": "Brand",
+            "name": "Economy Fully Refundable",
+            "tier": 3,
+            "shelfNumbers": [],
+            "code": "ECOREF",
+            "id": "b3",
+            "BrandAttribute": [
+              {
+                "@type": "BrandAttribute",
+                "classification": "Refund",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subGroupCode": "RF",
+                "subCode": "056"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Rebooking",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subGroupCode": "VC",
+                "subCode": "059"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "SeatAssignment",
+                "inclusion": "Included",
+                "groupCode": "SA",
+                "subCode": "0B5"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CarryOn",
+                "inclusion": "Included",
+                "groupCode": "BG",
+                "subGroupCode": "CY",
+                "subCode": "0MU"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CheckedBag",
+                "inclusion": "Chargeable",
+                "groupCode": "BG",
+                "subCode": "0CC"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "PersonalItem",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subCode": "PSL"
+              }
+            ]
+          },
+          {
+            "@type": "Brand",
+            "name": "Economy Plus",
+            "tier": 4,
+            "shelfNumbers": [],
+            "code": "ECOPLUS",
+            "id": "b4",
+            "BrandAttribute": [
+              {
+                "@type": "BrandAttribute",
+                "classification": "Refund",
+                "inclusion": "Not Offered",
+                "groupCode": "BF",
+                "subGroupCode": "RF",
+                "subCode": "056"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Rebooking",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subGroupCode": "VC",
+                "subCode": "059"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "SeatAssignment",
+                "inclusion": "Included",
+                "groupCode": "SA",
+                "subCode": "0B5"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CarryOn",
+                "inclusion": "Included",
+                "groupCode": "BG",
+                "subGroupCode": "CY",
+                "subCode": "0MU"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CheckedBag",
+                "inclusion": "Chargeable",
+                "groupCode": "BG",
+                "subCode": "0CC"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "PersonalItem",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subCode": "PSL"
+              }
+            ]
+          },
+          {
+            "@type": "Brand",
+            "name": "Economy Plus Fully Refundable",
+            "tier": 5,
+            "shelfNumbers": [],
+            "code": "ECOPLREF",
+            "id": "b5",
+            "BrandAttribute": [
+              {
+                "@type": "BrandAttribute",
+                "classification": "Refund",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subGroupCode": "RF",
+                "subCode": "056"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Rebooking",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subGroupCode": "VC",
+                "subCode": "059"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "SeatAssignment",
+                "inclusion": "Included",
+                "groupCode": "SA",
+                "subCode": "0B5"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CarryOn",
+                "inclusion": "Included",
+                "groupCode": "BG",
+                "subGroupCode": "CY",
+                "subCode": "0MU"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CheckedBag",
+                "inclusion": "Chargeable",
+                "groupCode": "BG",
+                "subCode": "0CC"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "PersonalItem",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subCode": "PSL"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

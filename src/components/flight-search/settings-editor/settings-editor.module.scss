@@ -1,6 +1,10 @@
 @use '../../../styles' as ds;
 
 .settings-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
   min-width: 0;
 
   &__pair {
@@ -11,18 +15,15 @@
 
   &__actions {
     display: flex;
+    flex-shrink: 0;
     gap: 1.2rem;
     justify-content: flex-end;
-    margin-top: 2.4rem;
+    margin-top: min(2.4rem, 3dvh);
 
     button {
       flex: 1;
+      padding: min(1.2rem, 2dvh) min(2.4rem, 4vw);
     }
-  }
-
-  &__clear-row {
-    display: flex;
-    justify-content: flex-end;
   }
 
   @include ds.from(tablet) {

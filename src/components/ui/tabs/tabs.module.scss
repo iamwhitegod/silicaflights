@@ -3,6 +3,33 @@
 .tabs {
   min-width: 0;
 
+  &--fill {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+
+    .tabs__list {
+      flex-shrink: 0;
+      padding: min(0.4rem, 1dvh);
+
+      button {
+        white-space: nowrap;
+        padding: min(1.2rem, 2dvh) min(0.8rem, 2vw);
+      }
+    }
+
+    .tabs__panel:not([hidden]) {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-gutter: stable;
+      margin-top: min(1.6rem, 2dvh);
+      padding: min(1.6rem, 4vw);
+    }
+  }
+
   &__list {
     display: flex;
     gap: 0.4rem;

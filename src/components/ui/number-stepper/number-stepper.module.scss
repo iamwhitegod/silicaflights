@@ -4,15 +4,21 @@
   @include ds.field-surface;
   @include ds.field-content;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   border-radius: var(--radius-pill);
 
   input {
-    flex: 1;
+    flex: 1 1 6rem;
     appearance: textfield;
 
     &::-webkit-inner-spin-button {
       appearance: none;
     }
+  }
+
+  &__actions {
+    display: flex;
+    margin-inline-start: auto;
   }
 }

@@ -1,0 +1,1132 @@
+{
+  "CatalogProductOfferingsResponse": {
+    "@type": "CatalogProductOfferingsResponse",
+    "CatalogProductOfferings": {
+      "@type": "CatalogProductOfferings",
+      "CatalogProductOffering": [
+        {
+          "@type": "CatalogProductOffering",
+          "sequence": 1,
+          "id": "QF_CPO0",
+          "Departure": "SYD",
+          "Arrival": "MEL",
+          "Brand": [
+            {
+              "@type": "BrandID",
+              "BrandRef": "QFb0"
+            }
+          ],
+          "ProductBrandOptions": [
+            {
+              "@type": "ProductBrandOptions",
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 217.78,
+                    "TotalTaxes": 61.22,
+                    "TotalFees": 0,
+                    "TotalPrice": 279
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "QFb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "QFp0"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "QFt0"
+                  },
+                  "CombinabilityCode": [
+                    "QF_CC01",
+                    "QF_CC02",
+                    "QF_CC03",
+                    "QF_CC04",
+                    "QF_CC05",
+                    "QF_CC06",
+                    "QF_CC07",
+                    "QF_CC08",
+                    "QF_CC09",
+                    "QF_CC10",
+                    "QF_CC11",
+                    "QF_CC12",
+                    "QF_CC13",
+                    "QF_CC14",
+                    "QF_CC15",
+                    "QF_CC16",
+                    "QF_CC17",
+                    "QF_CC18",
+                    "QF_CC19",
+                    "QF_CC20"
+                  ],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 344.65,
+                    "TotalTaxes": 113.35,
+                    "TotalFees": 0,
+                    "TotalPrice": 458
+                  },
+                  "ContentSource": "NDC"
+                }
+              ]
+            },
+            {
+              "@type": "ProductBrandOptions",
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 145.05,
+                    "TotalTaxes": 53.95,
+                    "TotalFees": 0,
+                    "TotalPrice": 199
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "QFb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "QFp1"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "QFt1"
+                  },
+                  "CombinabilityCode": [
+                    "QF_CC26",
+                    "QF_CC27",
+                    "QF_CC28",
+                    "QF_CC29",
+                    "QF_CC30",
+                    "QF_CC31",
+                    "QF_CC32",
+                    "QF_CC33",
+                    "QF_CC34",
+                    "QF_CC35",
+                    "QF_CC36",
+                    "QF_CC37",
+                    "QF_CC38",
+                    "QF_CC39",
+                    "QF_CC40",
+                    "QF_CC41",
+                    "QF_CC42",
+                    "QF_CC43",
+                    "QF_CC44",
+                    "QF_CC45"
+                  ],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 271.92,
+                    "TotalTaxes": 106.08,
+                    "TotalFees": 0,
+                    "TotalPrice": 378
+                  },
+                  "ContentSource": "NDC"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "@type": "CatalogProductOffering",
+          "sequence": 2,
+          "id": "QF_CPO1",
+          "Departure": "MEL",
+          "Arrival": "SYD",
+          "Brand": [
+            {
+              "@type": "BrandID",
+              "BrandRef": "QFb0"
+            }
+          ],
+          "ProductBrandOptions": [
+            {
+              "@type": "ProductBrandOptions",
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 126.87,
+                    "TotalTaxes": 52.13,
+                    "TotalFees": 0,
+                    "TotalPrice": 179
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "QFb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "QFp29"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "QFt29"
+                  },
+                  "CombinabilityCode": [
+                    "QF_CC101",
+                    "QF_CC126",
+                    "QF_CC151",
+                    "QF_CC176",
+                    "QF_CC201",
+                    "QF_CC226",
+                    "QF_CC251",
+                    "QF_CC276",
+                    "QF_CC301",
+                    "QF_CC326",
+                    "QF_CC351",
+                    "QF_CC401",
+                    "QF_CC426",
+                    "QF_CC451",
+                    "QF_CC476",
+                    "QF_CC501",
+                    "QF_CC51",
+                    "QF_CC526",
+                    "QF_CC551",
+                    "QF_CC576",
+                    "QF_CC601",
+                    "QF_CC76"
+                  ],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 253.74,
+                    "TotalTaxes": 104.26,
+                    "TotalFees": 0,
+                    "TotalPrice": 358
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 126.87,
+                    "TotalTaxes": 52.13,
+                    "TotalFees": 0,
+                    "TotalPrice": 179
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "QFb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "QFp29"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "QFt29"
+                  },
+                  "CombinabilityCode": ["QF_CC26"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 271.92,
+                    "TotalTaxes": 106.08,
+                    "TotalFees": 0,
+                    "TotalPrice": 378
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 126.87,
+                    "TotalTaxes": 52.13,
+                    "TotalFees": 0,
+                    "TotalPrice": 179
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "QFb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "QFp29"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "QFt29"
+                  },
+                  "CombinabilityCode": ["QF_CC376"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 308.29,
+                    "TotalTaxes": 109.71,
+                    "TotalFees": 0,
+                    "TotalPrice": 418
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 126.87,
+                    "TotalTaxes": 52.13,
+                    "TotalFees": 0,
+                    "TotalPrice": 179
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "QFb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "QFp29"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "QFt29"
+                  },
+                  "CombinabilityCode": ["QF_CC01"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 344.65,
+                    "TotalTaxes": 113.35,
+                    "TotalFees": 0,
+                    "TotalPrice": 458
+                  },
+                  "ContentSource": "NDC"
+                }
+              ]
+            },
+            {
+              "@type": "ProductBrandOptions",
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 126.87,
+                    "TotalTaxes": 52.13,
+                    "TotalFees": 0,
+                    "TotalPrice": 179
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "QFb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "QFp30"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "QFt30"
+                  },
+                  "CombinabilityCode": [
+                    "QF_CC102",
+                    "QF_CC127",
+                    "QF_CC152",
+                    "QF_CC177",
+                    "QF_CC202",
+                    "QF_CC227",
+                    "QF_CC252",
+                    "QF_CC277",
+                    "QF_CC302",
+                    "QF_CC327",
+                    "QF_CC352",
+                    "QF_CC402",
+                    "QF_CC427",
+                    "QF_CC452",
+                    "QF_CC477",
+                    "QF_CC502",
+                    "QF_CC52",
+                    "QF_CC527",
+                    "QF_CC552",
+                    "QF_CC577",
+                    "QF_CC602",
+                    "QF_CC77"
+                  ],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 253.74,
+                    "TotalTaxes": 104.26,
+                    "TotalFees": 0,
+                    "TotalPrice": 358
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 126.87,
+                    "TotalTaxes": 52.13,
+                    "TotalFees": 0,
+                    "TotalPrice": 179
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "QFb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "QFp30"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "QFt30"
+                  },
+                  "CombinabilityCode": ["QF_CC27"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 271.92,
+                    "TotalTaxes": 106.08,
+                    "TotalFees": 0,
+                    "TotalPrice": 378
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 126.87,
+                    "TotalTaxes": 52.13,
+                    "TotalFees": 0,
+                    "TotalPrice": 179
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "QFb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "QFp30"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "QFt30"
+                  },
+                  "CombinabilityCode": ["QF_CC377"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 308.29,
+                    "TotalTaxes": 109.71,
+                    "TotalFees": 0,
+                    "TotalPrice": 418
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 126.87,
+                    "TotalTaxes": 52.13,
+                    "TotalFees": 0,
+                    "TotalPrice": 179
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "QFb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "QFp30"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "QFt30"
+                  },
+                  "CombinabilityCode": ["QF_CC02"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 344.65,
+                    "TotalTaxes": 113.35,
+                    "TotalFees": 0,
+                    "TotalPrice": 458
+                  },
+                  "ContentSource": "NDC"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Result": {
+      "@type": "Result"
+    },
+    "ReferenceList": [
+      {
+        "@type": "ReferenceListProduct",
+        "Product": [
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT1H35M",
+            "id": "QFp0",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "QFs1"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "N",
+                    "cabin": "Economy",
+                    "fareBasisCode": "NDQA",
+                    "fareType": "PublicFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "QFb0"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT1H25M",
+            "id": "QFp1",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "QFs2"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "O",
+                    "cabin": "Economy",
+                    "fareBasisCode": "ODQA",
+                    "fareType": "PublicFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "QFb0"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT1H25M",
+            "id": "QFp29",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "QFs30"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "E",
+                    "cabin": "Economy",
+                    "fareBasisCode": "EDQA",
+                    "fareType": "PublicFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "QFb0"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT1H25M",
+            "id": "QFp30",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "QFs31"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "E",
+                    "cabin": "Economy",
+                    "fareBasisCode": "EDQA",
+                    "fareType": "PublicFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "QFb0"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListFlight",
+        "Flight": [
+          {
+            "@type": "FlightDetail",
+            "distance": 456,
+            "stops": 0,
+            "duration": "PT1H35M",
+            "carrier": "QF",
+            "number": "413",
+            "equipment": "73H",
+            "id": "QFs1",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "terminal": "3",
+              "location": "SYD",
+              "date": "2025-03-21",
+              "time": "07:10:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "terminal": "1",
+              "location": "MEL",
+              "date": "2025-03-21",
+              "time": "08:45:00"
+            }
+          },
+          {
+            "@type": "FlightDetail",
+            "distance": 456,
+            "stops": 0,
+            "duration": "PT1H25M",
+            "carrier": "QF",
+            "number": "409",
+            "equipment": "73H",
+            "id": "QFs2",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "terminal": "3",
+              "location": "SYD",
+              "date": "2025-03-21",
+              "time": "07:30:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "terminal": "1",
+              "location": "MEL",
+              "date": "2025-03-21",
+              "time": "08:55:00"
+            }
+          },
+          {
+            "@type": "FlightDetail",
+            "distance": 456,
+            "stops": 0,
+            "duration": "PT1H25M",
+            "carrier": "QF",
+            "number": "414",
+            "equipment": "73H",
+            "id": "QFs30",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "terminal": "1",
+              "location": "MEL",
+              "date": "2025-03-24",
+              "time": "07:30:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "terminal": "3",
+              "location": "SYD",
+              "date": "2025-03-24",
+              "time": "08:55:00"
+            }
+          },
+          {
+            "@type": "FlightDetail",
+            "distance": 456,
+            "stops": 0,
+            "duration": "PT1H25M",
+            "carrier": "QF",
+            "number": "416",
+            "equipment": "73H",
+            "id": "QFs31",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "terminal": "1",
+              "location": "MEL",
+              "date": "2025-03-24",
+              "time": "07:45:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "terminal": "3",
+              "location": "SYD",
+              "date": "2025-03-24",
+              "time": "09:10:00"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListTermsAndConditions",
+        "TermsAndConditions": [
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "QFt0",
+            "ExpiryDate": "2025-02-22T01:16:19Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "QF",
+                "ProductRef": ["QFp0"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "QF"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-22T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["BeforeDeparture", "AfterDeparture"],
+                    "higherPenatltyAppliesInd": true,
+                    "ProductRefs": ["QFp0"],
+                    "SegmentSequence": [1],
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "code": "AUD",
+                          "minorUnit": 2,
+                          "value": 99
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelNotPermitted",
+                    "ProductRefs": ["QFp0"],
+                    "SegmentSequence": [1],
+                    "NotPermittedInd": "true"
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "QFt1",
+            "ExpiryDate": "2025-02-22T01:16:19Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "QF",
+                "ProductRef": ["QFp1"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "QF"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-22T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["BeforeDeparture", "AfterDeparture"],
+                    "higherPenatltyAppliesInd": true,
+                    "ProductRefs": ["QFp1"],
+                    "SegmentSequence": [1],
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "code": "AUD",
+                          "minorUnit": 2,
+                          "value": 99
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelNotPermitted",
+                    "ProductRefs": ["QFp1"],
+                    "SegmentSequence": [1],
+                    "NotPermittedInd": "true"
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "QFt29",
+            "ExpiryDate": "2025-02-22T01:16:19Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "QF",
+                "ProductRef": ["QFp29"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "QF"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-22T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["BeforeDeparture", "AfterDeparture"],
+                    "higherPenatltyAppliesInd": true,
+                    "ProductRefs": ["QFp29"],
+                    "SegmentSequence": [1],
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "code": "AUD",
+                          "minorUnit": 2,
+                          "value": 99
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelNotPermitted",
+                    "ProductRefs": ["QFp29"],
+                    "SegmentSequence": [1],
+                    "NotPermittedInd": "true"
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "QFt30",
+            "ExpiryDate": "2025-02-22T01:16:19Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "QF",
+                "ProductRef": ["QFp30"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "QF"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-22T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "penaltyTypes": ["BeforeDeparture", "AfterDeparture"],
+                    "higherPenatltyAppliesInd": true,
+                    "ProductRefs": ["QFp30"],
+                    "SegmentSequence": [1],
+                    "Penalty": [
+                      {
+                        "@type": "PenaltyAmount",
+                        "Amount": {
+                          "code": "AUD",
+                          "minorUnit": 2,
+                          "value": 99
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelNotPermitted",
+                    "ProductRefs": ["QFp30"],
+                    "SegmentSequence": [1],
+                    "NotPermittedInd": "true"
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListBrand",
+        "Brand": [
+          {
+            "@type": "Brand",
+            "name": "Red Edeal",
+            "shelfNumbers": [],
+            "code": "EDEAL",
+            "id": "QFb0",
+            "BrandAttribute": [
+              {
+                "@type": "BrandAttribute",
+                "classification": "SeatAssignment",
+                "inclusion": "Included",
+                "groupCode": "BF",
+                "subGroupCode": "SE",
+                "subCode": "050"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Refund",
+                "inclusion": "Not Offered",
+                "groupCode": "BF",
+                "subGroupCode": "VR",
+                "subCode": "06L"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Rebooking",
+                "inclusion": "Chargeable",
+                "groupCode": "BF",
+                "subGroupCode": "VC",
+                "subCode": "06I"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Meals",
+                "inclusion": "Included",
+                "groupCode": "ML",
+                "subGroupCode": "DR",
+                "subCode": "0AX"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CheckedBag",
+                "inclusion": "Included",
+                "groupCode": "BG",
+                "subCode": "0CC"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CarryOn",
+                "inclusion": "Included",
+                "groupCode": "BG",
+                "subGroupCode": "CY",
+                "subCode": "0L5"
+              }
+            ],
+            "ImageURL": ["https://cdn.travelport.com/qantas/QF_general_large_65595.jpg"]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 import { flightSearchSchema, searchFieldError } from '@/lib/flights/schemas';
 import { validateForm } from '@/lib/validation';
-import { searchFlights, serviceErrorResponse } from '@/lib/flights/duffel';
+import { searchFlights, serviceErrorResponse } from '@/lib/flights/service';
 
 export async function POST(request) {
   if (!request.headers.get('content-type')?.includes('application/json'))

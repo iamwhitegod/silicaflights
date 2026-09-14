@@ -5,7 +5,7 @@
   position: relative;
   isolation: isolate;
   color: ds.color('white');
-  padding: 2.4rem 1.6rem 6.4rem;
+  padding-bottom: 6.4rem;
   background: ds.color('sky-500');
 
   &__background {
@@ -17,6 +17,18 @@
   }
 
   &__header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 2.4rem 1.6rem;
+
+    &[data-scrolled='true'] {
+      background: ds.color('sky-850');
+      box-shadow: 0 0.4rem 1.6rem ds.color('navy-950', 0.15);
+    }
+  }
+
+  &__header-inner {
     max-width: 128.9rem;
     margin: 0 auto;
     position: relative;
@@ -73,8 +85,9 @@
   }
 
   &__content {
+    width: calc(100% - 3.2rem);
     max-width: 103.9rem;
-    margin: 3.2rem auto 0;
+    margin: 0.8rem auto 0;
   }
 
   &__dates {
@@ -231,7 +244,9 @@
   }
 
   @media (min-width: 900px) {
-    padding: 6.4rem 4.8rem 6.4rem;
+    &__header {
+      padding: 6.4rem 4.8rem;
+    }
 
     &__background {
       background-image: url('/images/results-desktop.png'), url('/images/results-sky.png');
@@ -256,7 +271,8 @@
     }
 
     &__content {
-      margin-top: 4rem;
+      width: calc(100% - 9.6rem);
+      margin-top: 0;
     }
   }
 
@@ -269,10 +285,6 @@
       font-size: ds.font-size('caption');
       padding-bottom: 0.4rem;
     }
-  }
-
-  &__content {
-    margin-top: 2.4rem;
   }
 
   &__filters {
@@ -305,10 +317,6 @@
   }
 
   @media (min-width: 900px) {
-    &__content {
-      margin-top: 1.6rem;
-    }
-
     &__toolbar {
       flex-wrap: nowrap;
       align-items: start;

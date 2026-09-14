@@ -23,20 +23,22 @@ export function NumberStepper({ label, value, onValueChange, min = 0, max = 9 })
             onValueChange(Math.min(max, Math.max(min, Number.isFinite(next) ? next : min)));
           }}
         />
-        <IconButton
-          label={`Decrease ${label}`}
-          disabled={value <= min}
-          onClick={() => onValueChange(value - 1)}
-        >
-          −
-        </IconButton>
-        <IconButton
-          label={`Increase ${label}`}
-          disabled={value >= max}
-          onClick={() => onValueChange(value + 1)}
-        >
-          +
-        </IconButton>
+        <div className={styles['number-stepper__actions']}>
+          <IconButton
+            label={`Decrease ${label}`}
+            disabled={value <= min}
+            onClick={() => onValueChange(value - 1)}
+          >
+            −
+          </IconButton>
+          <IconButton
+            label={`Increase ${label}`}
+            disabled={value >= max}
+            onClick={() => onValueChange(value + 1)}
+          >
+            +
+          </IconButton>
+        </div>
       </div>
     </FormField>
   );

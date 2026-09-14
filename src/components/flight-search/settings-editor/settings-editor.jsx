@@ -17,7 +17,7 @@ import { validateForm } from '@/lib/validation';
 import { defaultFilters } from '../defaults';
 import styles from './settings-editor.module.scss';
 
-export function SettingsEditor({ initial, onApply, onCancel, departure }) {
+export function SettingsEditor({ id, initial, onApply, onCancel, departure }) {
   const [draft, setDraft] = useState(initial);
   const [tab, setTab] = useState('details');
   const [errors, setErrors] = useState({});
@@ -151,8 +151,14 @@ export function SettingsEditor({ initial, onApply, onCancel, departure }) {
 
   return (
     <form
+      id={id}
       className={styles['settings-editor']}
       noValidate
+      onReset={(event) => {
+        event.preventDefault();
+        setDraft({ ...defaultFilters });
+        setErrors({});
+      }}
       onSubmit={(event) => {
         event.preventDefault();
         const { errors: next } = validateForm(flightSettingsSchema, draft, {
@@ -174,19 +180,7 @@ export function SettingsEditor({ initial, onApply, onCancel, departure }) {
         onApply(draft);
       }}
     >
-      <div className={styles['settings-editor__clear-row']}>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => {
-            setDraft({ ...defaultFilters });
-            setErrors({});
-          }}
-        >
-          Clear filters
-        </Button>
-      </div>
-      <Tabs label="Advanced search filters" items={items} value={tab} onValueChange={setTab} />
+      <Tabs label="Advanced search filters" items={items} value={tab} onValueChange={setTab} fill />
       <div className={styles['settings-editor__actions']}>
         <Button variant="neutral" onClick={onCancel}>
           Cancel

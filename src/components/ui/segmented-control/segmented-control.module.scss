@@ -53,10 +53,10 @@
     }
 
     input:checked + span {
-      --segment-hover-background: #{ds.color('blue-700')};
-      --segment-pressed-background: #{ds.color('blue-700')};
-      background: ds.color('blue-700');
-      color: ds.color('white');
+      --segment-hover-background: #{ds.color('blue-500')};
+      --segment-pressed-background: #{ds.color('blue-500')};
+      background: ds.color('blue-500');
+      color: ds.color('blue-950');
       font-weight: 600;
     }
 

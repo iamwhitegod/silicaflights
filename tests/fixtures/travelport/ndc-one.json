@@ -1,0 +1,1704 @@
+{
+  "CatalogProductOfferingsResponse": {
+    "@type": "CatalogProductOfferingsResponse",
+    "CatalogProductOfferings": {
+      "@type": "CatalogProductOfferings",
+      "CatalogProductOffering": [
+        {
+          "@type": "CatalogProductOffering",
+          "sequence": 1,
+          "id": "AA_CPO0",
+          "Departure": "LAX",
+          "Arrival": "DEN",
+          "Brand": [
+            {
+              "@type": "BrandID",
+              "BrandRef": "AAb2"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "AAb0"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "AAb3"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "AAb4"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "AAb1"
+            },
+            {
+              "@type": "BrandID",
+              "BrandRef": "AAb5"
+            }
+          ],
+          "ProductBrandOptions": [
+            {
+              "@type": "ProductBrandOptions",
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 369.33,
+                    "TotalTaxes": 51.8,
+                    "TotalFees": 0,
+                    "TotalPrice": 421.13
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "AAb2"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "AAp2"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "AAt2"
+                  },
+                  "CombinabilityCode": ["AA_CC03"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 369.33,
+                    "TotalTaxes": 51.8,
+                    "TotalFees": 0,
+                    "TotalPrice": 421.13
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 430.89,
+                    "TotalTaxes": 56.5,
+                    "TotalFees": 0,
+                    "TotalPrice": 487.39
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "AAb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "AAp0"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "AAt0"
+                  },
+                  "CombinabilityCode": ["AA_CC01"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 430.89,
+                    "TotalTaxes": 56.5,
+                    "TotalFees": 0,
+                    "TotalPrice": 487.39
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 434.97,
+                    "TotalTaxes": 56.8,
+                    "TotalFees": 0,
+                    "TotalPrice": 491.77
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "AAb3"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "AAp3"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "AAt3"
+                  },
+                  "CombinabilityCode": ["AA_CC04"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 434.97,
+                    "TotalTaxes": 56.8,
+                    "TotalFees": 0,
+                    "TotalPrice": 491.77
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 445.18,
+                    "TotalTaxes": 57.5,
+                    "TotalFees": 0,
+                    "TotalPrice": 502.68
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "AAb4"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "AAp4"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "AAt4"
+                  },
+                  "CombinabilityCode": ["AA_CC05"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 445.18,
+                    "TotalTaxes": 57.5,
+                    "TotalFees": 0,
+                    "TotalPrice": 502.68
+                  },
+                  "ContentSource": "NDC"
+                }
+              ]
+            },
+            {
+              "@type": "ProductBrandOptions",
+              "ProductBrandOffering": [
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 580.84,
+                    "TotalTaxes": 67.7,
+                    "TotalFees": 0,
+                    "TotalPrice": 648.54
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "AAb2"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "AAp7"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "AAt7"
+                  },
+                  "CombinabilityCode": ["AA_CC08"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 580.84,
+                    "TotalTaxes": 67.7,
+                    "TotalFees": 0,
+                    "TotalPrice": 648.54
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 646.48,
+                    "TotalTaxes": 72.6,
+                    "TotalFees": 0,
+                    "TotalPrice": 719.08
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "AAb3"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "AAp8"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "AAt8"
+                  },
+                  "CombinabilityCode": ["AA_CC09"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 646.48,
+                    "TotalTaxes": 72.6,
+                    "TotalFees": 0,
+                    "TotalPrice": 719.08
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 656.69,
+                    "TotalTaxes": 73.4,
+                    "TotalFees": 0,
+                    "TotalPrice": 730.09
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "AAb4"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "AAp9"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "AAt9"
+                  },
+                  "CombinabilityCode": ["AA_CC10"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 656.69,
+                    "TotalTaxes": 73.4,
+                    "TotalFees": 0,
+                    "TotalPrice": 730.09
+                  },
+                  "ContentSource": "NDC"
+                },
+                {
+                  "@type": "ProductBrandOffering",
+                  "Price": {
+                    "@type": "PriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 759.09,
+                    "TotalTaxes": 81.1,
+                    "TotalFees": 0,
+                    "TotalPrice": 840.19
+                  },
+                  "Brand": {
+                    "@type": "BrandID",
+                    "BrandRef": "AAb0"
+                  },
+                  "Product": [
+                    {
+                      "@type": "ProductID",
+                      "productRef": "AAp5"
+                    }
+                  ],
+                  "TermsAndConditions": {
+                    "@type": "TermsAndConditionsID",
+                    "termsAndConditionsRef": "AAt5"
+                  },
+                  "CombinabilityCode": ["AA_CC06"],
+                  "BestCombinablePrice": {
+                    "@type": "BestCombinablePriceDetail",
+                    "CurrencyCode": {
+                      "decimalPlace": 2,
+                      "value": "AUD"
+                    },
+                    "Base": 759.09,
+                    "TotalTaxes": 81.1,
+                    "TotalFees": 0,
+                    "TotalPrice": 840.19
+                  },
+                  "ContentSource": "NDC"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Result": {
+      "@type": "Result"
+    },
+    "ReferenceList": [
+      {
+        "@type": "ReferenceListProduct",
+        "Product": [
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H29M",
+            "id": "AAp0",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "AAs1"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "D",
+                    "cabin": "First",
+                    "fareBasisCode": "LUAIYSD1",
+                    "fareType": "AirlinePrivateFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "AAb0"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H29M",
+            "id": "AAp2",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "AAs1"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "L",
+                    "cabin": "Economy",
+                    "fareBasisCode": "LUAIYSN1",
+                    "fareType": "PublicFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "AAb2"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H29M",
+            "id": "AAp3",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "AAs1"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "L",
+                    "cabin": "Economy",
+                    "fareBasisCode": "LUAIYRV1",
+                    "fareType": "PublicFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "AAb3"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H29M",
+            "id": "AAp4",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "AAs1"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "L",
+                    "cabin": "Economy",
+                    "fareBasisCode": "LUAIYSTZ",
+                    "fareType": "AirlinePrivateFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "AAb4"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H25M",
+            "id": "AAp5",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "AAs2"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "C",
+                    "cabin": "First",
+                    "fareBasisCode": "K0AIZNC1",
+                    "fareType": "AirlinePrivateFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "AAb0"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H25M",
+            "id": "AAp7",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "AAs2"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "K",
+                    "cabin": "Economy",
+                    "fareBasisCode": "K0AIZNN1",
+                    "fareType": "PublicFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "AAb2"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H25M",
+            "id": "AAp8",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "AAs2"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "K",
+                    "cabin": "Economy",
+                    "fareBasisCode": "K0AIZRU1",
+                    "fareType": "PublicFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "AAb3"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ProductAir",
+            "totalDuration": "PT2H25M",
+            "id": "AAp9",
+            "FlightSegment": [
+              {
+                "@type": "FlightSegment",
+                "id": "1",
+                "sequence": 1,
+                "Flight": {
+                  "@type": "FlightID",
+                  "FlightRef": "AAs2"
+                }
+              }
+            ],
+            "PassengerFlight": [
+              {
+                "@type": "PassengerFlight",
+                "passengerQuantity": 1,
+                "passengerTypeCode": "ADT",
+                "FlightProduct": [
+                  {
+                    "@type": "FlightProduct",
+                    "segmentSequence": [1],
+                    "classOfService": "K",
+                    "cabin": "Economy",
+                    "fareBasisCode": "K0AIZNTZ",
+                    "fareType": "AirlinePrivateFare",
+                    "Brand": {
+                      "@type": "BrandID",
+                      "BrandRef": "AAb4"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListFlight",
+        "Flight": [
+          {
+            "@type": "FlightDetail",
+            "distance": 860,
+            "stops": 0,
+            "duration": "PT2H29M",
+            "carrier": "AA",
+            "number": "6221",
+            "operatingCarrierName": "SKYWEST AIRLINES AS AMERICAN EAGLE",
+            "equipment": "E75",
+            "id": "AAs1",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "terminal": "0",
+              "location": "LAX",
+              "date": "2025-03-21",
+              "time": "09:22:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "location": "DEN",
+              "date": "2025-03-21",
+              "time": "12:51:00"
+            }
+          },
+          {
+            "@type": "FlightDetail",
+            "distance": 860,
+            "stops": 0,
+            "duration": "PT2H25M",
+            "carrier": "AA",
+            "number": "6394",
+            "operatingCarrierName": "SKYWEST AIRLINES AS AMERICAN EAGLE",
+            "equipment": "E75",
+            "id": "AAs2",
+            "Departure": {
+              "@type": "DepartureDetail",
+              "terminal": "0",
+              "location": "LAX",
+              "date": "2025-03-21",
+              "time": "16:05:00"
+            },
+            "Arrival": {
+              "@type": "ArrivalDetail",
+              "location": "DEN",
+              "date": "2025-03-21",
+              "time": "19:30:00"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListTermsAndConditions",
+        "TermsAndConditions": [
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "AAt0",
+            "ExpiryDate": "2025-02-22T00:32:47Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp0"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "Measurement": [
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Kilograms",
+                        "value": 32
+                      },
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Pounds",
+                        "value": 70
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 62
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 158
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "SecondCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp0"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "Measurement": [
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Kilograms",
+                        "value": 32
+                      },
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Pounds",
+                        "value": 70
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 62
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 158
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp0"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 2,
+                    "Measurement": [
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 45
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 115
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CARRY ON ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-23T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "ProductRefs": ["AAp0"],
+                    "SegmentSequence": [1]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelNotPermitted",
+                    "ProductRefs": ["AAp0"],
+                    "SegmentSequence": [1],
+                    "NotPermittedInd": "true"
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "AAt2",
+            "ExpiryDate": "2025-02-22T00:32:47Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp2"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 0,
+                    "Measurement": [
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Kilograms",
+                        "value": 23
+                      },
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Pounds",
+                        "value": 50
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 62
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 158
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp2"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 2,
+                    "Measurement": [
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 45
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 115
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CARRY ON ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-23T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "ProductRefs": ["AAp2"],
+                    "SegmentSequence": [1]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelNotPermitted",
+                    "ProductRefs": ["AAp2"],
+                    "SegmentSequence": [1],
+                    "NotPermittedInd": "true"
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "AAt3",
+            "ExpiryDate": "2025-02-22T00:32:47Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp3"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 0,
+                    "Measurement": [
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Kilograms",
+                        "value": 23
+                      },
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Pounds",
+                        "value": 50
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 62
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 158
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp3"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 2,
+                    "Measurement": [
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 45
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 115
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CARRY ON ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-23T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "ProductRefs": ["AAp3"],
+                    "SegmentSequence": [1]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelPermitted",
+                    "ProductRefs": ["AAp3"],
+                    "SegmentSequence": [1]
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "AAt4",
+            "ExpiryDate": "2025-02-22T00:32:47Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp4"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "Measurement": [
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Kilograms",
+                        "value": 23
+                      },
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Pounds",
+                        "value": 50
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 62
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 158
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp4"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 2,
+                    "Measurement": [
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 45
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 115
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CARRY ON ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-23T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "ProductRefs": ["AAp4"],
+                    "SegmentSequence": [1]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelNotPermitted",
+                    "ProductRefs": ["AAp4"],
+                    "SegmentSequence": [1],
+                    "NotPermittedInd": "true"
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "AAt5",
+            "ExpiryDate": "2025-02-22T00:32:47Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp5"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "Measurement": [
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Kilograms",
+                        "value": 32
+                      },
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Pounds",
+                        "value": 70
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 62
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 158
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "SecondCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp5"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "Measurement": [
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Kilograms",
+                        "value": 32
+                      },
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Pounds",
+                        "value": 70
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 62
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 158
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp5"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 2,
+                    "Measurement": [
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 45
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 115
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CARRY ON ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-23T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "ProductRefs": ["AAp5"],
+                    "SegmentSequence": [1]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelNotPermitted",
+                    "ProductRefs": ["AAp5"],
+                    "SegmentSequence": [1],
+                    "NotPermittedInd": "true"
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "AAt7",
+            "ExpiryDate": "2025-02-22T00:32:47Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp7"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 0,
+                    "Measurement": [
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Kilograms",
+                        "value": 23
+                      },
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Pounds",
+                        "value": 50
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 62
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 158
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp7"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 2,
+                    "Measurement": [
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 45
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 115
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CARRY ON ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-23T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "ProductRefs": ["AAp7"],
+                    "SegmentSequence": [1]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelNotPermitted",
+                    "ProductRefs": ["AAp7"],
+                    "SegmentSequence": [1],
+                    "NotPermittedInd": "true"
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "AAt8",
+            "ExpiryDate": "2025-02-22T00:32:47Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp8"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 0,
+                    "Measurement": [
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Kilograms",
+                        "value": 23
+                      },
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Pounds",
+                        "value": 50
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 62
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 158
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp8"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 2,
+                    "Measurement": [
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 45
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 115
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CARRY ON ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-23T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "ProductRefs": ["AAp8"],
+                    "SegmentSequence": [1]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelPermitted",
+                    "ProductRefs": ["AAp8"],
+                    "SegmentSequence": [1]
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          },
+          {
+            "@type": "TermsAndConditionsAir",
+            "id": "AAt9",
+            "ExpiryDate": "2025-02-22T00:32:47Z",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "FirstCheckedBag",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp9"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1,
+                    "Measurement": [
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Kilograms",
+                        "value": 23
+                      },
+                      {
+                        "measurementType": "Weight",
+                        "unit": "Pounds",
+                        "value": 50
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 62
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 158
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CHECKED ALLOWANCE"]
+              },
+              {
+                "@type": "BaggageAllowanceDetail",
+                "passengerTypeCodes": ["ADT"],
+                "baggageType": "CarryOn",
+                "validatingAirlineCode": "AA",
+                "ProductRef": ["AAp9"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 2,
+                    "Measurement": [
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Inches",
+                        "value": 45
+                      },
+                      {
+                        "measurementType": "OverallDimension",
+                        "unit": "Centimeters",
+                        "value": 115
+                      }
+                    ]
+                  }
+                ],
+                "SegmentSequenceList": [1],
+                "Text": ["CARRY ON ALLOWANCE"]
+              }
+            ],
+            "ValidatingAirline": [
+              {
+                "@type": "ValidatingAirline",
+                "ValidatingAirline": "AA"
+              }
+            ],
+            "PaymentTimeLimit": "2025-02-23T23:59:00Z",
+            "Penalties": [
+              {
+                "@type": "Penalties",
+                "Change": [
+                  {
+                    "@type": "ChangePermitted",
+                    "ProductRefs": ["AAp9"],
+                    "SegmentSequence": [1]
+                  }
+                ],
+                "Cancel": [
+                  {
+                    "@type": "CancelNotPermitted",
+                    "ProductRefs": ["AAp9"],
+                    "SegmentSequence": [1],
+                    "NotPermittedInd": "true"
+                  }
+                ],
+                "PassengerTypeCodes": ["ADT"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ReferenceListBrand",
+        "Brand": [
+          {
+            "@type": "Brand",
+            "name": "First",
+            "id": "AAb0",
+            "BrandAttribute": [
+              {
+                "@type": "BrandAttribute",
+                "classification": "SeatAssignment",
+                "inclusion": "Included",
+                "groupCode": "SA"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CheckedBag",
+                "inclusion": "Included",
+                "groupCode": "BG"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Refund",
+                "inclusion": "Included",
+                "groupCode": "BF"
+              }
+            ]
+          },
+          {
+            "@type": "Brand",
+            "name": "Main Cabin",
+            "id": "AAb2",
+            "BrandAttribute": [
+              {
+                "@type": "BrandAttribute",
+                "classification": "SeatAssignment",
+                "inclusion": "Included",
+                "groupCode": "SA"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CheckedBag",
+                "inclusion": "Chargeable",
+                "groupCode": "BG"
+              }
+            ]
+          },
+          {
+            "@type": "Brand",
+            "name": "Main Cabin Flexible",
+            "id": "AAb3",
+            "BrandAttribute": [
+              {
+                "@type": "BrandAttribute",
+                "classification": "SeatAssignment",
+                "inclusion": "Included",
+                "groupCode": "SA"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CheckedBag",
+                "inclusion": "Chargeable",
+                "groupCode": "BG"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "Refund",
+                "inclusion": "Included",
+                "groupCode": "BF"
+              }
+            ]
+          },
+          {
+            "@type": "Brand",
+            "name": "Main Plus",
+            "id": "AAb4",
+            "BrandAttribute": [
+              {
+                "@type": "BrandAttribute",
+                "classification": "SeatAssignment",
+                "inclusion": "Included",
+                "groupCode": "SA"
+              },
+              {
+                "@type": "BrandAttribute",
+                "classification": "CheckedBag",
+                "inclusion": "Included",
+                "groupCode": "BG"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

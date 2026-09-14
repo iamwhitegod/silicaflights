@@ -22,7 +22,8 @@ const ModalContent = memo(
  * Controlled native dialog. Closing restores focus to the opening element.
  * @param {{open: boolean, onOpenChange: (open: boolean) => void,
  *   title: string, description?: string, size?: 'default' | 'wide', stickyHeader?: boolean,
- *   children: import('react').ReactNode}} props
+ *   layout?: 'default' | 'fixed', className?: string,
+ *   headerActions?: import('react').ReactNode, children: import('react').ReactNode}} props
  */
 export function Modal({
   open,
@@ -31,6 +32,9 @@ export function Modal({
   description,
   size = 'default',
   stickyHeader = false,
+  layout = 'default',
+  className,
+  headerActions,
   children,
 }) {
   const ref = useRef(null);
@@ -103,7 +107,12 @@ export function Modal({
   return (
     <dialog
       ref={ref}
-      className={cx(styles['modal'], size === 'wide' && styles['modal--wide'])}
+      className={cx(
+        styles['modal'],
+        size === 'wide' && styles['modal--wide'],
+        layout === 'fixed' && styles['modal--fixed'],
+        className,
+      )}
       aria-labelledby={`${id}-title`}
       aria-describedby={description ? `${id}-description` : undefined}
       onKeyDown={(event) => {
@@ -155,16 +164,30 @@ export function Modal({
     >
       <div className={styles['modal__viewport']} data-lenis-prevent>
         <div ref={contentRef} className={styles['modal__content']}>
-          <div className={cx(stickyHeader && styles['modal__heading--sticky'])}>
+          <div
+            className={cx(
+              styles['modal__heading'],
+              stickyHeader && styles['modal__heading--sticky'],
+            )}
+          >
             <div className={styles['modal__header']}>
-              <Heading level={2} variant="small" tone="default" id={`${id}-title`}>
+              <Heading
+                level={2}
+                variant="small"
+                tone="default"
+                id={`${id}-title`}
+                className={styles['modal__title']}
+              >
                 {title}
               </Heading>
-              <IconButton
-                label={`Close ${title}`}
-                icon="close"
-                onClick={() => onOpenChange(false)}
-              />
+              <div className={styles['modal__header-actions']}>
+                {headerActions}
+                <IconButton
+                  label={`Close ${title}`}
+                  icon="close"
+                  onClick={() => onOpenChange(false)}
+                />
+              </div>
             </div>
             {description && (
               <Text size="label" tone="muted" id={`${id}-description`}>
@@ -174,7 +197,9 @@ export function Modal({
           </div>
           {/* Popups must remain inside the native dialog's top layer, outside its scrolling viewport. */}
           <UNSAFE_PortalProvider getContainer={() => overlayRef.current}>
-            {present && <ModalContent open={open}>{children}</ModalContent>}
+            <div className={styles['modal__body']}>
+              {present && <ModalContent open={open}>{children}</ModalContent>}
+            </div>
           </UNSAFE_PortalProvider>
         </div>
       </div>

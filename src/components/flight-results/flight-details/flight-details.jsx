@@ -1,6 +1,6 @@
 import { Modal } from '@/components/ui/modal/modal';
 import { Icon } from '@/components/ui/icon/icon';
-import { formatDuration, formatMoney, formatLocalDate } from '@/lib/flights/offers';
+import { formatDuration, formatMoney, formatLocalDate, formatBaggage } from '@/lib/flights/offers';
 import styles from './flight-details.module.scss';
 
 function FlightEndpoint({ label, place, dateTime }) {
@@ -131,12 +131,7 @@ export function FlightDetails({ offer, onClose, expired = false }) {
                                   </p>
                                   <p>
                                     {passenger.baggage.length
-                                      ? passenger.baggage
-                                          .map(
-                                            (bag) =>
-                                              `${bag.quantity} ${bag.type.replaceAll('_', ' ')} bag${bag.quantity === 1 ? '' : 's'}`,
-                                          )
-                                          .join(' · ')
+                                      ? passenger.baggage.map(formatBaggage).join(' · ')
                                       : 'Baggage allowance not supplied'}
                                   </p>
                                 </li>
